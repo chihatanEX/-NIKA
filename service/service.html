@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OUR SERVICES | 株式会社NIKA</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* --- ベース --- */
+        body {
+            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+            margin: 0; color: #333; background-color: #fcfdfe; line-height: 1.8;
+        }
+
+        /* --- ヘッダー --- */
+        header {
+            background: #fff; padding: 15px 8%;
+            display: flex; justify-content: space-between; align-items: center;
+            border-bottom: 2px solid #f0f4f8; position: sticky; top: 0; z-index: 1000;
+        }
+        .logo { font-weight: bold; font-size: 1.6rem; color: #0077b6; text-decoration: none; }
+        nav { display: flex; align-items: center; }
+        nav a { margin: 0 15px; text-decoration: none; color: #444; font-weight: 600; font-size: 0.95rem; }
+        nav a.nav-contact { background: #0077b6; color: #fff; padding: 10px 25px; border-radius: 50px; margin-left: 10px; }
+
+        /* --- ヒーローエリア（100px固定） --- */
+        .page-hero {
+            background: linear-gradient(135deg, #0077b6 0%, #00b4d8 100%);
+            color: #fff; padding: 100px 8%; text-align: center;
+        }
+        .page-hero h1 { margin: 0; font-size: 2.2rem; letter-spacing: 0.1em; text-transform: uppercase; }
+        .page-hero p { margin: 10px 0 0; font-size: 1.1rem; opacity: 0.9; }
+
+        /* --- コンテンツ --- */
+        .container { max-width: 1200px; margin: 0 auto; padding: 60px 8% 20px; box-sizing: border-box; }
+
+        .content-card {
+            background: #fff; padding: 50px; border-radius: 15px;
+            border: 1px solid #eef2f6; box-shadow: 0 5px 20px rgba(0,0,0,0.03);
+            margin-bottom: 60px;
+        }
+
+        h2 { text-align: left; color: #0077b6; font-size: 1.8rem; margin-bottom: 30px; position: relative; padding-bottom: 15px; }
+        h2::after { content: ""; position: absolute; bottom: 0; left: 0; width: 50px; height: 3px; background: #00b4d8; }
+
+        .price-flex-container { display: flex; gap: 40px; align-items: center; flex-wrap: wrap; }
+        .price-info-side { flex: 1; min-width: 300px; }
+        .price-table-side { flex: 1.5; min-width: 350px; }
+
+        .icon-box-large { background: #f4f9fc; padding: 40px; border-radius: 20px; text-align: center; }
+        .icon-box-large i { font-size: 5rem; color: #00b4d8; }
+
+        .description-text { color: #555; line-height: 1.8; margin-bottom: 20px; font-size: 1.05rem; }
+
+        .service-list { list-style: none; padding: 0; margin: 0 0 30px 0; }
+        .service-list li { padding: 12px 0; border-bottom: 1px solid #f0f4f8; color: #444; display: flex; align-items: center; gap: 12px; }
+        .service-list li::before { content: "\f00c"; font-family: "Font Awesome 6 Free"; font-weight: 900; color: #0077b6; }
+
+        .btn-detail { display: inline-block; padding: 12px 45px; border: 2px solid #0077b6; color: #0077b6; text-decoration: none; font-weight: bold; border-radius: 50px; transition: 0.3s; }
+        .btn-detail:hover { background: #0077b6; color: #fff; }
+
+        /* --- 【いい感じに変更】ホーム戻るセクション --- */
+        .page-back-footer {
+            background-color: #f0f4f8; /* わずかに背景を変えて区切りを強調 */
+            padding: 80px 8%;
+            text-align: center;
+            margin-top: 40px;
+        }
+        .btn-back-home {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            background: #fff; /* 白抜きで清潔感を */
+            border: 2px solid #0077b6;
+            color: #0077b6;
+            padding: 18px 80px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 119, 182, 0.1);
+        }
+        .btn-back-home:hover {
+            background: #0077b6;
+            color: #fff;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 119, 182, 0.2);
+        }
+
+        footer { background: #fff; padding: 60px 0; text-align: center; border-top: 1px solid #eee; font-size: 0.85rem; color: #999; }
+
+        @media (max-width: 768px) {
+            header { padding: 15px 5%; }
+            .logo { font-size: 1.3rem; }
+            .page-hero { padding: 80px 5%; }
+            .price-flex-container { flex-direction: column !important; }
+            .btn-back-home { width: 90%; padding: 15px 0; }
+            .page-back-footer { padding: 60px 5%; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="../index.html" class="logo">株式会社NIKA</a>
+    <nav>
+        <a href="../index.html">HOME</a>
+        <a href="../company/company.html">会社情報</a>
+        <a href="service.html">サービス案内</a>
+        <a href="#">施工事例</a>
+        <a href="../contact/contact.html" class="nav-contact">お問い合わせ</a>
+    </nav>
+</header>
+
+<section class="page-hero">
+    <h1>OUR SERVICES</h1>
+    <p>事業内容</p>
+</section>
+
+<div class="container">
+    
+    <div class="content-card">
+        <div class="price-flex-container">
+            <div class="price-info-side">
+                <div class="icon-box-large"><i class="fas fa-snowflake"></i></div>
+            </div>
+            <div class="price-table-side">
+                <h2>エアコン設置・清掃</h2>
+                <p class="description-text">一般住宅からオフィスまで幅広く対応。技術と経験に基づいた施工で「効きの良さ」と「清潔な空気」を実現します。</p>
+                <ul class="service-list">
+                    <li>家庭用・業務用エアコン取付・取り外し</li>
+                    <li>高圧ポンプによる内部徹底洗浄</li>
+                    <li>冷媒ガス補充・点検・修理</li>
+                </ul>
+                <a href="aircon/aircon.html" class="btn-detail">料金・詳細を見る</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-card">
+        <div class="price-flex-container" style="flex-direction: row-reverse;">
+            <div class="price-info-side">
+                <div class="icon-box-large"><i class="fas fa-broom"></i></div>
+            </div>
+            <div class="price-table-side">
+                <h2>ハウスクリーニング</h2>
+                <p class="description-text">落ちない汚れに、確かな答えを。お家の寿命を延ばし、ご家族が安心して過ごせる環境を守ります。</p>
+                <ul class="service-list">
+                    <li>キッチン・レンジフードの油汚れ除去</li>
+                    <li>浴室・洗面所・トイレの水回りセット</li>
+                    <li>入退去時の空室全体クリーニング</li>
+                </ul>
+                <a href="creaning/creaning.html" class="btn-detail">料金・詳細を見る</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-card">
+        <div class="price-flex-container">
+            <div class="price-info-side">
+                <div class="icon-box-large"><i class="fas fa-hard-hat"></i></div>
+            </div>
+            <div class="price-table-side">
+                <h2>建設・足場・仮囲い</h2>
+                <p class="description-text">現場の安全を、確かな設営で支える。迅速かつ精密な施工で、あらゆる建設プロジェクトを強力にバックアップします。</p>
+                <ul class="service-list">
+                    <li>くさび式足場の設営・解体</li>
+                    <li>防犯・安全のための仮囲い・パネル施工</li>
+                    <li>住宅リフォーム工事一式</li>
+                </ul>
+                <a href="construction/construction.html" class="btn-detail">詳細を見る</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="page-back-footer">
+    <a href="../index.html" class="btn-back-home">
+        <i class="fas fa-chevron-left"></i> ホームへ戻る
+    </a>
+</section>
+
+<footer>
+    <p>&copy; 2026 株式会社NIKA. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+/* ナビゲーションの基本スタイル */
+nav a { 
+    margin: 0 15px; 
+    text-decoration: none; 
+    color: #444; 
+    font-weight: 600; 
+    font-size: 0.95rem; 
+    position: relative; /* 下線アニメーションの基準点 */
+    transition: 0.3s; /* 色が変わるスピード */
+}
+
+/* マウスを合わせた時（ホバー時）の色変更 */
+nav a:hover { 
+    color: #0077b6; /* ロゴと同じ青色に変わる */
+}
+
+/* お問い合わせボタン以外のメニューに動く下線を追加（お好みで） */
+nav a:not(.nav-contact)::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: #0077b6;
+    transition: 0.3s;
+}
+
+nav a:not(.nav-contact):hover::after {
+    width: 100%; /* マウスを置くと下線がスッと伸びる */
+}
+
+/* お問い合わせボタン（すでに設定済みですが、少し光るように調整） */
+.nav-contact { 
+    background: #0077b6; 
+    color: #fff !important; /* ボタンの文字は常に白 */
+    padding: 12px 25px; 
+    border-radius: 50px; 
+    transition: 0.3s; 
+}
+.nav-contact:hover { 
+    background: #00b4d8; 
+    transform: translateY(-2px); /* 少し上に浮く */
+    box-shadow: 0 4px 10px rgba(0, 119, 182, 0.3); /* 影をつけて光らせる */
+}

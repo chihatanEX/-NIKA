@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>建設事業 | 株式会社NIKA</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* --- ベース・ヘッダー（全ページ完全統一） --- */
+        body { font-family: "Helvetica Neue", Arial, sans-serif; margin: 0; color: #333; background-color: #ffffff; line-height: 1.8; }
+        header { 
+            background: #fff; padding: 15px 8%; display: flex; justify-content: space-between; 
+            align-items: center; border-bottom: 2px solid #f0f4f8; position: sticky; top: 0; z-index: 1000;
+        }
+        .logo { font-weight: bold; font-size: 1.6rem; color: #0077b6; text-decoration: none; }
+        nav { display: flex; align-items: center; }
+        nav a { margin: 0 15px; text-decoration: none; color: #444; font-weight: 600; font-size: 0.95rem; transition: 0.3s; }
+        nav a:hover { color: #00b4d8; }
+        .nav-contact { 
+            background: #0077b6; color: #fff; padding: 10px 25px; border-radius: 50px; 
+            margin-left: 10px; transition: 0.3s; 
+        }
+
+        /* --- ヒーローエリア（100px固定） --- */
+        .page-hero {
+            background: linear-gradient(135deg, #0077b6 0%, #00b4d8 100%);
+            color: #fff; 
+            padding: 100px 8%; 
+            text-align: center;
+        }
+        .page-hero h1 { margin: 0; font-size: 2.2rem; letter-spacing: 0.1em; text-transform: uppercase; }
+        .page-hero p { margin: 10px 0 0; font-size: 1.1rem; opacity: 0.9; }
+        /* --- コンテナ --- */
+        .container { max-width: 1000px; margin: 0 auto; padding: 80px 8% 20px; }
+        section { margin-bottom: 100px; }
+
+        h2 { text-align: center; color: #0077b6; font-size: 2rem; margin-bottom: 50px; position: relative; padding-bottom: 15px; }
+        h2::after { content: ""; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 60px; height: 3px; background: #00b4d8; }
+
+        /* --- メッセージセクション --- */
+        .intro-flex { display: flex; align-items: center; gap: 50px; margin-bottom: 80px; }
+        .intro-photo {
+            flex: 1; height: 350px; background: #f0f7fa; border-radius: 20px;
+            display: flex; align-items: center; justify-content: center;
+            color: #9ab4c1; font-weight: bold; border: 1px solid #e1ecf2;
+        }
+        .intro-text { flex: 1; }
+        .intro-text h3 { color: #0077b6; font-size: 1.5rem; margin-bottom: 20px; }
+        .intro-text p { font-size: 1.1rem; color: #444; line-height: 2; }
+
+        /* --- 強みセクション --- */
+        .strength-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .strength-item {
+            background: #fdfdfe; padding: 40px 30px; border-radius: 15px;
+            border: 1px solid #f0f4f8; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+        }
+        .strength-item i { font-size: 2.5rem; color: #00b4d8; margin-bottom: 20px; }
+        .strength-item h3 { color: #0077b6; margin-bottom: 15px; font-size: 1.3rem; }
+
+        /* --- CTA --- */
+        .cta { background: #f4f9fc; padding: 70px 40px; border-radius: 25px; border: 1px solid #e1ecf2; text-align: center; }
+        .btn-contact {
+            display: inline-block; background: #0077b6; color: #fff;
+            padding: 18px 50px; border-radius: 50px; text-decoration: none;
+            font-weight: bold; font-size: 1.2rem; margin-top: 30px; transition: 0.4s;
+        }
+
+        /* --- 戻るボタン（全ページ統一デザイン） --- */
+        .back-area { text-align: center; margin-top: 60px; padding-bottom: 60px; }
+        .btn-outline {
+            display: inline-flex; align-items: center; gap: 10px;
+            border: 2px solid #0077b6; color: #0077b6;
+            padding: 15px 60px; border-radius: 50px; text-decoration: none;
+            font-weight: bold; transition: 0.3s;
+        }
+        .btn-outline:hover { background: #0077b6; color: #fff; transform: translateY(-2px); }
+
+        footer { padding: 60px 0; text-align: center; border-top: 1px solid #eee; font-size: 0.85rem; color: #999; }
+
+        @media (max-width: 768px) {
+            .intro-flex { flex-direction: column; }
+            .btn-outline { width: 100%; box-sizing: border-box; justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="../index.html" class="logo">株式会社NIKA</a>
+    <nav>
+        <a href="../index.html">HOME</a>
+        <a href="../company/company.html">会社情報</a>
+        <a href="../service/service.html">サービス案内</a>
+        <a href="#">施工事例</a>
+        <a href="../contact/contact.html" class="nav-contact">お問い合わせ</a>
+    </nav>
+</header>
+
+<section class="page-hero">
+    <h1>CONSTRUCTION</h1>
+    <p>建設事業</p>
+</section>
+
+<div class="container">
+    <section class="intro-flex">
+        <div class="intro-photo">
+            <i class="fas fa-tools" style="font-size: 4rem; opacity: 0.3; margin-right: 15px;"></i>
+            <span>施工風景イメージ</span>
+        </div>
+        <div class="intro-text">
+            <h3>建設事業について</h3>
+            <p>
+                株式会社NIKAでは、現場の安全を支える足場設営や仮囲いなど、建設現場における各種施工を承っております。<br><br>
+                確かな技術を持つ職人が、一つひとつの現場に誠実に向き合い、安心の施工をお約束します。
+            </p>
+        </div>
+    </section>
+
+    <section>
+        <h2>NIKAの強み</h2>
+        <div class="strength-grid">
+            <div class="strength-item">
+                <i class="fas fa-shipping-fast"></i>
+                <h3>迅速な施工</h3>
+                <p>現場の進行を止めないスピーディーな設営。工期の効率化に貢献いたします。</p>
+            </div>
+            <div class="strength-item">
+                <i class="fas fa-user-shield"></i>
+                <h3>確かな安全</h3>
+                <p>厳しい安全基準をクリアする高品質な施工で、現場の安全を守ります。</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="cta">
+        <h3>まずはお気軽にご相談ください</h3>
+        <p>現場調査やお見積もりは、専門のスタッフが迅速に対応させていただきます。</p>
+        <a href="../contact/contact.html" class="btn-contact"><i class="fas fa-envelope"></i> お問い合わせはこちら</a>
+    </div>
+
+    <div class="back-area">
+        <a href="../index.html" class="btn-outline">
+            <i class="fas fa-chevron-left"></i> ホームへ戻る
+        </a>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2026 株式会社NIKA. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>

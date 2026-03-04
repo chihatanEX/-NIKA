@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>エアコン・水回り清掃 | 株式会社NIKA</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* --- ベース設定 --- */
+        body {
+            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+            margin: 0; color: #333; background-color: #ffffff; line-height: 1.8;
+        }
+
+        /* --- ヘッダー（共通） --- */
+        header {
+            background: #fff; padding: 15px 8%; 
+            display: flex; justify-content: space-between; align-items: center; 
+            border-bottom: 2px solid #f0f4f8; position: sticky; top: 0; z-index: 1000;
+        }
+        .logo { font-weight: bold; font-size: 1.6rem; color: #0077b6; text-decoration: none; }
+        nav { display: flex; align-items: center; }
+        nav a { margin: 0 15px; text-decoration: none; color: #444; font-weight: 600; font-size: 0.95rem; transition: 0.3s; }
+        nav a:hover { color: #00b4d8; }
+        .nav-contact { 
+            background: #0077b6; color: #fff; padding: 10px 25px; border-radius: 50px; 
+            margin-left: 10px; transition: 0.3s; 
+        }
+
+        /* --- ページヒーロー --- */
+        .page-hero {
+            background: linear-gradient(135deg, #0077b6 0%, #00b4d8 100%);
+            color: #fff; padding: 100px 8%; text-align: center;
+        }
+        .page-hero h1 { margin: 0; font-size: 2.2rem; letter-spacing: 0.1em; text-transform: uppercase; }
+        .page-hero p { margin: 10px 0 0; font-size: 1.1rem; opacity: 0.9; }
+
+        /* --- コンテナ --- */
+        .container { max-width: 1000px; margin: 0 auto; padding: 00px 8% 20px; }
+
+        section { margin-bottom: 100px; }
+
+        h2 {
+            text-align: center; color: #0077b6; font-size: 2rem;
+            margin-bottom: 50px; position: relative; padding-bottom: 15px;
+        }
+        h2::after {
+            content: ""; position: absolute; bottom: 0; left: 50%;
+            transform: translateX(-50%); width: 60px; height: 3px; background: #00b4d8;
+        }
+
+        /* --- ビフォーアフター --- */
+        .ba-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px; margin-bottom: 60px;
+        }
+        .ba-item {
+            background: #fff; border-radius: 15px; overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center; border: 1px solid #eef2f6;
+        }
+        .ba-img-container {
+            position: relative; height: 280px; background: #f8fafc;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .ba-label {
+            position: absolute; top: 15px; left: 15px; padding: 6px 18px;
+            border-radius: 5px; font-weight: bold; color: #fff; font-size: 0.9rem;
+        }
+        .label-before { background: #888; }
+        .label-after { background: #00b4d8; }
+        .ba-text { padding: 25px; font-weight: bold; color: #444; font-size: 1.1rem; }
+
+        /* --- 料金表スタイル --- */
+        .category-title {
+            background: #f8fafc; padding: 12px 20px; border-left: 5px solid #00b4d8;
+            margin: 40px 0 20px; font-weight: bold; color: #0077b6; font-size: 1.1rem;
+        }
+        .price-table {
+            width: 100%; border-collapse: collapse; background: #fff;
+            border-radius: 12px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            margin-bottom: 20px;
+        }
+        .price-table th { background: #0077b6; color: #fff; padding: 18px; text-align: left; }
+        .price-table td { padding: 18px 20px; border-bottom: 1px solid #f0f4f8; }
+        .price-emphasis { color: #0077b6; font-weight: bold; font-size: 1.3rem; text-align: right; display: block; }
+
+        /* --- 施工の流れ --- */
+        .flow-container { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+        .flow-item {
+            flex: 1; min-width: 200px; text-align: center; background: #fdfdfe;
+            padding: 30px 20px; border-radius: 12px; border: 1px solid #f0f4f8;
+        }
+        .flow-num {
+            width: 45px; height: 45px; background: #00b4d8; color: #fff;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 20px; font-weight: bold; font-size: 1.2rem;
+        }
+
+        /* --- CTA --- */
+        .cta {
+            background: #f4f9fc; padding: 70px 40px; border-radius: 25px; text-align: center;
+            border: 1px solid #e1ecf2;
+        }
+        .btn-contact {
+            display: inline-block; background: #0077b6; color: #fff;
+            padding: 18px 50px; border-radius: 50px; text-decoration: none;
+            font-weight: bold; font-size: 1.2rem; margin-top: 30px; transition: 0.4s;
+        }
+
+        /* --- 戻るボタンエリア --- */
+        .back-area { text-align: center; margin-top: 60px; padding-bottom: 60px; }
+        .btn-outline {
+            display: inline-flex; align-items: center; gap: 10px;
+            border: 2px solid #0077b6; color: #0077b6;
+            padding: 15px 60px; border-radius: 50px; text-decoration: none;
+            font-weight: bold; transition: 0.3s;
+        }
+        .btn-outline:hover { background: #0077b6; color: #fff; }
+
+        footer { padding: 60px 0; text-align: center; border-top: 1px solid #eee; font-size: 0.85rem; color: #999; }
+
+        @media (max-width: 768px) {
+            header { padding: 15px 5%; }
+            .container { padding: 60px 5% 20px; }
+            .flow-container { flex-direction: column; }
+            .btn-outline { width: 100%; box-sizing: border-box; justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="../index.html" class="logo">株式会社NIKA</a>
+    <nav>
+        <a href="../index.html">HOME</a>
+        <a href="../company/company.html">会社情報</a>
+        <a href="../service/service.html">サービス案内</a>
+        <a href="#">施工事例</a>
+        <a href="../contact/contact.html" class="nav-contact">お問い合わせ</a>
+    </nav>
+</header>
+
+<section class="page-hero">
+    <h1>CLEANING SERVICE</h1>
+    <p>エアコン・水回り清掃</p>
+</section>
+
+<div class="container">
+    
+    <section>
+        <h2>BEFORE / AFTER</h2>
+        <div class="ba-grid">
+            <div class="ba-item">
+                <div class="ba-img-container">
+                    <span class="ba-label label-before">BEFORE</span>
+                    <i class="fas fa-biohazard" style="font-size: 4.5rem; color: #cbd5e1;"></i>
+                </div>
+                <div class="ba-text">カビ・ホコリが溜まった内部</div>
+            </div>
+            <div class="ba-item">
+                <div class="ba-img-container">
+                    <span class="ba-label label-after">AFTER</span>
+                    <i class="fas fa-hand-sparkles" style="font-size: 4.5rem; color: #00b4d8;"></i>
+                </div>
+                <div class="ba-text">高圧洗浄で徹底除菌・消臭</div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>料金表（税込）</h2>
+        
+        <div class="category-title"><i class="fas fa-snowflake"></i> エアコンクリーニング</div>
+        <table class="price-table">
+            <thead><tr><th>サービス内容</th><th>料金</th></tr></thead>
+            <tbody>
+                <tr><td>壁掛けエアコン（お掃除機能なし）</td><td><span class="price-emphasis">13,200円</span></td></tr>
+                <tr><td>壁掛けエアコン（お掃除機能あり）</td><td><span class="price-emphasis">24,200円</span></td></tr>
+                <tr><td>業務用エアコン（天井埋め込み型）</td><td><span class="price-emphasis">38,500円</span></td></tr>
+                <tr><td>抗菌コート</td><td><span class="price-emphasis">1,980円</span></td></tr>
+            </tbody>
+        </table>
+
+        <div class="category-title"><i class="fas fa-bath"></i> 水回りクリーニング</div>
+        <table class="price-table">
+            <thead><tr><th>サービス内容</th><th>料金</th></tr></thead>
+            <tbody>
+                <tr><td>浴室クリーニング</td><td><span class="price-emphasis">23,100円</span></td></tr>
+                <tr><td>防カビコート</td><td><span class="price-emphasis">3,520円</span></td></tr>
+                <tr><td>エプロン内部</td><td><span class="price-emphasis">6,600円</span></td></tr>
+                <tr><td>レンジフード</td><td><span class="price-emphasis">19,800円</span></td></tr>
+                <tr><td>キッチン</td><td><span class="price-emphasis">15,950円</span></td></tr>
+                <tr><td>魚焼きグリル</td><td><span class="price-emphasis">2,310円</span></td></tr>
+                <tr><td>洗面所</td><td><span class="price-emphasis">9,900円</span></td></tr>
+                <tr><td>トイレ</td><td><span class="price-emphasis">11,000円</span></td></tr>
+                <tr><td>ロータンク</td><td><span class="price-emphasis">3,850円</span></td></tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section>
+        <h2>ご依頼の流れ</h2>
+        <div class="flow-container">
+            <div class="flow-item"><div class="flow-num">1</div><h4>お問い合わせ</h4><p>フォームまたは電話にてご相談ください。</p></div>
+            <div class="flow-item"><div class="flow-num">2</div><h4>お見積り</h4><p>写真や状況から料金をご提示します。</p></div>
+            <div class="flow-item"><div class="flow-num">3</div><h4>施工実施</h4><p>養生を徹底し、丁寧に作業を行います。</p></div>
+        </div>
+    </section>
+
+    <div class="cta">
+        <h3>プロの技術で、見違えるほど綺麗に</h3>
+        <p>「自分では落とせない汚れ」お任せください。<br>まずはお気軽に見積もりをご依頼ください。</p>
+        <a href="../contact/contact.html" class="btn-contact"><i class="fas fa-envelope"></i> 無料見積もりはこちら</a>
+    </div>
+
+    <div class="back-area">
+        <a href="../index.html" class="btn-outline">
+            <i class="fas fa-chevron-left"></i> ホームへ戻る
+        </a>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2026 株式会社NIKA. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>
