@@ -38,22 +38,17 @@
             background: #0077b6; color: #fff !important; padding: 10px 25px; border-radius: 50px; 
             margin-left: 10px; transition: 0.3s; text-decoration: none;
         }
-        .nav-contact:hover { 
-            background: #00b4d8; transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 180, 216, 0.4);
-        }
 
-        /* スマホ用メニューボタン (初期非表示) */
+        /* スマホ用ボタン */
         .menu-btn {
             display: none;
             cursor: pointer;
             z-index: 1200;
             font-size: 1.6rem;
             color: #0077b6;
-            transition: 0.3s;
         }
 
-        /* スマホ用オーバーレイ（暗幕） */
+        /* スマホ用暗幕 */
         .menu-overlay {
             display: none;
             position: fixed;
@@ -61,165 +56,99 @@
             left: 0;
             width: 100%;
             height: 100vh;
-            background: rgba(0, 0, 0, 0.5);
+            background: rgba(0, 0, 0, 0.6);
             z-index: 1050;
             opacity: 0;
-            transition: opacity 0.3s;
-            pointer-events: none; /* 初期状態はタップ無効 */
+            transition: 0.3s;
+            pointer-events: none;
         }
 
-        /* --- 3. ヒーローエリア --- */
-        .hero {
-            height: 70vh;
-            display: flex;
-            position: relative;
-            overflow: hidden;
-            background-color: #000;
-        }
-        .hero-img {
-            flex: 1;
-            background-size: cover;
-            background-position: center;
-            filter: brightness(0.9);
-            transition: flex 0.6s ease;
-        }
+        /* --- 3. ヒーロー・他セクション (PC用はそのまま) --- */
+        .hero { height: 70vh; display: flex; position: relative; overflow: hidden; background-color: #000; }
+        .hero-img { flex: 1; background-size: cover; background-position: center; filter: brightness(0.9); transition: flex 0.6s ease; }
         .img-aircon { background-image: url('image/aircon.jpg'); }
         .img-cleaning { background-image: url('image/cleaning.jpg'); }
         .img-construction { background-image: url('image/construction.jpg'); }
+        .hero::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.5)); z-index: 1; }
+        .hero-content { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 10; width: 100%; text-align: center; }
+        .hero-text h1 { color: #ffffff; font-size: 3.3rem; margin: 0; letter-spacing: 0.2em; font-weight: 900; text-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .hero-text p { color: #e0f2ff; font-size: 1.3rem; margin-top: 25px; font-weight: 600; text-shadow: 0 2px 10px rgba(0,0,0,0.4); }
 
-        .hero::after {
-            content: '';
-            position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.5)); 
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        .hero-content {
-            position: absolute;
-            top: 50%; left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 10;
-            width: 100%;
-            text-align: center;
-        }
-        .hero-text h1 { 
-            color: #ffffff; 
-            font-size: 3.3rem; 
-            margin: 0; 
-            letter-spacing: 0.2em; 
-            font-weight: 900;
-            text-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
-        .hero-text p { 
-            color: #e0f2ff; 
-            font-size: 1.3rem; 
-            margin-top: 25px; 
-            font-weight: 600; 
-            letter-spacing: 0.1em;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.4);
-        }
-
-        /* --- 4. メッセージセクション --- */
-        .sincere-statement {
-            padding: 120px 8%;
-            text-align: center;
-            background-color: #f4f8fb; 
-        }
+        .sincere-statement { padding: 120px 8%; text-align: center; background-color: #f4f8fb; }
         .sincere-statement h2 { font-size: 2.2rem; color: #1a1a1a; margin-bottom: 40px; font-weight: 700; }
         .sincere-statement p { font-size: 1.15rem; color: #444; line-height: 2.2; max-width: 850px; margin: 0 auto; }
-
         .standard-grid { display: flex; justify-content: center; gap: 30px; margin-top: 60px; flex-wrap: wrap; }
-        .standard-item {
-            background: #fff; padding: 25px 50px; border-radius: 8px;
-            box-shadow: 0 10px 25px rgba(0, 119, 182, 0.08);
-            font-weight: 700; color: #0077b6; border-bottom: 4px solid #00b4d8;
-        }
+        .standard-item { background: #fff; padding: 25px 50px; border-radius: 8px; box-shadow: 0 10px 25px rgba(0, 119, 182, 0.08); font-weight: 700; color: #0077b6; border-bottom: 4px solid #00b4d8; }
 
-        /* --- 5. 事業内容 --- */
-        .services {
-            padding: 80px 8%;
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        .card {
-            background: #fff; padding: 40px 30px; text-align: center; border-radius: 15px;
-            border: 1px solid #eef2f6; box-shadow: 0 5px 15px rgba(0,0,0,0.03);
-            transition: 0.3s; text-decoration: none; color: inherit;
-        }
+        .services { padding: 80px 8%; max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .card { background: #fff; padding: 40px 30px; text-align: center; border-radius: 15px; border: 1px solid #eef2f6; box-shadow: 0 5px 15px rgba(0,0,0,0.03); transition: 0.3s; text-decoration: none; color: inherit; }
         .card:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(0,119,182,0.1); }
         .card i { font-size: 3rem; color: #00b4d8; margin-bottom: 20px; display: block; }
         .card h3 { font-size: 1.4rem; color: #0077b6; margin-bottom: 15px; }
 
-        /* --- 6. 施工事例 --- */
         .gallery { padding: 100px 8%; text-align: center; }
         .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
         .photo-placeholder { background: #f0f7fa; height: 250px; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #9ab4c1; font-weight: bold; border: 1px solid #e1ecf2; }
 
-        /* --- 7. フッター --- */
         footer { background: #fff; padding: 60px 0; text-align: center; border-top: 1px solid #eee; font-size: 0.85rem; color: #999; }
 
-        /* --- スマホ調整 (レスポンシブ：上からスライド形式) --- */
+        /* --- 4. スマホ調整 (上から7割スライド) --- */
         @media (max-width: 768px) {
             header { padding: 12px 5%; }
             .menu-btn { display: block; }
 
-            /* ナビゲーションを上に隠す */
             nav {
                 position: fixed;
-                top: -100%; /* 初期状態は上空へ隠す */
+                top: -70vh; /* 初期位置は画面上部外 */
                 left: 0;
                 width: 100%;
-                height: auto; /* コンテンツに合わせて高さを自動調整 */
-                max-height: 85vh; /* 画面を覆い尽くさないように最大高さを制限 */
-                overflow-y: auto; /* メニューが多い場合はスクロール可能に */
-                background: #fff;
+                height: 70vh; /* 画面の7割固定 */
+                background: #ffffff;
                 flex-direction: column;
+                justify-content: center;
                 align-items: center;
-                justify-content: flex-start;
-                padding: 70px 0 30px; /* ヘッダーの高さ分上を開ける */
-                transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); /* にょんっとした動き */
+                padding: 40px 0;
+                transition: 0.5s cubic-bezier(0.19, 1, 0.22, 1);
                 z-index: 1100;
-                box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+                box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+                border-radius: 0 0 30px 30px; /* 下角を少し丸めて柔らかく */
+            }
+
+            nav.active { top: 0; }
+            .menu-overlay.active { display: block; opacity: 1; pointer-events: auto; }
+
+            /* 各項目の独自デザイン（PC版に引きずられない） */
+            nav a {
+                margin: 10px 0;
+                font-size: 1.3rem;
+                font-weight: 700;
+                color: #0077b6;
+                width: 80%;
+                text-align: center;
+                padding: 15px 0;
                 border-bottom: 1px solid #f0f4f8;
             }
 
-            nav.active { top: 0; } /* クラスがついたら表示 */
-            .menu-overlay.active { display: block; opacity: 1; pointer-events: auto; } /* 暗幕を表示 */
-
-            nav a {
-                width: 100%;
-                text-align: center;
-                margin: 0;
-                padding: 18px 0;
-                font-size: 1.1rem;
-                border-bottom: 1px solid #f8f8f8;
-                box-sizing: border-box;
-            }
-
-            nav a:last-of-type { border-bottom: none; } /* 最後のリンクの下線は消す */
+            nav a:hover { color: #00b4d8; background: #f9fcff; border-radius: 10px; }
 
             .nav-contact {
-                margin: 20px 0 0 !important;
-                width: 80%;
-                text-align: center;
-                border-radius: 8px;
+                background: #0077b6 !important;
+                color: #fff !important;
+                margin-top: 20px !important;
+                border-radius: 50px !important;
+                border-bottom: none !important;
+                box-shadow: 0 4px 15px rgba(0, 119, 182, 0.3);
             }
 
-            /* ヒーローエリア調整 */
+            /* その他微調整 */
             .hero { height: 60vh; flex-direction: column; }
-            .hero-text h1 { font-size: 2rem; letter-spacing: 0.1em; }
-            .hero-text p { font-size: 0.95rem; }
-            .sincere-statement { padding: 80px 5%; }
-            .sincere-statement h2 { font-size: 1.5rem; }
-            .sincere-statement p { font-size: 1rem; text-align: justify; }
-            .standard-grid { flex-direction: column; gap: 15px; }
-            .standard-item { padding: 20px; text-align: center; }
+            .hero-text h1 { font-size: 2rem; }
+            .hero-text p { font-size: 0.9rem; }
+            .sincere-statement { padding: 60px 5%; }
+            .sincere-statement h2 { font-size: 1.4rem; }
+            .sincere-statement p { font-size: 0.95rem; }
+            .standard-grid { flex-direction: column; gap: 10px; }
+            .standard-item { padding: 15px; }
         }
     </style>
 </head>
@@ -247,7 +176,6 @@
     <div class="hero-img img-aircon"></div>
     <div class="hero-img img-cleaning"></div>
     <div class="hero-img img-construction"></div>
-    
     <div class="hero-content">
         <div class="hero-text">
             <h1>CREATE A BETTER LIFE</h1>
@@ -257,17 +185,8 @@
 </section>
 
 <section class="sincere-statement">
-    <h2>
-        確かな技術と、<br>
-        妥協のない品質をすべての現場に。
-    </h2>
-    <p>
-        株式会社NIKAは、エアコン・清掃・建設の現場において、<br>
-        お客様の「大切な住まいと環境」を守ることを第一に考えています。<br>
-        目に見える場所はもちろん、細部まで徹底してこだわる仕上げこそが、私たちの誇りです。<br>
-        一つひとつの現場に誠実に向き合い、安心と満足をお届けすることをお約束します。
-    </p>
-
+    <h2>確かな技術と、<br>妥協のない品質をすべての現場に。</h2>
+    <p>株式会社NIKAは、エアコン・清掃・建設の現場において、お客様の「大切な住まいと環境」を守ることを第一に考えています。細部まで徹底してこだわる仕上げこそが、私たちの誇りです。</p>
     <div class="standard-grid">
         <div class="standard-item">確かな技術</div>
         <div class="standard-item">妥協のない品質</div>
@@ -282,18 +201,16 @@
         <p>最新機種の設置から、徹底的な内部洗浄まで。心地よい風と省エネ性能をお届けします。</p>
         <span class="more-btn">詳しく見る ＞</span>
     </a>
-
     <a href="creaning/creaning.html" class="card">
         <i class="fas fa-home"></i>
         <h3>ハウスクリーニング</h3>
-        <p>キッチン、浴室、窓。ご家庭のあらゆる場所を新品のような輝きに。清潔で快適な空間を保ちます。</p>
+        <p>キッチン、浴室、窓。ご家庭のあらゆる場所を新品のような輝きに。清潔な空間を保ちます。</p>
         <span class="more-btn">詳しく見る ＞</span>
     </a>
-
     <a href="construction/construction.html" class="card">
         <i class="fas fa-city"></i>
         <h3>建設事業</h3>
-        <p>戸建てから集合住宅、店舗まで。確かな技術を持つ職人が、安全かつ迅速な施工を提供します。街の基盤を支える、信頼の建設サービスを展開しています。</p>
+        <p>確かな技術を持つ職人が、安全かつ迅速な施工を提供します。街の基盤を支える信頼のサービス。</p>
         <span class="more-btn">詳しく見る ＞</span>
     </a>
 </section>
@@ -318,33 +235,26 @@
     const menuOverlay = document.getElementById('menuOverlay');
     const navLinks = document.querySelectorAll('nav a');
 
-    // メニュー開閉の関数
     function toggleMenu() {
         navMenu.classList.toggle('active');
         menuOverlay.classList.toggle('active');
-        
         const icon = menuBtn.querySelector('i');
+        
         if (navMenu.classList.contains('active')) {
-            // 開いた時：バツアイコンにし、背景スクロールを止める
             icon.classList.replace('fa-bars', 'fa-times');
             document.body.style.overflow = 'hidden';
         } else {
-            // 閉じた時：ハンバーガーアイコンにし、スクロールを再開
             icon.classList.replace('fa-times', 'fa-bars');
             document.body.style.overflow = '';
         }
     }
 
-    // イベントリスナー
     menuBtn.addEventListener('click', toggleMenu);
-    menuOverlay.addEventListener('click', toggleMenu); // 暗幕タップで閉じる
+    menuOverlay.addEventListener('click', toggleMenu);
 
-    // リンククリック時にも閉じる
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
-            if (navMenu.classList.contains('active')) {
-                toggleMenu();
-            }
+            if (navMenu.classList.contains('active')) toggleMenu();
         });
     });
 </script>
