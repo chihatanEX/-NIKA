@@ -12,17 +12,47 @@
             margin: 0; color: #333; background-color: #fcfdfe; line-height: 1.8;
         }
 
-        /* --- 2. ヘッダー (TOPと統一) --- */
+        /* --- 2. ヘッダー (TOPページと完全一致) --- */
         header {
-            background: #fff; padding: 15px 8%;
-            display: flex; justify-content: space-between; align-items: center;
-            border-bottom: 2px solid #f0f4f8; position: sticky; top: 0; z-index: 1000;
+            background: #fff;
+            padding: 15px 8%; /* TOPページと同じ余白 */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #f0f4f8;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
-        .logo { font-weight: bold; font-size: 1.6rem; color: #0077b6; text-decoration: none; z-index: 1200; }
-        
+
+        .logo { 
+            font-weight: bold; 
+            font-size: 1.6rem; /* TOPページと同じサイズ */
+            color: #0077b6; 
+            text-decoration: none; 
+            z-index: 1200; 
+        }
+
         nav { display: flex; align-items: center; }
-        nav a { margin: 0 15px; text-decoration: none; color: #444; font-weight: 600; font-size: 0.95rem; transition: 0.3s; }
-        nav a.nav-contact { background: #0077b6; color: #fff !important; padding: 10px 25px; border-radius: 50px; margin-left: 10px; }
+        nav a { 
+            margin: 0 15px; 
+            text-decoration: none; 
+            color: #444; 
+            font-weight: 600; 
+            font-size: 0.95rem; 
+            transition: 0.3s; 
+        }
+        nav a:hover { color: #00b4d8; }
+
+        .nav-contact { 
+            background: #0077b6; 
+            color: #fff !important; 
+            padding: 10px 25px; 
+            border-radius: 50px; 
+            margin-left: 10px; 
+            transition: 0.3s; 
+            text-decoration: none;
+        }
 
         /* スマホ用ボタン */
         .menu-btn {
@@ -92,13 +122,11 @@
 
         footer { background: #fff; padding: 60px 0; text-align: center; border-top: 1px solid #eee; font-size: 0.85rem; color: #999; }
 
-        /* --- 4. スマホ調整 (上から7割スライド・シャープ版) --- */
+        /* --- 4. スマホ調整 (TOPページの設定を反映) --- */
         @media (max-width: 768px) {
             header { padding: 12px 5%; }
-            .logo { font-size: 1.3rem; }
             .menu-btn { display: block; }
 
-            /* ナビゲーションメニュー (シャープ版) */
             nav {
                 position: fixed;
                 top: -70vh;
@@ -113,7 +141,7 @@
                 transition: 0.5s cubic-bezier(0.19, 1, 0.22, 1);
                 z-index: 1100;
                 box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-                border-radius: 0; /* 丸みなし */
+                border-radius: 0;
             }
 
             nav.active { top: 0; }
@@ -138,9 +166,9 @@
                 border-bottom: none !important;
                 width: 75% !important;
                 padding: 15px 0 !important;
+                box-shadow: 0 4px 15px rgba(0, 119, 182, 0.3);
             }
 
-            /* ページ内要素の調整 */
             .page-hero { padding: 80px 5%; }
             .container { padding: 40px 5% 20px; }
             .content-card { padding: 30px 20px; margin-bottom: 40px; }
@@ -166,8 +194,8 @@
 
     <nav id="navMenu">
         <a href="../index.html">HOME</a>
-        <a href="company.html">会社情報</a>
-        <a href="../service/service.html">サービス案内</a>
+        <a href="../company/company.html">会社情報</a>
+        <a href="service.html">サービス案内</a>
         <a href="#">施工事例</a>
         <a href="../contact/contact.html" class="nav-contact">お問い合わせ</a>
     </nav>
@@ -193,7 +221,7 @@
                     <li>高圧ポンプによる内部徹底洗浄</li>
                     <li>冷媒ガス補充・点検・修理</li>
                 </ul>
-                <a href="aircon/aircon.html" class="btn-detail">料金・詳細を見る</a>
+                <a href="../aircon/aircon.html" class="btn-detail">料金・詳細を見る</a>
             </div>
         </div>
     </div>
