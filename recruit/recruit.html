@@ -12,28 +12,30 @@
             margin: 0; color: #333; background-color: #fcfdfe; line-height: 1.8;
         }
 
-        /* --- 2. ヘッダー --- */
+        /* --- 2. ヘッダー (トップページと完全に統一) --- */
         header {
             background: #fff; padding: 15px 8%; display: flex;
             justify-content: space-between; align-items: center;
             border-bottom: 2px solid #f0f4f8; position: sticky; top: 0; z-index: 1000;
         }
-        /* PCロゴサイズ: トップページに合わせて微調整 */
+        /* PC版ロゴ: 1.6rem */
         .logo { 
-            font-weight: bold; 
-            font-size: 1.5rem; 
-            color: #0077b6; 
-            text-decoration: none; 
-            z-index: 1200; 
-            letter-spacing: 0.02em;
+            font-weight: bold; font-size: 1.6rem; color: #0077b6; 
+            text-decoration: none; z-index: 1200; 
         }
         nav { display: flex; align-items: center; }
         nav a { margin: 0 15px; text-decoration: none; color: #444; font-weight: 600; font-size: 0.95rem; transition: 0.3s; }
         nav a:hover { color: #00b4d8; }
-        .nav-contact { background: #0077b6; color: #fff !important; padding: 10px 25px; border-radius: 50px; margin-left: 10px; text-decoration: none; }
+        .nav-contact { 
+            background: #0077b6; color: #fff !important; padding: 10px 25px; border-radius: 50px; 
+            margin-left: 10px; transition: 0.3s; text-decoration: none;
+        }
 
         .menu-btn { display: none; cursor: pointer; z-index: 1200; font-size: 1.6rem; color: #0077b6; }
-        .menu-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: rgba(0, 0, 0, 0.6); z-index: 1050; opacity: 0; transition: 0.3s; pointer-events: none; }
+        .menu-overlay { 
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100vh; 
+            background: rgba(0, 0, 0, 0.6); z-index: 1050; opacity: 0; transition: 0.3s; pointer-events: none; 
+        }
 
         /* --- 3. ヒーロー --- */
         .page-hero {
@@ -43,7 +45,7 @@
         .page-hero h1 { margin: 0; font-size: 2.2rem; letter-spacing: 0.1em; font-weight: 800; }
         .page-hero p { margin: 10px 0 0; font-size: 1.1rem; opacity: 0.9; }
 
-        /* --- 4. コンテンツエリア --- */
+        /* --- 4. コンテンツエリア (PC版レイアウト維持) --- */
         .container { max-width: 1000px; margin: 0 auto; padding: 80px 8%; box-sizing: border-box; }
 
         .message-box { text-align: center; margin-bottom: 60px; }
@@ -88,17 +90,17 @@
 
         .form-wrapper iframe {
             width: 100%; height: 1000px; border: none;
-            margin-top: -140px; /* タイトル部分を上に隠す */
+            margin-top: -140px; 
         }
 
         /* --- 6. フッター --- */
         footer { background: #fff; padding: 60px 0; text-align: center; border-top: 1px solid #eee; font-size: 0.85rem; color: #999; }
 
-        /* --- 7. スマホ調整 (トップページのデザインに完全に統一) --- */
+        /* --- 7. スマホ調整 (トップページの設定と完全に同期) --- */
         @media (max-width: 768px) {
             header { padding: 12px 5%; }
-            /* スマホロゴサイズ: トップと同じ1.4rem付近に設定 */
-            .logo { font-size: 1.4rem; } 
+            /* スマホロゴ: トップページと同じ 1.3rem */
+            .logo { font-size: 1.3rem; }
             
             .menu-btn { display: block; }
             nav {
@@ -108,7 +110,7 @@
             }
             nav.active { top: 0; }
             .menu-overlay.active { display: block; opacity: 1; pointer-events: auto; }
-            nav a { width: 100%; text-align: center; padding: 15px 0; border-bottom: 1px solid #f9f9f9; color: #333; margin: 0; font-weight: bold; font-size: 1.1rem; }
+            nav a { width: 100%; text-align: center; padding: 15px 0; border-bottom: 1px solid #f9f9f9; font-size: 1.1rem; color: #333; margin: 0; }
             .nav-contact { background: #0077b6 !important; color: #fff !important; width: 80% !important; margin: 20px auto 0 !important; }
 
             .page-hero { padding: 60px 5%; }
@@ -226,6 +228,7 @@
     const menuBtn = document.getElementById('menuBtn');
     const navMenu = document.getElementById('navMenu');
     const menuOverlay = document.getElementById('menuOverlay');
+    const navLinks = document.querySelectorAll('nav a');
 
     function toggleMenu() {
         navMenu.classList.toggle('active');
@@ -242,6 +245,11 @@
 
     menuBtn.addEventListener('click', toggleMenu);
     menuOverlay.addEventListener('click', toggleMenu);
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            if (navMenu.classList.contains('active')) toggleMenu();
+        });
+    });
 </script>
 
 </body>
