@@ -18,9 +18,14 @@
             justify-content: space-between; align-items: center;
             border-bottom: 2px solid #f0f4f8; position: sticky; top: 0; z-index: 1000;
         }
+        /* PCロゴサイズ: トップページに合わせて微調整 */
         .logo { 
-            font-weight: bold; font-size: 1.6rem; color: #0077b6; 
-            text-decoration: none; z-index: 1200; 
+            font-weight: bold; 
+            font-size: 1.5rem; 
+            color: #0077b6; 
+            text-decoration: none; 
+            z-index: 1200; 
+            letter-spacing: 0.02em;
         }
         nav { display: flex; align-items: center; }
         nav a { margin: 0 15px; text-decoration: none; color: #444; font-weight: 600; font-size: 0.95rem; transition: 0.3s; }
@@ -89,10 +94,12 @@
         /* --- 6. フッター --- */
         footer { background: #fff; padding: 60px 0; text-align: center; border-top: 1px solid #eee; font-size: 0.85rem; color: #999; }
 
-        /* --- 7. スマホ調整 (トップページのデザインに統一) --- */
+        /* --- 7. スマホ調整 (トップページのデザインに完全に統一) --- */
         @media (max-width: 768px) {
             header { padding: 12px 5%; }
-            .logo { font-size: 1.5rem; } /* スマホロゴを大きく */
+            /* スマホロゴサイズ: トップと同じ1.4rem付近に設定 */
+            .logo { font-size: 1.4rem; } 
+            
             .menu-btn { display: block; }
             nav {
                 position: fixed; top: -100vh; left: 0; width: 100%; height: auto;
@@ -128,7 +135,7 @@
             .form-wrapper { margin-top: 20px; }
             .form-wrapper iframe { 
                 height: 1700px; 
-                margin-top: -160px; /* スマホ用にタイトル隠しの位置を調整 */
+                margin-top: -160px; 
             }
         }
 
