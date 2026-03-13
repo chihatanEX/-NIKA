@@ -9,60 +9,31 @@
         /* --- 1. ベース設定 --- */
         body {
             font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
-            margin: 0;
-            color: #333;
-            background-color: #ffffff;
-            line-height: 1.8;
+            margin: 0; color: #333; background-color: #ffffff; line-height: 1.8;
         }
 
         /* --- 2. ヘッダー --- */
         header {
-            background: #fff;
-            padding: 15px 8%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 2px solid #f0f4f8;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+            background: #fff; padding: 15px 8%; display: flex; justify-content: space-between;
+            align-items: center; border-bottom: 2px solid #f0f4f8; position: sticky;
+            top: 0; z-index: 1000;
         }
-
         .logo { font-weight: bold; font-size: 1.6rem; color: #0077b6; text-decoration: none; z-index: 1200; }
-
         nav { display: flex; align-items: center; }
         nav a { margin: 0 15px; text-decoration: none; color: #444; font-weight: 600; font-size: 0.95rem; transition: 0.3s; }
         nav a:hover { color: #00b4d8; }
-
         .nav-contact { 
             background: #0077b6; color: #fff !important; padding: 10px 25px; border-radius: 50px; 
             margin-left: 10px; transition: 0.3s; text-decoration: none;
         }
 
-        .menu-btn {
-            display: none;
-            cursor: pointer;
-            z-index: 1200;
-            font-size: 1.6rem;
-            color: #0077b6;
-        }
-
+        .menu-btn { display: none; cursor: pointer; z-index: 1200; font-size: 1.6rem; color: #0077b6; }
         .menu-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
-            background: rgba(0, 0, 0, 0.6);
-            z-index: 1050;
-            opacity: 0;
-            transition: 0.3s;
-            pointer-events: none;
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+            background: rgba(0, 0, 0, 0.6); z-index: 1050; opacity: 0; transition: 0.3s; pointer-events: none;
         }
 
         /* --- 3. メインコンテンツ --- */
-        /* ヒーロー（画像3枚維持） */
         .hero { height: 70vh; display: flex; position: relative; overflow: hidden; background-color: #000; }
         .hero-img { flex: 1; background-size: cover; background-position: center; filter: brightness(0.9); transition: flex 0.6s ease; }
         .img-aircon { background-image: url('image/aircon.jpg'); }
@@ -74,146 +45,98 @@
         .hero-text h1 { color: #ffffff; font-size: 3.3rem; margin: 0; letter-spacing: 0.2em; font-weight: 900; text-shadow: 0 10px 30px rgba(0,0,0,0.5); }
         .hero-text p { color: #e0f2ff; font-size: 1.3rem; margin-top: 25px; font-weight: 600; text-shadow: 0 2px 10px rgba(0,0,0,0.4); }
 
-        /* ステートメント */
         .sincere-statement { padding: 120px 8%; text-align: center; background-color: #f4f8fb; }
         .sincere-statement h2 { font-size: 2.2rem; color: #1a1a1a; margin-bottom: 40px; font-weight: 700; }
         .sincere-statement p { font-size: 1.15rem; color: #444; line-height: 2.2; max-width: 850px; margin: 0 auto; }
         .standard-grid { display: flex; justify-content: center; gap: 30px; margin-top: 60px; flex-wrap: wrap; }
         .standard-item { background: #fff; padding: 25px 50px; border-radius: 8px; box-shadow: 0 10px 25px rgba(0, 119, 182, 0.08); font-weight: 700; color: #0077b6; border-bottom: 4px solid #00b4d8; }
 
-        /* サービスカード（各画像設定） */
         .services {
-            padding: 80px 8%;
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            padding: 80px 8%; max-width: 1200px; margin: 0 auto;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;
         }
-
         .card {
-            position: relative;
-            height: 380px; 
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 15px;
-            overflow: hidden;
-            text-decoration: none;
-            color: #fff;
-            transition: 0.4s;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            position: relative; height: 380px; display: flex; align-items: center; justify-content: center;
+            border-radius: 15px; overflow: hidden; text-decoration: none; color: #fff; transition: 0.4s; box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
-
-        /* --- ここでカードごとの背景画像を指定 --- */
         .card-air-clean { background: url('image/aircon_cleaning.webp') center/cover; }
         .card-air-install { background: url('image/aircon.jpg') center/cover; }
         .card-cleaning { background: url('image/cleaning.jpg') center/cover; }
         .card-construction { background: url('image/construction.jpg') center/cover; }
 
         .card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.5); 
-            transition: 0.4s;
-            z-index: 1;
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.5); transition: 0.4s; z-index: 1;
         }
-
         .card:hover { transform: translateY(-10px); }
         .card:hover::before { background: rgba(0, 0, 0, 0.35); }
-
-        .card-content {
-            position: relative;
-            z-index: 2;
-            padding: 25px;
-            text-align: center;
-        }
-
-        .card i {
-            font-size: 2.5rem;
-            color: #00b4d8; 
-            margin-bottom: 15px;
-            display: block;
-        }
-
-        .card h3 {
-            font-size: 1.4rem;
-            color: #fff;
-            margin-bottom: 15px;
-            font-weight: 800;
-        }
-
-        .card p {
-            font-size: 0.88rem;
-            line-height: 1.6;
-            margin-bottom: 20px;
-            color: rgba(255, 255, 255, 0.9);
-        }
-
-        .more-btn {
-            font-weight: bold;
-            font-size: 0.85rem;
-            color: #fff;
-            border: 1px solid rgba(255,255,255,0.5);
-            padding: 8px 20px;
-            border-radius: 50px;
-            transition: 0.3s;
-        }
-
+        .card-content { position: relative; z-index: 2; padding: 25px; text-align: center; }
+        .card i { font-size: 2.5rem; color: #00b4d8; margin-bottom: 15px; display: block; }
+        .card h3 { font-size: 1.4rem; color: #fff; margin-bottom: 15px; font-weight: 800; }
+        .card p { font-size: 0.88rem; line-height: 1.6; margin-bottom: 20px; color: rgba(255, 255, 255, 0.9); }
+        .more-btn { font-weight: bold; font-size: 0.85rem; color: #fff; border: 1px solid rgba(255,255,255,0.5); padding: 8px 20px; border-radius: 50px; transition: 0.3s; }
         .card:hover .more-btn { background: #fff; color: #0077b6; border-color: #fff; }
 
-        /* 施工事例 */
         .gallery { padding: 100px 8% 60px; text-align: center; }
         .gallery h2 { font-size: 2rem; color: #1a1a1a; margin-bottom: 5px; font-weight: 800; }
         .sub-text { display: block; color: #00b4d8; font-weight: bold; margin-bottom: 40px; letter-spacing: 0.1em; }
         .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
         .photo-placeholder { background: #f0f7fa; height: 250px; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #9ab4c1; font-weight: bold; border: 1px solid #e1ecf2; }
 
-        /* 採用セクション */
         .recruit-section { padding: 60px 8% 100px; text-align: center; }
         .recruit-banner {
             background: linear-gradient(135deg, #0077b6 0%, #00b4d8 100%);
             color: #fff; padding: 80px 40px; border-radius: 20px;
-            box-shadow: 0 15px 40px rgba(0, 119, 182, 0.2);
-            max-width: 1000px; margin: 0 auto;
+            box-shadow: 0 15px 40px rgba(0, 119, 182, 0.2); max-width: 1000px; margin: 0 auto;
         }
-        .recruit-banner h2 { color: #fff; font-size: 2.4rem; font-weight: 800; margin-bottom: 20px; letter-spacing: 0.1em; }
-        .recruit-banner p { font-size: 1.15rem; margin-bottom: 40px; opacity: 0.95; line-height: 1.8; }
+        .recruit-banner h2 { color: #fff; font-size: 2.4rem; font-weight: 800; margin-bottom: 20px; }
+        .recruit-banner p { font-size: 1.15rem; margin-bottom: 40px; opacity: 0.95; }
         .btn-recruit {
-            display: inline-block; background: #fff; color: #0077b6;
-            padding: 18px 60px; border-radius: 50px; text-decoration: none;
-            font-weight: bold; font-size: 1.1rem; transition: 0.3s;
+            display: inline-block; background: #fff; color: #0077b6; padding: 18px 60px;
+            border-radius: 50px; text-decoration: none; font-weight: bold; transition: 0.3s;
         }
-        .btn-recruit:hover { background: #f0f4f8; transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
 
-        /* フッター */
         footer { background: #fff; padding: 60px 0; text-align: center; border-top: 1px solid #eee; font-size: 0.85rem; color: #999; }
 
-        /* スマホ調整 */
+        /* --- 4. スマホ調整 (ここを重点的に改善) --- */
         @media (max-width: 768px) {
             header { padding: 12px 5%; }
+            .logo { font-size: 1.3rem; }
             .menu-btn { display: block; }
             nav {
-                position: fixed; top: -70vh; left: 0; width: 100%; height: 70vh;
-                background: #ffffff; flex-direction: column; justify-content: center;
-                align-items: center; padding: 40px 0; z-index: 1100;
-                transition: 0.5s cubic-bezier(0.19, 1, 0.22, 1);
-                box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+                position: fixed; top: -100vh; left: 0; width: 100%; height: auto;
+                background: #ffffff; flex-direction: column; padding: 60px 0 40px; z-index: 1100;
+                transition: 0.4s ease-in-out; box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             }
             nav.active { top: 0; }
             .menu-overlay.active { display: block; opacity: 1; pointer-events: auto; }
-            nav a { width: 100%; text-align: center; padding: 20px 0; border-bottom: 1px solid #f0f4f8; font-size: 1.25rem; font-weight: 700; color: #0077b6; margin: 0; }
-            .nav-contact { background: #0077b6 !important; color: #fff !important; margin-top: 25px !important; border-radius: 50px !important; width: 75% !important; padding: 15px 0 !important; }
+            nav a { width: 100%; text-align: center; padding: 15px 0; border-bottom: 1px solid #f9f9f9; font-size: 1.1rem; color: #333; margin: 0; }
+            .nav-contact { background: #0077b6 !important; color: #fff !important; width: 80% !important; margin: 20px auto 0 !important; }
 
-            .hero { height: 60vh; }
-            .hero-text h1 { font-size: 2rem; }
-            .hero-text p { font-size: 0.9rem; padding: 0 10px; }
-            .sincere-statement { padding: 60px 5%; }
-            .standard-grid { flex-direction: column; gap: 10px; }
-            .recruit-banner { padding: 50px 20px; }
-            .recruit-banner h2 { font-size: 1.8rem; }
-            .btn-recruit { width: 85%; padding: 15px 0; }
+            .hero { height: 50vh; }
+            .hero-text h1 { font-size: 1.6rem; letter-spacing: 0.1em; }
+            .hero-text p { font-size: 0.85rem; margin-top: 15px; }
+
+            .sincere-statement { padding: 60px 6%; }
+            .sincere-statement h2 { font-size: 1.4rem; margin-bottom: 20px; }
+            .sincere-statement p { font-size: 0.95rem; line-height: 1.8; }
+            
+            /* サービスカードを2列にして見やすく */
+            .services { padding: 40px 4%; grid-template-columns: 1fr 1fr; gap: 10px; }
+            .card { height: 240px; border-radius: 10px; }
+            .card-content { padding: 15px; }
+            .card i { font-size: 1.6rem; margin-bottom: 8px; }
+            .card h3 { font-size: 0.95rem; margin-bottom: 5px; }
+            .card p { display: none; } /* スマホでは説明文を隠してスッキリさせる */
+            .more-btn { font-size: 0.7rem; padding: 4px 12px; }
+
+            .recruit-banner { padding: 40px 20px; border-radius: 15px; }
+            .recruit-banner h2 { font-size: 1.5rem; }
+            .recruit-banner p { font-size: 0.9rem; }
+            .btn-recruit { padding: 12px 40px; font-size: 0.95rem; }
+
+            .gallery { padding: 60px 5%; }
+            .gallery-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -255,10 +178,10 @@
 </section>
 
 <section class="services">
-    <a href="creaning/creaning.html" class="card card-air-clean">
+    <a href="service/service.html" class="card card-air-clean">
         <div class="card-content">
             <i class="fas fa-pump-medical"></i>
-            <h3>エアコンクリーニング</h3>
+            <h3>エアコン清掃</h3>
             <p>高圧洗浄でカビやホコリを徹底除去。空気を清浄にし、省エネ効果も高めます。</p>
             <span class="more-btn">詳しく見る ＞</span>
         </div>
@@ -266,14 +189,15 @@
     <a href="service/service.html" class="card card-air-install">
         <div class="card-content">
             <i class="fas fa-tools"></i>
-            <h3>エアコン取付工事</h3>
+            <h3>エアコン取付</h3>
             <p>家庭用から業務用まで幅広く対応。丁寧な真空引きと確実な施工をお約束します。</p>
+            <span class="more-btn">詳しく見る ＞</span>
         </div>
     </a>
-    <a href="creaning/creaning.html" class="card card-cleaning">
+    <a href="service/service.html" class="card card-cleaning">
         <div class="card-content">
             <i class="fas fa-home"></i>
-            <h3>ハウスクリーニング</h3>
+            <h3>お掃除</h3>
             <p>水回りから入退去清掃まで。プロの技術で住まいを新品のような輝きに戻します。</p>
             <span class="more-btn">詳しく見る ＞</span>
         </div>
@@ -281,8 +205,9 @@
     <a href="service/service.html" class="card card-construction">
         <div class="card-content">
             <i class="fas fa-hard-hat"></i>
-            <h3>建設（養生・雑工・美装）</h3>
+            <h3>建設サポート</h3>
             <p>現場の質を高める養生、円滑な進行を支える雑工、完璧な仕上げの美装を承ります。</p>
+            <span class="more-btn">詳しく見る ＞</span>
         </div>
     </a>
 </section>
