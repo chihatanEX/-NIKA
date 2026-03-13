@@ -69,34 +69,32 @@
     margin-bottom: 60px;
 }
 
+/* --- フォーム表示の修正 --- */
 .form-wrapper {
-    max-width: 900px; /* ←ここを少し広げました（以前は750px） */
-    margin: 40px auto 0; /* 上に少しマージンを追加 */
+    max-width: 900px;
+    margin: 40px auto 0;
     background: #fff;
     border-radius: 15px;
-    /* 枠線をなくしてフォームと一体化させる */
-    overflow: hidden; 
+    position: relative;
+    overflow: hidden; /* はみ出したタイトルを隠す */
+    border: 1px solid #eee; /* フォームの境界線をうっすら付けると綺麗 */
 }
 
+/* iframeを少し上に持ち上げて、Googleフォームのタイトルを枠外に飛ばす */
 .form-wrapper iframe {
     width: 100%;
-    height: 1000px; /* PCでの高さ */
+    height: 1000px; 
+    margin-top: -140px; /* ← ここでタイトルの高さを相殺（環境に合わせて微調整してください） */
     border: none;
 }
 
-/* --- スマホ調整 --- */
+/* スマホではフォームのタイトル高さが変わる場合があるため再調整 */
 @media (max-width: 768px) {
-    .cta-area {
-        padding: 40px 15px; /* スマホでは余白を詰めすぎない */
-    }
-    .form-wrapper {
-        margin-top: 20px;
-    }
     .form-wrapper iframe {
-        height: 1650px; /* スマホはさらに縦長になるので高めに設定 */
+        margin-top: -160px; /* スマホでタイトルが3行なら、少し多めに削る */
+        height: 1700px;    /* 全体が高くなるのでここも調整 */
     }
 }
-
         /* --- 6. フッター --- */
         footer { background: #fff; padding: 60px 0; text-align: center; border-top: 1px solid #eee; font-size: 0.85rem; color: #999; }
 
