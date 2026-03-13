@@ -6,95 +6,115 @@
     <title>お問い合わせ | 株式会社NIKA</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* --- ベース --- */
+        /* --- 1. ベース・ヘッダー --- */
         body {
             font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
             margin: 0; color: #333; background-color: #fcfdfe; line-height: 1.8;
         }
 
-        /* --- ヘッダー --- */
         header {
             background: #fff; padding: 15px 8%;
             display: flex; justify-content: space-between; align-items: center;
             border-bottom: 2px solid #f0f4f8; position: sticky; top: 0; z-index: 1000;
         }
-        .logo { font-weight: bold; font-size: 1.6rem; color: #0077b6; text-decoration: none; }
+        .logo { font-weight: bold; font-size: 1.6rem; color: #0077b6; text-decoration: none; z-index: 1200; }
+        
         nav { display: flex; align-items: center; }
         nav a { margin: 0 15px; text-decoration: none; color: #444; font-weight: 600; font-size: 0.95rem; transition: 0.3s; }
         nav a:hover { color: #00b4d8; }
-        nav a.nav-contact { background: #0077b6; color: #fff; padding: 10px 25px; border-radius: 50px; margin-left: 10px; }
 
-        /* --- ページヒーロー（100px固定） --- */
+        .nav-contact { 
+            background: #0077b6; color: #fff !important; padding: 10px 25px; border-radius: 50px; 
+            margin-left: 10px; transition: 0.3s; text-decoration: none;
+        }
+
+        /* ハンバーガーメニューボタン */
+        .menu-btn { display: none; cursor: pointer; z-index: 1200; font-size: 1.6rem; color: #0077b6; }
+
+        /* スマホ用オーバーレイ */
+        .menu-overlay {
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+            background: rgba(0, 0, 0, 0.6); z-index: 1050; opacity: 0; transition: 0.3s; pointer-events: none;
+        }
+
+        /* --- 2. ページヒーロー --- */
         .page-hero {
             background: linear-gradient(135deg, #0077b6 0%, #00b4d8 100%);
             color: #fff; padding: 100px 8%; text-align: center;
+            box-sizing: border-box;
         }
-        .page-hero h1 { margin: 0; font-size: 2.2rem; letter-spacing: 0.1em; }
+        .page-hero h1 { margin: 0; font-size: 2.2rem; letter-spacing: 0.1em; font-weight: 800; text-transform: uppercase; }
         .page-hero p { margin: 10px 0 0; font-size: 1.1rem; opacity: 0.9; }
 
-        /* --- コンテナ --- */
-        .container { max-width: 1200px; margin: 0 auto; padding: 80px 8% 20px; box-sizing: border-box; }
+        /* --- 3. コンテナ・フォームカード --- */
+        .container { max-width: 1000px; margin: 0 auto; padding: 80px 5%; box-sizing: border-box; }
 
-        /* --- フォームカード --- */
         .contact-card {
-            background: #fff; padding: 60px 50px; border-radius: 15px;
+            background: #fff; padding: 60px 20px; border-radius: 15px;
             border: 1px solid #eef2f6; box-shadow: 0 10px 40px rgba(0,0,0,0.05);
-            max-width: 850px; margin: 0 auto;
+            margin: 0 auto;
         }
-        .form-intro { text-align: center; margin-bottom: 50px; color: #666; font-size: 1rem; }
+        .form-intro { text-align: center; margin-bottom: 40px; color: #666; font-size: 1.05rem; }
 
-        /* --- フォームパーツ --- */
-        .form-group { margin-bottom: 35px; }
-        .form-group label { display: block; font-weight: bold; margin-bottom: 12px; color: #0077b6; font-size: 1.05rem; }
-        .form-group label span { background: #ff4d4d; color: #fff; font-size: 0.7rem; padding: 2px 10px; border-radius: 4px; margin-left: 12px; vertical-align: middle; }
-        .form-control {
-            width: 100%; padding: 16px; border: 1px solid #e0e8ed; border-radius: 8px;
-            font-size: 1rem; box-sizing: border-box; transition: 0.3s; font-family: inherit; background-color: #fcfdfe;
+        /* Googleフォーム埋め込みエリア */
+        .form-wrapper {
+            position: relative;
+            width: 100%;
+            display: flex;
+            justify-content: center;
         }
-        .form-control:focus { outline: none; border-color: #0077b6; background-color: #fff; box-shadow: 0 0 12px rgba(0,119,182,0.1); }
-        textarea.form-control { height: 180px; resize: vertical; }
+        .form-wrapper iframe {
+            width: 100%;
+            max-width: 760px; /* フォームの幅を制限して読みやすく */
+            height: 1000px; /* フォームの長さに合わせて調整してください */
+            border: none;
+            background: transparent;
+        }
 
-        /* 選択肢チップ */
-        .selection-group { display: flex; flex-wrap: wrap; gap: 12px; }
-        .selection-group input { display: none; }
-        .selection-group label {
-            background: #f4f9fc; border: 1px solid #e0e8ed; padding: 12px 28px;
-            border-radius: 50px; cursor: pointer; font-weight: 600; font-size: 0.95rem; color: #555; transition: 0.3s;
-        }
-        .selection-group input:checked + label { background: #0077b6; color: #fff; border-color: #0077b6; }
-
-        /* 送信ボタン */
-        .submit-area { text-align: center; margin-top: 60px; border-top: 1px solid #f0f4f8; padding-top: 40px; }
-        .btn-submit {
-            background: #0077b6; color: #fff; border: none; padding: 20px 100px;
-            font-size: 1.2rem; font-weight: bold; border-radius: 50px; cursor: pointer; transition: 0.4s;
-            box-shadow: 0 10px 25px rgba(0, 119, 182, 0.25);
-        }
-        .btn-submit:hover { background: #00b4d8; transform: translateY(-4px); }
-
-        /* --- 【いい感じ！】ホーム戻るセクション --- */
-        .page-back-footer {
-            background-color: #f0f4f8;
-            padding: 80px 8%;
-            text-align: center;
-            margin-top: 60px;
-        }
+        /* ホーム戻るエリア */
+        .page-back-footer { background-color: #f0f4f8; padding: 80px 8%; text-align: center; margin-top: 60px; }
         .btn-back-home {
             display: inline-flex; align-items: center; justify-content: center; gap: 12px;
             background: #fff; border: 2px solid #0077b6; color: #0077b6;
             padding: 18px 80px; border-radius: 50px; text-decoration: none;
             font-weight: bold; font-size: 1.1rem; transition: all 0.3s ease;
-            box-shadow: 0 4px 10px rgba(0, 119, 182, 0.1);
         }
         .btn-back-home:hover { background: #0077b6; color: #fff; transform: translateY(-3px); }
 
         footer { background: #fff; padding: 60px 0; text-align: center; border-top: 1px solid #eee; font-size: 0.85rem; color: #999; }
 
+        /* --- 4. スマホレスポンシブ --- */
         @media (max-width: 768px) {
-            header { padding: 15px 5%; }
-            nav a { margin: 0 8px; font-size: 0.85rem; }
-            .contact-card { padding: 40px 20px; }
-            .btn-submit, .btn-back-home { width: 100%; padding: 18px 0; }
+            header { padding: 12px 5%; }
+            .menu-btn { display: block; }
+
+            nav {
+                position: fixed; top: -70vh; left: 0; width: 100%; height: 70vh;
+                background: #ffffff; flex-direction: column; justify-content: center;
+                align-items: center; padding: 40px 0; transition: 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+                z-index: 1100; box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            }
+
+            nav.active { top: 0; }
+            .menu-overlay.active { display: block; opacity: 1; pointer-events: auto; }
+
+            nav a {
+                margin: 0; font-size: 1.25rem; font-weight: 700; color: #0077b6;
+                width: 100%; text-align: center; padding: 20px 0; border-bottom: 1px solid #f0f4f8;
+            }
+
+            .nav-contact {
+                background: #0077b6 !important; color: #fff !important;
+                margin-top: 25px !important; border-radius: 50px !important;
+                width: 75% !important; padding: 15px 0 !important;
+            }
+
+            .page-hero { padding: 80px 5%; }
+            .page-hero h1 { font-size: 1.8rem; }
+            
+            .contact-card { padding: 40px 10px; }
+            .form-wrapper iframe { height: 1200px; } /* スマホはフォームが縦に伸びるため高めに設定 */
+            .btn-back-home { width: 100%; padding: 18px 0; box-sizing: border-box; }
             .page-back-footer { padding: 60px 5%; }
         }
     </style>
@@ -103,11 +123,18 @@
 
 <header>
     <a href="../index.html" class="logo">株式会社NIKA</a>
-    <nav>
+    
+    <div class="menu-btn" id="menuBtn">
+        <i class="fas fa-bars"></i>
+    </div>
+
+    <div class="menu-overlay" id="menuOverlay"></div>
+
+    <nav id="navMenu">
         <a href="../index.html">HOME</a>
         <a href="../company/company.html">会社情報</a>
         <a href="../service/service.html">サービス案内</a>
-        <a href="#">施工事例</a>
+        <a href="../recruit/recruit.html">採用情報</a>
         <a href="contact.html" class="nav-contact">お問い合わせ</a>
     </nav>
 </header>
@@ -124,57 +151,9 @@
             以下のフォームに必要事項をご記入の上、送信してください。
         </p>
 
-        <form action="#" method="post" onsubmit="alert('デモ送信が完了しました'); return false;">
-            <div class="form-group">
-                <label>お問い合わせ内容<span>必須</span></label>
-                <div class="selection-group">
-                    <input type="radio" name="subject" id="sub1" value="見積り" required>
-                    <label for="sub1">無料お見積り</label>
-                    <input type="radio" name="subject" id="sub2" value="相談">
-                    <label for="sub2">ご相談・ご質問</label>
-                    <input type="radio" name="subject" id="sub3" value="その他">
-                    <label for="sub3">その他</label>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label>ご希望のサービス（複数選択可）</label>
-                <div class="selection-group">
-                    <input type="checkbox" name="area" id="area1" value="エアコン">
-                    <label for="area1">エアコン施工・清掃</label>
-                    <input type="checkbox" name="area" id="area2" value="キッチン">
-                    <label for="area2">キッチン・レンジフード</label>
-                    <input type="checkbox" name="area" id="area3" value="水回り">
-                    <label for="area3">浴室・トイレ洗浄</label>
-                    <input type="checkbox" name="area" id="area4" value="建設・足場">
-                    <label for="area4">建設・足場関連</label>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label>お名前<span>必須</span></label>
-                <input type="text" class="form-control" placeholder="例：山田 太郎" required>
-            </div>
-
-            <div class="form-group">
-                <label>メールアドレス<span>必須</span></label>
-                <input type="email" class="form-control" placeholder="example@mail.com" required>
-            </div>
-
-            <div class="form-group">
-                <label>電話番号</label>
-                <input type="tel" class="form-control" placeholder="090-0000-0000">
-            </div>
-
-            <div class="form-group">
-                <label>メッセージ・詳細内容<span>必須</span></label>
-                <textarea class="form-control" placeholder="型番、ご希望の施工日時、汚れの状況などをご自由にご記入ください。" required></textarea>
-            </div>
-
-            <div class="submit-area">
-                <button type="submit" class="btn-submit">上記の内容で送信する</button>
-            </div>
-        </form>
+        <div class="form-wrapper">
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSd55wraC_YqqkxqwZL6Xq9S9KEO5UfAPYL-1AvKTjcTNUuZjA/viewform?embedded=true" frameborder="0" marginheight="0" marginwidth="0">読み込んでいます…</iframe>
+        </div>
     </div>
 </div>
 
@@ -187,6 +166,36 @@
 <footer>
     <p>&copy; 2026 株式会社NIKA. All Rights Reserved.</p>
 </footer>
+
+<script>
+    const menuBtn = document.getElementById('menuBtn');
+    const navMenu = document.getElementById('navMenu');
+    const menuOverlay = document.getElementById('menuOverlay');
+    const navLinks = document.querySelectorAll('nav a');
+
+    function toggleMenu() {
+        navMenu.classList.toggle('active');
+        menuOverlay.classList.toggle('active');
+        const icon = menuBtn.querySelector('i');
+        
+        if (navMenu.classList.contains('active')) {
+            icon.classList.replace('fa-bars', 'fa-times');
+            document.body.style.overflow = 'hidden';
+        } else {
+            icon.classList.replace('fa-times', 'fa-bars');
+            document.body.style.overflow = '';
+        }
+    }
+
+    menuBtn.addEventListener('click', toggleMenu);
+    menuOverlay.addEventListener('click', toggleMenu);
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            if (navMenu.classList.contains('active')) toggleMenu();
+        });
+    });
+</script>
 
 </body>
 </html>
