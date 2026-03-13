@@ -18,7 +18,10 @@
             justify-content: space-between; align-items: center;
             border-bottom: 2px solid #f0f4f8; position: sticky; top: 0; z-index: 1000;
         }
-        .logo { font-weight: bold; font-size: 1.6rem; color: #0077b6; text-decoration: none; z-index: 1200; }
+        .logo { 
+            font-weight: bold; font-size: 1.6rem; color: #0077b6; 
+            text-decoration: none; z-index: 1200; 
+        }
         nav { display: flex; align-items: center; }
         nav a { margin: 0 15px; text-decoration: none; color: #444; font-weight: 600; font-size: 0.95rem; transition: 0.3s; }
         nav a:hover { color: #00b4d8; }
@@ -55,7 +58,6 @@
             background-color: #f8fbff; color: #0077b6; width: 25%; font-weight: 700; white-space: nowrap;
         }
         .recruit-table td { color: #444; font-size: 1.05rem; }
-        .recruit-table tr:last-child th, .recruit-table tr:last-child td { border-bottom: none; }
 
         /* --- 5. 応募フォームセクション --- */
         .cta-area {
@@ -81,16 +83,16 @@
 
         .form-wrapper iframe {
             width: 100%; height: 1000px; border: none;
-            margin-top: -140px; /* タイトル隠し（PC） */
+            margin-top: -140px; /* タイトル部分を上に隠す */
         }
 
         /* --- 6. フッター --- */
         footer { background: #fff; padding: 60px 0; text-align: center; border-top: 1px solid #eee; font-size: 0.85rem; color: #999; }
 
-        /* --- 7. スマホ調整 (トップページの文字サイズに合わせる) --- */
+        /* --- 7. スマホ調整 (トップページのデザインに統一) --- */
         @media (max-width: 768px) {
             header { padding: 12px 5%; }
-            .logo { font-size: 1.3rem; }
+            .logo { font-size: 1.5rem; } /* スマホロゴを大きく */
             .menu-btn { display: block; }
             nav {
                 position: fixed; top: -100vh; left: 0; width: 100%; height: auto;
@@ -106,18 +108,16 @@
             .page-hero h1 { font-size: 1.8rem; }
 
             .container { padding: 40px 5%; }
-            .message-box h2 { font-size: 1.5rem; } /* 少し大きく */
-            .message-box p { font-size: 1.05rem; text-align: left; } /* 本文サイズUP */
+            .message-box h2 { font-size: 1.5rem; }
+            .message-box p { font-size: 1.05rem; text-align: left; }
 
-            /* テーブルのスマホ表示調整 */
-            .recruit-table th, .recruit-table td {
-                display: block; width: 100%; box-sizing: border-box;
-            }
+            /* テーブルのスマホ表示 */
+            .recruit-table th, .recruit-table td { display: block; width: 100%; box-sizing: border-box; }
             .recruit-table th {
                 background: #f0f7ff; color: #0077b6; padding: 12px 15px; border-bottom: none; font-size: 1.1rem;
             }
             .recruit-table td {
-                padding: 15px 15px 30px; border-bottom: 1px solid #f0f4f8; font-size: 1.05rem; line-height: 1.7;
+                padding: 15px 15px 30px; border-bottom: 1px solid #f0f4f8; font-size: 1.05rem;
             }
             
             .cta-area { padding: 50px 15px; border-radius: 20px; }
@@ -128,7 +128,7 @@
             .form-wrapper { margin-top: 20px; }
             .form-wrapper iframe { 
                 height: 1700px; 
-                margin-top: -160px; /* タイトル隠し（スマホ用微調整） */
+                margin-top: -160px; /* スマホ用にタイトル隠しの位置を調整 */
             }
         }
 
