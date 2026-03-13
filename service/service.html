@@ -12,7 +12,7 @@
             margin: 0; color: #333; background-color: #fcfdfe; line-height: 1.8;
         }
 
-        /* --- 2. ヘッダー (全ページ共通) --- */
+        /* --- 2. ヘッダー --- */
         header {
             background: #fff; padding: 15px 8%; display: flex; justify-content: space-between;
             align-items: center; border-bottom: 2px solid #f0f4f8; position: sticky;
@@ -56,7 +56,6 @@
         .price-info-side { flex: 1; min-width: 300px; }
         .price-table-side { flex: 1.5; min-width: 350px; }
 
-        /* 画像ボックスの調整 */
         .image-box-large { 
             width: 100%; height: 280px; border-radius: 15px; overflow: hidden;
             box-shadow: 0 10px 20px rgba(0,0,0,0.1);
@@ -81,21 +80,39 @@
 
         footer { background: #fff; padding: 60px 0; text-align: center; border-top: 1px solid #eee; font-size: 0.85rem; color: #999; }
 
+        /* --- スマホ調整用CSS --- */
         @media (max-width: 768px) {
             header { padding: 12px 5%; }
+            .logo { font-size: 1.3rem; }
             .menu-btn { display: block; }
             nav {
-                position: fixed; top: -70vh; left: 0; width: 100%; height: 70vh;
-                background: #ffffff; flex-direction: column; justify-content: center;
-                align-items: center; padding: 40px 0; transition: 0.5s;
-                z-index: 1100; box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+                position: fixed; top: -100vh; left: 0; width: 100%; height: auto;
+                background: #ffffff; flex-direction: column; padding: 60px 0 40px; z-index: 1100;
+                transition: 0.4s ease-in-out; box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             }
             nav.active { top: 0; }
             .menu-overlay.active { display: block; opacity: 1; pointer-events: auto; }
-            nav a { margin: 0; font-size: 1.25rem; font-weight: 700; color: #0077b6; width: 100%; text-align: center; padding: 15px 0; border-bottom: 1px solid #f0f4f8; }
-            .nav-contact { background: #0077b6 !important; color: #fff !important; margin-top: 25px !important; width: 75% !important; padding: 15px 0 !important; }
-            .price-flex-container { flex-direction: column !important; }
-            .image-box-large { height: 200px; }
+            nav a { width: 100%; text-align: center; padding: 15px 0; border-bottom: 1px solid #f9f9f9; font-size: 1.1rem; color: #333; margin: 0; }
+            .nav-contact { background: #0077b6 !important; color: #fff !important; width: 80% !important; margin: 20px auto 0 !important; }
+
+            .page-hero { padding: 60px 5%; }
+            .page-hero h1 { font-size: 1.6rem; }
+
+            .container { padding: 30px 4% 10px; }
+            .content-card { padding: 25px 20px; margin-bottom: 30px; border-radius: 12px; }
+            
+            /* スマホでは縦並びに統一し、余計な隙間をカット */
+            .price-flex-container { flex-direction: column !important; gap: 20px; }
+            .price-info-side, .price-table-side { min-width: 100%; }
+            
+            .image-box-large { height: 180px; border-radius: 10px; }
+            
+            h2 { font-size: 1.4rem; margin-bottom: 20px; padding-bottom: 10px; }
+            .description-text { font-size: 0.95rem; margin-bottom: 15px; }
+            .service-list li { font-size: 0.9rem; padding: 8px 0; }
+            
+            .btn-detail { width: 100%; text-align: center; box-sizing: border-box; }
+            .btn-outline { width: 90%; padding: 15px 0; }
         }
     </style>
 </head>
