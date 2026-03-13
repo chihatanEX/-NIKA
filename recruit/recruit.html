@@ -38,8 +38,7 @@
         /* --- 4. コンテンツエリア --- */
         .container { max-width: 1000px; margin: 0 auto; padding: 80px 8%; box-sizing: border-box; }
 
-        /* メッセージ */
-        .message-box { text-align: center; margin-bottom: 80px; }
+        .message-box { text-align: center; margin-bottom: 60px; }
         .message-box h2 { color: #0077b6; font-size: 1.8rem; margin-bottom: 25px; font-weight: 800; }
         .message-box p { font-size: 1.1rem; color: #555; }
 
@@ -47,7 +46,7 @@
         .recruit-table {
             width: 100%; border-collapse: collapse; background: #fff;
             border-radius: 15px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.03);
-            border: 1px solid #eef2f6; margin-bottom: 100px;
+            border: 1px solid #eef2f6; margin-bottom: 80px;
         }
         .recruit-table th, .recruit-table td {
             padding: 25px; border-bottom: 1px solid #f0f4f8; text-align: left;
@@ -58,74 +57,79 @@
         .recruit-table td { color: #444; }
         .recruit-table tr:last-child th, .recruit-table tr:last-child td { border-bottom: none; }
 
-        /* --- 5. 応募フォームセクション（デザイン調整） --- */
+        /* --- 5. 応募フォームセクション --- */
         .cta-area {
             background: #fff; padding: 80px 0; border-radius: 30px;
             text-align: center; border: 1px solid #eef2f6;
             box-shadow: 0 15px 40px rgba(0, 119, 182, 0.08);
-            position: relative;
-            overflow: hidden; /* 線がはみ出さないように */
+            margin-bottom: 60px;
         }
 
-        /* タイトルのスタイル（線のためにflexに変更） */
         .cta-title-wrap {
             display: flex; align-items: center; justify-content: center;
-            margin-bottom: 20px; padding: 0 40px; /* 文字が端に行きすぎないように */
+            margin-bottom: 20px; padding: 0 40px;
         }
         
-        /* 左右に伸びる線 */
-        .cta-line {
-            flex: 1; height: 2px; background: #00b4d8; opacity: 0.5;
-        }
+        .cta-line { flex: 1; height: 2px; background: #00b4d8; opacity: 0.5; }
 
-        /* タイトル文字 */
         .cta-area h2 { 
             color: #0077b6; font-size: 1.8rem; margin: 0 20px; font-weight: 800; 
-            white-space: nowrap; /* 改行を防ぐ */
+            white-space: nowrap;
         }
 
-        .cta-area p { margin-bottom: 40px; color: #666; font-weight: 500; padding: 0 40px; box-sizing: border-box; }
+        .cta-area p { margin-bottom: 40px; color: #666; font-weight: 500; padding: 0 40px; }
         
         .form-wrapper {
             max-width: 750px; margin: 0 auto;
             background: #fcfdfe; border-radius: 15px;
-            padding: 0 20px; /* スマホ時の余白 */
-            box-sizing: border-box;
+            overflow: hidden;
         }
         .form-wrapper iframe {
-            width: 100%; height: 1200px; 
+            width: 100%; height: 1000px; /* PCでのデフォルト高さ */
+            border: none;
         }
 
         /* --- 6. フッター --- */
         footer { background: #fff; padding: 60px 0; text-align: center; border-top: 1px solid #eee; font-size: 0.85rem; color: #999; }
 
-        /* --- 7. スマホ調整 --- */
+        /* --- 7. スマホ調整 (崩れ修正) --- */
         @media (max-width: 768px) {
             header { padding: 12px 5%; }
             .menu-btn { display: block; }
             nav {
-                position: fixed; top: -70vh; left: 0; width: 100%; height: 70vh;
-                background: #ffffff; flex-direction: column; justify-content: center;
-                align-items: center; padding: 40px 0; z-index: 1100;
-                transition: 0.5s cubic-bezier(0.19, 1, 0.22, 1);
-                box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+                position: fixed; top: -100vh; left: 0; width: 100%; height: auto;
+                background: #ffffff; flex-direction: column; padding: 60px 0 40px; z-index: 1100;
+                transition: 0.4s ease-in-out; box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             }
             nav.active { top: 0; }
             .menu-overlay.active { display: block; opacity: 1; pointer-events: auto; }
-            nav a { width: 100%; text-align: center; padding: 15px 0; border-bottom: 1px solid #f0f4f8; font-size: 1.2rem; color: #0077b6; }
-            
-            .container { padding: 60px 5%; }
-            .recruit-table th, .recruit-table td { display: block; width: 100%; box-sizing: border-box; padding: 15px; }
-            .recruit-table th { padding-bottom: 5px; background: none; color: #0077b6; border-bottom: none; }
-            .recruit-table td { padding-top: 5px; padding-bottom: 20px; }
-            
-            .cta-area { padding: 60px 0; }
-            .cta-title-wrap { padding: 0 20px; }
-            .cta-area h2 { font-size: 1.4rem; margin: 0 10px; }
-            .cta-area p { padding: 0 20px; font-size: 0.95rem; }
-            .cta-line { width: 20px; flex: none; /* スマホでは線を短く */ } 
+            nav a { width: 100%; text-align: center; padding: 15px 0; border-bottom: 1px solid #f9f9f9; color: #333; margin: 0; font-weight: bold; }
+            .nav-contact { background: #0077b6 !important; color: #fff !important; width: 80% !important; margin: 20px auto 0 !important; }
 
-            .form-wrapper iframe { height: 1600px; }
+            .page-hero { padding: 60px 5%; }
+            .page-hero h1 { font-size: 1.8rem; }
+
+            .container { padding: 40px 5%; }
+            .message-box h2 { font-size: 1.4rem; }
+            .message-box p { font-size: 0.95rem; text-align: left; }
+
+            /* 募集要項をスマホで見やすく（縦並びに強制） */
+            .recruit-table, .recruit-table tbody, .recruit-table tr, .recruit-table th, .recruit-table td {
+                display: block; width: 100%; box-sizing: border-box;
+            }
+            .recruit-table th {
+                background: #f0f7ff; color: #0077b6; padding: 10px 15px; border-bottom: none;
+            }
+            .recruit-table td {
+                padding: 15px 15px 25px; border-bottom: 1px solid #f0f4f8; font-size: 0.95rem;
+            }
+            
+            .cta-area { padding: 40px 10px; border-radius: 20px; }
+            .cta-title-wrap { padding: 0 10px; }
+            .cta-area h2 { font-size: 1.3rem; margin: 0 10px; }
+            .cta-line { display: none; /* スマホでは線を消してスッキリさせる */ }
+            
+            .form-wrapper iframe { height: 1400px; /* スマホでは入力項目が縦に伸びるため高く設定 */ }
         }
 
         @keyframes scroll-down {
@@ -144,7 +148,7 @@
     <nav id="navMenu">
         <a href="../index.html">HOME</a>
         <a href="../company/company.html">会社情報</a>
-        <a href="../service/service.html">サービス情報</a>
+        <a href="../service/service.html">サービス案内</a>
         <a href="recruit.html">採用情報</a>
         <a href="../contact/contact.html" class="nav-contact">お問い合わせ</a>
     </nav>
@@ -158,15 +162,13 @@
 <div class="container">
     <div class="message-box">
         <h2>未来を共に創る仲間を募集しています</h2>
-        <p>株式会社NIKAは、エアコン設置・ハウスクリーニング・建設現場と、<br>
-        人々の暮らしに直結するやりがいのある仕事を行っています。<br>
-        経験は問いません。あなたの「やる気」を、確かな「技術」へ。仲間と共に成長していきましょう。</p>
+        <p>株式会社NIKAは、エアコン設置・ハウスクリーニング・建設現場と、人々の暮らしに直結するやりがいのある仕事を行っています。<br>経験は問いません。あなたの「やる気」を、確かな「技術」へ。</p>
     </div>
 
-<p style="margin-top: 30px; font-weight: bold; color: #0077b6; text-align: center;">
-            <i class="fas fa-chevron-down" style="display: block; margin-bottom: 10px; font-size: 1.2rem; animation: scroll-down 2s infinite;"></i>
-            ページ下部のフォームより、24時間ご応募受付中です
-        </p>
+    <p style="margin-bottom: 25px; font-weight: bold; color: #0077b6; text-align: center;">
+        <i class="fas fa-chevron-down" style="display: block; margin-bottom: 10px; font-size: 1.2rem; animation: scroll-down 2s infinite;"></i>
+        ページ下部のフォームよりご応募受付中
+    </p>
 
     <table class="recruit-table">
         <tr>
@@ -182,16 +184,16 @@
             <td>
                 ・家庭用、業務用エアコンの設置およびメンテナンス<br>
                 ・ハウスクリーニング（退去後清掃・定期清掃）<br>
-                ・建設現場における足場設営、仮囲い施工など
+                ・建設現場における養生・美装・軽作業
             </td>
         </tr>
         <tr>
             <th>給与</th>
-            <td>日給 10,500円 〜 12,000円<br></td>
+            <td>日給 10,500円 〜 12,000円 ※経験・能力を考慮</td>
         </tr>
         <tr>
             <th>休日・休暇</th>
-            <td>週休１～２日制</td>
+            <td>週休1〜2日制（現場カレンダーによる）、夏季・年末年始休暇</td>
         </tr>
     </table>
 
@@ -201,10 +203,10 @@
             <h2>ご応募・お問い合わせ</h2>
             <div class="cta-line"></div>
         </div>
-        <p>以下のフォームよりお気軽にご連絡ください。<br>内容を確認後、担当者より折り返しご連絡いたします。</p>
+        <p>以下のフォームよりお気軽にご連絡ください。<br>内容を確認後、担当者よりご連絡いたします。</p>
         
         <div class="form-wrapper">
-            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdHKvgjeE8KK69jnObOmN1EBacqDg3uKMCXBcGno3-f_4d48Q/viewform?embedded=true" frameborder="0" marginheight="0" marginwidth="0">読み込んでいます…</iframe>
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdHKvgjeE8KK69jnObOmN1EBacqDg3uKMCXBcGno3-f_4d48Q/viewform?embedded=true">読み込んでいます…</iframe>
         </div>
     </div>
 </div>
@@ -217,7 +219,6 @@
     const menuBtn = document.getElementById('menuBtn');
     const navMenu = document.getElementById('navMenu');
     const menuOverlay = document.getElementById('menuOverlay');
-    const navLinks = document.querySelectorAll('nav a');
 
     function toggleMenu() {
         navMenu.classList.toggle('active');
@@ -234,11 +235,6 @@
 
     menuBtn.addEventListener('click', toggleMenu);
     menuOverlay.addEventListener('click', toggleMenu);
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            if (navMenu.classList.contains('active')) toggleMenu();
-        });
-    });
 </script>
 
 </body>
