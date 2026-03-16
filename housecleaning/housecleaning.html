@@ -13,27 +13,30 @@
             scroll-behavior: smooth;
         }
 
-        /* --- ヘッダー --- */
+        /* --- 2. ヘッダー (トップページと統一) --- */
         header {
-            background: #fff; padding: 15px 8%; display: flex; justify-content: space-between; align-items: center;
-            border-bottom: 2px solid #f0f4f8; position: sticky; top: 0; z-index: 1000;
+            background: #fff; padding: 15px 8%; display: flex; justify-content: space-between;
+            align-items: center; border-bottom: 2px solid #f0f4f8; position: sticky;
+            top: 0; z-index: 1000;
         }
-        .logo { font-weight: bold; font-size: 1.6rem; color: #0077b6; text-decoration: none; z-index: 1100; }
+        .logo { font-weight: bold; font-size: 1.6rem; color: #0077b6; text-decoration: none; z-index: 1200; }
         
         nav { display: flex; align-items: center; }
-        nav a { margin: 0 12px; text-decoration: none; color: #444; font-weight: 600; font-size: 0.9rem; transition: 0.3s; }
-        nav a:hover { color: #0077b6; }
-        .nav-contact { background: #0077b6; color: #fff !important; padding: 10px 20px; border-radius: 50px; text-decoration: none; }
+        nav a { margin: 0 15px; text-decoration: none; color: #444; font-weight: 600; font-size: 0.95rem; transition: 0.3s; }
+        nav a:hover { color: #00b4d8; }
+        .nav-contact { 
+            background: #0077b6; color: #fff !important; padding: 10px 25px; border-radius: 50px; 
+            margin-left: 10px; transition: 0.3s; text-decoration: none;
+        }
         .nav-contact:hover { background: #00b4d8; }
 
-        /* ハンバーガーメニュー */
-        .menu-btn { display: none; cursor: pointer; z-index: 1200; font-size: 1.5rem; color: #0077b6; }
+        .menu-btn { display: none; cursor: pointer; z-index: 1200; font-size: 1.6rem; color: #0077b6; }
         .menu-overlay {
             display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
             background: rgba(0, 0, 0, 0.6); z-index: 1050; opacity: 0; transition: 0.3s; pointer-events: none;
         }
 
-        /* --- 2. ヒーローエリア --- */
+        /* --- 3. ヒーローエリア --- */
         .page-hero {
             background: linear-gradient(135deg, #0077b6 0%, #00b4d8 100%);
             color: #fff; padding: 60px 8%; text-align: center;
@@ -41,7 +44,7 @@
         .page-hero h1 { margin: 0; font-size: 2rem; letter-spacing: 0.1em; font-weight: 800; }
         .page-hero p { margin: 10px 0 0; font-size: 1.1rem; opacity: 0.9; font-weight: 500; }
 
-        /* --- 3. 導入文メッセージ --- */
+        /* --- 4. 導入文メッセージ --- */
         .intro-message {
             text-align: center;
             padding: 50px 8% 20px;
@@ -55,15 +58,8 @@
             line-height: 1.8;
             margin: 0;
         }
-        .intro-message span {
-            display: block;
-            font-size: 0.95rem;
-            color: #666;
-            font-weight: 500;
-            margin-top: 15px;
-        }
 
-        /* --- 4. コンテンツデザイン --- */
+        /* --- 5. コンテンツデザイン --- */
         .container { max-width: 900px; margin: 0 auto; padding: 20px 5% 80px; }
 
         .category-header {
@@ -86,11 +82,31 @@
         .price-table { width: 100%; border-collapse: collapse; }
         .price-table tr:hover { background-color: #f0faff; }
         .price-table th, .price-table td { padding: 20px; border-bottom: 1px solid #edf2f7; text-align: left; }
-        .price-table th { font-weight: 600; color: #4a5568; width: 65%; }
+        .price-table th { font-weight: 600; color: #4a5568; }
         .price-table td { text-align: right; white-space: nowrap; }
 
         .price-tag { color: #0077b6; font-weight: 800; font-size: 1.4rem; font-family: 'Verdana', sans-serif; }
         .price-unit { font-size: 0.9rem; margin-left: 2px; color: #333; font-weight: bold; }
+
+        /* 追加：間取り表専用 */
+        .layout-table th { width: 30%; }
+        .layout-table td.area { text-align: left; color: #718096; font-size: 0.9rem; }
+
+        .note-box {
+            padding: 15px 20px; background: #fff; border-left: 4px solid #00b4d8;
+            margin: -30px 0 50px; border-radius: 0 8px 8px 0; font-size: 0.9rem; color: #555;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .check-list {
+            list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 10px; margin-top: 10px;
+        }
+        .check-list li {
+            background: #f0f7fa; padding: 10px 15px; border-radius: 8px; font-weight: 600;
+            color: #4a5568; font-size: 0.9rem; border: 1px solid #e1ecf2;
+        }
+        .check-list li i { color: #00b4d8; margin-right: 8px; }
 
         /* CTAセクション */
         .cta-section { text-align: center; margin: 40px 0 60px; }
@@ -99,33 +115,33 @@
             border-radius: 50px; text-decoration: none; font-weight: bold;
             display: inline-block; transition: 0.3s; box-shadow: 0 10px 25px rgba(0,119,182,0.2);
         }
-        .btn-main:hover { transform: translateY(-3px); background: #00b4d8; box-shadow: 0 15px 30px rgba(0,119,182,0.3); }
+        .btn-main:hover { transform: translateY(-3px); background: #00b4d8; }
 
-        footer { background: #fff; padding: 40px 0; text-align: center; border-top: 1px solid #eee; font-size: 0.85rem; color: #999; }
+        footer { background: #fff; padding: 60px 0; text-align: center; border-top: 1px solid #eee; font-size: 0.85rem; color: #999; }
 
-        /* --- 5. スマホレスポンシブ --- */
+        /* --- 6. スマホレスポンシブ --- */
         @media (max-width: 768px) {
             header { padding: 12px 5%; }
+            .logo { font-size: 1.3rem; }
             .menu-btn { display: block; }
             
             nav {
-                position: fixed; top: -100%; left: 0; width: 100%; background: #fff;
-                flex-direction: column; padding: 60px 0 30px; transition: 0.4s ease-in-out;
-                box-shadow: 0 5px 15px rgba(0,0,0,0.1); z-index: 1100;
+                position: fixed; top: -100vh; left: 0; width: 100%; height: auto;
+                background: #ffffff; flex-direction: column; padding: 60px 0 40px; z-index: 1100;
+                transition: 0.4s ease-in-out; box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             }
             nav.active { top: 0; }
-            nav a { margin: 10px 0; font-size: 1.1rem; width: 100%; text-align: center; }
-            .nav-contact { width: 80%; margin: 10px auto !important; }
+            nav a { width: 100%; text-align: center; padding: 15px 0; border-bottom: 1px solid #f9f9f9; font-size: 1.1rem; color: #333; margin: 0; }
+            .nav-contact { background: #0077b6 !important; color: #fff !important; width: 80% !important; margin: 20px auto 0 !important; }
             .menu-overlay.active { display: block; opacity: 1; pointer-events: auto; }
 
             .page-hero h1 { font-size: 1.6rem; }
-            .intro-message { padding: 40px 6% 10px; }
-            .intro-message p { font-size: 1.1rem; line-height: 1.6; }
-
+            .intro-message p { font-size: 1.1rem; }
             .price-table th, .price-table td { padding: 15px; }
-            .price-table th { width: 55%; font-size: 0.85rem; }
+            .price-table th { font-size: 0.85rem; }
             .price-tag { font-size: 1.1rem; }
-            .btn-main { width: 80%; padding: 15px 0; }
+            .layout-table td.area { font-size: 0.75rem; }
+            .check-list { grid-template-columns: 1fr 1fr; }
         }
     </style>
 </head>
@@ -138,7 +154,7 @@
     <nav id="navMenu">
         <a href="../index.html">HOME</a>
         <a href="../company/company.html">会社情報</a>
-        <a href="../construction/construction.html">事業内容</a>
+        <a href="../service/service.html">事業内容</a>
         <a href="../recruit/recruit.html">採用情報</a>
         <a href="../contact/contact.html" class="nav-contact">お問い合わせ</a>
     </nav>
@@ -187,16 +203,123 @@
                 <td><span class="price-tag">23,100</span><span class="price-unit">円</span></td>
             </tr>
             <tr>
+                <th>防カビコート</th>
+                <td><span class="price-tag">3,520</span><span class="price-unit">円</span></td>
+            </tr>            
+            <tr>
                 <th>エプロン内部</th>
                 <td><span class="price-tag">6,600</span><span class="price-unit">円</span></td>
             </tr>
             <tr>
-                <th>洗面所クリーニング</th>
+                <th>洗面所</th>
                 <td><span class="price-tag">9,900</span><span class="price-unit">円</span></td>
             </tr>
             <tr>
-                <th>トイレクリーニング</th>
+                <th>トイレ</th>
                 <td><span class="price-tag">11,000</span><span class="price-unit">円</span></td>
+            </tr>
+            <tr>
+                <th>ロータンク</th>
+                <td><span class="price-tag">3,850</span><span class="price-unit">円</span></td>
+            </tr>            
+        </table>
+    </div>
+
+    <div class="category-header" id="standard">
+        <i class="fas fa-building"></i>
+        <h2>基本価格（空室清掃・間取り別）</h2>
+    </div>
+    <div class="price-card">
+        <table class="price-table layout-table">
+            <tr>
+                <th>1R</th>
+                <td class="area">20㎡以内</td>
+                <td><span class="price-tag">22,000</span><span class="price-unit">円</span></td>
+            </tr>
+            <tr>
+                <th>1K</th>
+                <td class="area">25㎡以内</td>
+                <td><span class="price-tag">24,200</span><span class="price-unit">円</span></td>
+            </tr>
+            <tr>
+                <th>1DK / 2K</th>
+                <td class="area">30㎡以内</td>
+                <td><span class="price-tag">28,600</span><span class="price-unit">円</span></td>
+            </tr>
+            <tr>
+                <th>1LDK / 2DK</th>
+                <td class="area">45㎡以内</td>
+                <td><span class="price-tag">38,500</span><span class="price-unit">円</span></td>
+            </tr>
+            <tr>
+                <th>2LDK / 3DK</th>
+                <td class="area">65㎡以内</td>
+                <td><span class="price-tag">49,500</span><span class="price-unit">円</span></td>
+            </tr>
+            <tr>
+                <th>3LDK</th>
+                <td class="area">80㎡以内</td>
+                <td><span class="price-tag">60,500</span><span class="price-unit">円</span></td>
+            </tr>
+            <tr>
+                <th>4LDK ～</th>
+                <td class="area">100㎡以内</td>
+                <td><span class="price-tag">74,800</span><span class="price-unit">円</span></td>
+            </tr>
+            <tr>
+                <th>100㎡以上</th>
+                <td colspan="2" style="text-align: right; color: #0077b6; font-weight: bold;">別途お見積もり</td>
+            </tr>
+            <tr>
+                <th>戸建て</th>
+                <td colspan="2" style="text-align: right; color: #0077b6; font-weight: bold;">別途お見積もり</td>
+            </tr>
+        </table>
+    </div>
+    <div class="note-box">
+        <i class="fas fa-info-circle"></i> ロフトは別途 2,000円・メゾネットは別途 3,000円頂戴致します。
+    </div>
+
+    <div class="category-header">
+        <i class="fas fa-list-check"></i>
+        <h2>基本清掃箇所</h2>
+    </div>
+    <div style="margin-bottom: 50px;">
+        <ul class="check-list">
+            <li><i class="fas fa-check-circle"></i>キッチン一式</li>
+            <li><i class="fas fa-check-circle"></i>玄関回り</li>
+            <li><i class="fas fa-check-circle"></i>浴室</li>
+            <li><i class="fas fa-check-circle"></i>洗面台</li>
+            <li><i class="fas fa-check-circle"></i>トイレ</li>
+            <li><i class="fas fa-check-circle"></i>ベランダ・窓</li>
+            <li><i class="fas fa-check-circle"></i>照明器具</li>
+            <li><i class="fas fa-check-circle"></i>簡易エアコン洗浄</li>
+            <li><i class="fas fa-check-circle"></i>建具一式</li>
+            <li><i class="fas fa-check-circle"></i>床（ワックス）</li>
+        </ul>
+    </div>
+
+    <div class="category-header" id="option">
+        <i class="fas fa-plus-circle"></i>
+        <h2>オプションメニュー</h2>
+    </div>
+    <div class="price-card">
+        <table class="price-table">
+            <tr>
+                <th>エアコン内部洗浄</th>
+                <td><span class="price-tag">8000</span><span class="price-unit">円～</span></td>
+            </tr>
+            <tr>
+                <th>エアコン内部洗浄（お掃除機能付き）</th>
+                <td style="color: #0077b6; font-weight: bold;">機種により異なります</td>
+            </tr>
+            <tr>
+                <th>床剥離</th>
+                <td><span class="price-tag">9,900</span><span class="price-unit">円～</span></td>
+            </tr>
+            <tr>
+                <th>強化洗浄</th>
+                <td style="color: #0077b6; font-weight: bold;">都度ご相談</td>
             </tr>
         </table>
     </div>
@@ -222,6 +345,7 @@
     const menuBtn = document.getElementById('menuBtn');
     const navMenu = document.getElementById('navMenu');
     const menuOverlay = document.getElementById('menuOverlay');
+    const navLinks = document.querySelectorAll('nav a');
 
     function toggleMenu() {
         navMenu.classList.toggle('active');
@@ -229,7 +353,7 @@
         const icon = menuBtn.querySelector('i');
         if (navMenu.classList.contains('active')) {
             icon.classList.replace('fa-bars', 'fa-times');
-            document.body.style.overflow = 'hidden'; // メニュー展開時に背景スクロール停止
+            document.body.style.overflow = 'hidden';
         } else {
             icon.classList.replace('fa-times', 'fa-bars');
             document.body.style.overflow = '';
@@ -238,10 +362,9 @@
 
     menuBtn.addEventListener('click', toggleMenu);
     menuOverlay.addEventListener('click', toggleMenu);
-    
-    document.querySelectorAll('nav a').forEach(link => {
+    navLinks.forEach(link => {
         link.addEventListener('click', () => {
-            if(navMenu.classList.contains('active')) toggleMenu();
+            if (navMenu.classList.contains('active')) toggleMenu();
         });
     });
 </script>
