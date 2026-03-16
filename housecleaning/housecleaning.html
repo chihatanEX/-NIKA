@@ -10,9 +10,10 @@
         body {
             font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
             margin: 0; color: #333; background-color: #f4f7f9; line-height: 1.8;
+            scroll-behavior: smooth;
         }
 
-        /* --- ヘッダー & ナビゲーション --- */
+        /* --- ヘッダー --- */
         header {
             background: #fff; padding: 15px 8%; display: flex; justify-content: space-between; align-items: center;
             border-bottom: 2px solid #f0f4f8; position: sticky; top: 0; z-index: 1000;
@@ -20,17 +21,16 @@
         .logo { font-weight: bold; font-size: 1.6rem; color: #0077b6; text-decoration: none; z-index: 1100; }
         
         nav { display: flex; align-items: center; }
-        nav a { margin: 0 15px; text-decoration: none; color: #444; font-weight: 600; font-size: 0.95rem; transition: 0.3s; }
+        nav a { margin: 0 12px; text-decoration: none; color: #444; font-weight: 600; font-size: 0.9rem; transition: 0.3s; }
         nav a:hover { color: #0077b6; }
-        .nav-contact { background: #0077b6; color: #fff !important; padding: 10px 25px; border-radius: 50px; text-decoration: none; }
+        .nav-contact { background: #0077b6; color: #fff !important; padding: 10px 20px; border-radius: 50px; text-decoration: none; }
+        .nav-contact:hover { background: #00b4d8; }
 
-        /* ハンバーガーボタン */
-        .menu-btn {
-            display: none; cursor: pointer; z-index: 1200; font-size: 1.5rem; color: #0077b6;
-        }
+        /* ハンバーガーメニュー */
+        .menu-btn { display: none; cursor: pointer; z-index: 1200; font-size: 1.5rem; color: #0077b6; }
         .menu-overlay {
             display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
-            background: rgba(0, 0, 0, 0.6); z-index: 1050; opacity: 0; transition: 0.3s;
+            background: rgba(0, 0, 0, 0.6); z-index: 1050; opacity: 0; transition: 0.3s; pointer-events: none;
         }
 
         /* --- 2. ヒーローエリア --- */
@@ -41,14 +41,36 @@
         .page-hero h1 { margin: 0; font-size: 2rem; letter-spacing: 0.1em; font-weight: 800; }
         .page-hero p { margin: 10px 0 0; font-size: 1.1rem; opacity: 0.9; font-weight: 500; }
 
-        /* --- 3. コンテンツデザイン --- */
-        .container { max-width: 900px; margin: 0 auto; padding: 40px 5%; }
+        /* --- 3. 導入文メッセージ --- */
+        .intro-message {
+            text-align: center;
+            padding: 50px 8% 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .intro-message p {
+            font-size: 1.25rem;
+            color: #0077b6;
+            font-weight: 700;
+            line-height: 1.8;
+            margin: 0;
+        }
+        .intro-message span {
+            display: block;
+            font-size: 0.95rem;
+            color: #666;
+            font-weight: 500;
+            margin-top: 15px;
+        }
 
-        /* カテゴリの見出し */
+        /* --- 4. コンテンツデザイン --- */
+        .container { max-width: 900px; margin: 0 auto; padding: 20px 5% 80px; }
+
         .category-header {
             display: flex; align-items: center; gap: 15px;
             margin-bottom: 15px; padding: 10px 0;
             border-bottom: 3px solid #0077b6;
+            scroll-margin-top: 100px;
         }
         .category-header i {
             font-size: 1.8rem; color: #0077b6; background: #fff;
@@ -57,7 +79,6 @@
         }
         .category-header h2 { margin: 0; font-size: 1.4rem; color: #0077b6; }
 
-        /* テーブルデザイン */
         .price-card {
             background: #fff; border-radius: 15px; overflow: hidden;
             box-shadow: 0 10px 30px rgba(0,0,0,0.05); margin-bottom: 50px;
@@ -68,22 +89,21 @@
         .price-table th { font-weight: 600; color: #4a5568; width: 65%; }
         .price-table td { text-align: right; white-space: nowrap; }
 
-        /* 金額デザイン */
         .price-tag { color: #0077b6; font-weight: 800; font-size: 1.4rem; font-family: 'Verdana', sans-serif; }
         .price-unit { font-size: 0.9rem; margin-left: 2px; color: #333; font-weight: bold; }
 
-        /* CTAボタン */
-        .cta-section { text-align: center; margin-bottom: 60px; }
+        /* CTAセクション */
+        .cta-section { text-align: center; margin: 40px 0 60px; }
         .btn-main {
-            background: #0077b6; color: #fff; padding: 20px 50px;
+            background: #0077b6; color: #fff; padding: 18px 50px;
             border-radius: 50px; text-decoration: none; font-weight: bold;
             display: inline-block; transition: 0.3s; box-shadow: 0 10px 25px rgba(0,119,182,0.2);
         }
-        .btn-main:hover { transform: translateY(-3px); background: #00b4d8; }
+        .btn-main:hover { transform: translateY(-3px); background: #00b4d8; box-shadow: 0 15px 30px rgba(0,119,182,0.3); }
 
         footer { background: #fff; padding: 40px 0; text-align: center; border-top: 1px solid #eee; font-size: 0.85rem; color: #999; }
 
-        /* --- 4. スマホレスポンシブ --- */
+        /* --- 5. スマホレスポンシブ --- */
         @media (max-width: 768px) {
             header { padding: 12px 5%; }
             .menu-btn { display: block; }
@@ -96,13 +116,16 @@
             nav.active { top: 0; }
             nav a { margin: 10px 0; font-size: 1.1rem; width: 100%; text-align: center; }
             .nav-contact { width: 80%; margin: 10px auto !important; }
-            .menu-overlay.active { display: block; opacity: 1; }
+            .menu-overlay.active { display: block; opacity: 1; pointer-events: auto; }
 
             .page-hero h1 { font-size: 1.6rem; }
-            .category-header h2 { font-size: 1.2rem; }
+            .intro-message { padding: 40px 6% 10px; }
+            .intro-message p { font-size: 1.1rem; line-height: 1.6; }
+
             .price-table th, .price-table td { padding: 15px; }
             .price-table th { width: 55%; font-size: 0.85rem; }
             .price-tag { font-size: 1.1rem; }
+            .btn-main { width: 80%; padding: 15px 0; }
         }
     </style>
 </head>
@@ -110,18 +133,12 @@
 
 <header>
     <a href="../index.html" class="logo">株式会社NIKA</a>
-    
-    <div class="menu-btn" id="menuBtn">
-        <i class="fas fa-bars"></i>
-    </div>
-
+    <div class="menu-btn" id="menuBtn"><i class="fas fa-bars"></i></div>
     <div class="menu-overlay" id="menuOverlay"></div>
-
     <nav id="navMenu">
+        <a href="#kitchen">キッチン・換気扇</a>
+        <a href="#water">水回り料金</a>
         <a href="../index.html">ホーム</a>
-        <a href="../company/company.html">会社情報</a>
-        <a href="../service/service.html">事業内容</a>
-        <a href="../service/service.html">採用情報</a>        
         <a href="../contact/contact.html" class="nav-contact">お問い合わせ</a>
     </nav>
 </header>
@@ -131,16 +148,20 @@
     <p>ハウスクリーニング料金</p>
 </section>
 
+<div class="intro-message">
+    <p>エアコンのカビ・汚れを徹底洗浄。<br>プロの技術で快適な空間をお届けします。</p>
+</div>
+
 <div class="container">
 
-    <div class="category-header">
+    <div class="category-header" id="kitchen">
         <i class="fas fa-utensils"></i>
         <h2>キッチン・換気扇料金</h2>
     </div>
     <div class="price-card">
         <table class="price-table">
             <tr>
-                <th>レンジフード分解洗浄</th>
+                <th>レンジフード</th>
                 <td><span class="price-tag">19,800</span><span class="price-unit">円</span></td>
             </tr>
             <tr>
@@ -148,24 +169,24 @@
                 <td><span class="price-tag">15,950</span><span class="price-unit">円</span></td>
             </tr>
             <tr>
-                <th>魚焼きグリル内部</th>
+                <th>魚焼きグリル</th>
                 <td><span class="price-tag">2,310</span><span class="price-unit">円</span></td>
             </tr>
         </table>
     </div>
 
-    <div class="category-header">
+    <div class="category-header" id="water">
         <i class="fas fa-tint"></i>
         <h2>水回りクリーニング料金</h2>
     </div>
     <div class="price-card">
         <table class="price-table">
             <tr>
-                <th>浴室クリーニング（基本）</th>
+                <th>浴室クリーニング</th>
                 <td><span class="price-tag">23,100</span><span class="price-unit">円</span></td>
             </tr>
             <tr>
-                <th>エプロン内部洗浄</th>
+                <th>エプロン内部</th>
                 <td><span class="price-tag">6,600</span><span class="price-unit">円</span></td>
             </tr>
             <tr>
@@ -207,15 +228,16 @@
         const icon = menuBtn.querySelector('i');
         if (navMenu.classList.contains('active')) {
             icon.classList.replace('fa-bars', 'fa-times');
+            document.body.style.overflow = 'hidden'; // メニュー展開時に背景スクロール停止
         } else {
             icon.classList.replace('fa-times', 'fa-bars');
+            document.body.style.overflow = '';
         }
     }
 
     menuBtn.addEventListener('click', toggleMenu);
     menuOverlay.addEventListener('click', toggleMenu);
     
-    // メニュー内のリンクをクリックしたときにメニューを閉じる
     document.querySelectorAll('nav a').forEach(link => {
         link.addEventListener('click', () => {
             if(navMenu.classList.contains('active')) toggleMenu();
