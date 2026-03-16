@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>クリーニング料金表 | 株式会社NIKA</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* --- 1. ベース設定 --- */
+        body {
+            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+            margin: 0; color: #333; background-color: #f4f7f9; line-height: 1.8;
+        }
+        header {
+            background: #fff; padding: 15px 8%; display: flex; justify-content: space-between; align-items: center;
+            border-bottom: 2px solid #f0f4f8; position: sticky; top: 0; z-index: 1000;
+        }
+        .logo { font-weight: bold; font-size: 1.6rem; color: #0077b6; text-decoration: none; }
+        nav a { margin: 0 15px; text-decoration: none; color: #444; font-weight: 600; font-size: 0.95rem; }
+        .nav-contact { background: #0077b6; color: #fff !important; padding: 10px 25px; border-radius: 50px; text-decoration: none; }
+
+        /* --- 2. ヒーローエリア --- */
+        .page-hero {
+            background: linear-gradient(135deg, #0077b6 0%, #00b4d8 100%);
+            color: #fff; padding: 60px 8%; text-align: center;
+        }
+        .page-hero h1 { margin: 0; font-size: 2.2rem; letter-spacing: 0.1em; font-weight: 800; }
+        .page-hero p { margin: 10px 0 0; font-size: 1.1rem; opacity: 0.9; font-weight: 500; }
+
+        /* --- 3. コンテンツデザイン --- */
+        .container { max-width: 900px; margin: 0 auto; padding: 40px 5%; }
+
+        /* カテゴリの見出しデザイン */
+        .category-header {
+            display: flex; align-items: center; gap: 15px;
+            margin-bottom: 15px; padding: 10px 0;
+            border-bottom: 3px solid #0077b6;
+        }
+        .category-header i {
+            font-size: 1.8rem; color: #0077b6; background: #fff;
+            width: 50px; height: 50px; display: flex; align-items: center; justify-content: center;
+            border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        .category-header h2 { margin: 0; font-size: 1.4rem; color: #0077b6; }
+
+        /* テーブルデザイン */
+        .price-card {
+            background: #fff; border-radius: 15px; overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05); margin-bottom: 50px;
+        }
+        .price-table { width: 100%; border-collapse: collapse; }
+        .price-table tr { transition: 0.2s; }
+        .price-table tr:hover { background-color: #f0faff; }
+        .price-table th, .price-table td {
+            padding: 20px; border-bottom: 1px solid #edf2f7; text-align: left;
+        }
+        .price-table th { font-weight: 600; color: #4a5568; width: 65%; }
+        .price-table td { text-align: right; white-space: nowrap; }
+
+        /* 金額強調 */
+        .price-tag {
+            color: #0077b6; font-weight: 800; font-size: 1.4rem; font-family: 'Verdana', sans-serif;
+        }
+        .price-unit { font-size: 0.9rem; margin-left: 2px; color: #333; font-weight: bold; }
+
+        /* CTAボタン */
+        .cta-section { text-align: center; margin-bottom: 60px; }
+        .btn-main {
+            background: #0077b6; color: #fff; padding: 20px 50px;
+            border-radius: 50px; text-decoration: none; font-weight: bold;
+            display: inline-block; transition: 0.3s; box-shadow: 0 10px 25px rgba(0,119,182,0.2);
+        }
+        .btn-main:hover { transform: translateY(-3px); background: #00b4d8; }
+
+        /* --- 4. スマホレスポンシブ --- */
+        @media (max-width: 768px) {
+            header { padding: 15px 5%; }
+            .logo { font-size: 1.3rem; }
+            .page-hero h1 { font-size: 1.8rem; }
+            .category-header h2 { font-size: 1.2rem; }
+            .price-table th, .price-table td { padding: 15px; }
+            .price-table th { width: 60%; font-size: 0.9rem; }
+            .price-tag { font-size: 1.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="../index.html" class="logo">株式会社NIKA</a>
+    <nav>
+        <a href="../contact/contact.html" class="nav-contact">お問い合わせ</a>
+    </nav>
+</header>
+
+<section class="page-hero">
+    <h1>AIRCON CLEANING PRICE</h1>
+    <p>エアコンクリーニング料金</p>
+</section>
+
+<div class="container">
+
+    <div class="category-header">
+        <i class="fas fa-snowflake"></i>
+        <h2>エアコンクリーニング料金</h2>
+    </div>
+    <div class="price-card">
+        <table class="price-table">
+            <tr>
+                <th>壁掛けエアコン（通常型）</th>
+                <td><span class="price-tag">13,200</span><span class="price-unit">円</span></td>
+            </tr>
+            <tr>
+                <th>壁掛けエアコン（お掃除機能付）</th>
+                <td><span class="price-tag">24,200</span><span class="price-unit">円</span></td>
+            </tr>
+            <tr>
+                <th>業務用エアコン（天井カセット型）</th>
+                <td><span class="price-tag">38,500</span><span class="price-unit">円</span></td>
+            </tr>
+            <tr>
+                <th>抗菌・防カビコート</th>
+                <td><span class="price-tag">1,980</span><span class="price-unit">円</span></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="cta-section">
+        <a href="../contact/contact.html" class="btn-main">
+            <i class="fas fa-envelope"></i> 無料で見積もり・相談をする
+        </a>
+    </div>
+
+    <div style="text-align: center;">
+        <a href="../index.html" style="color: #718096; text-decoration: none; font-size: 0.9rem;">
+            <i class="fas fa-arrow-left"></i> ホームへ戻る
+        </a>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2026 株式会社NIKA. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>
