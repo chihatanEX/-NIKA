@@ -17,7 +17,8 @@
         }
         .logo { font-weight: bold; font-size: 1.6rem; color: #0077b6; text-decoration: none; }
         nav a { margin: 0 15px; text-decoration: none; color: #444; font-weight: 600; font-size: 0.95rem; }
-        .nav-contact { background: #0077b6; color: #fff !important; padding: 10px 25px; border-radius: 50px; text-decoration: none; }
+        .nav-contact { background: #0077b6; color: #fff !important; padding: 10px 25px; border-radius: 50px; text-decoration: none; transition: 0.3s; }
+        .nav-contact:hover { background: #00b4d8; }
 
         /* --- 2. ヒーローエリア --- */
         .page-hero {
@@ -27,10 +28,24 @@
         .page-hero h1 { margin: 0; font-size: 2.2rem; letter-spacing: 0.1em; font-weight: 800; }
         .page-hero p { margin: 10px 0 0; font-size: 1.1rem; opacity: 0.9; font-weight: 500; }
 
-        /* --- 3. コンテンツデザイン --- */
-        .container { max-width: 900px; margin: 0 auto; padding: 40px 5%; }
+        /* --- 3. 導入文メッセージ --- */
+        .intro-message {
+            text-align: center;
+            padding: 50px 8% 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .intro-message p {
+            font-size: 1.25rem;
+            color: #0077b6;
+            font-weight: 700;
+            line-height: 1.8;
+            margin: 0;
+        }
 
-        /* カテゴリの見出しデザイン */
+        /* --- 4. コンテンツデザイン --- */
+        .container { max-width: 900px; margin: 0 auto; padding: 20px 5% 80px; }
+
         .category-header {
             display: flex; align-items: center; gap: 15px;
             margin-bottom: 15px; padding: 10px 0;
@@ -43,24 +58,17 @@
         }
         .category-header h2 { margin: 0; font-size: 1.4rem; color: #0077b6; }
 
-        /* テーブルデザイン */
         .price-card {
             background: #fff; border-radius: 15px; overflow: hidden;
             box-shadow: 0 10px 30px rgba(0,0,0,0.05); margin-bottom: 50px;
         }
         .price-table { width: 100%; border-collapse: collapse; }
-        .price-table tr { transition: 0.2s; }
         .price-table tr:hover { background-color: #f0faff; }
-        .price-table th, .price-table td {
-            padding: 20px; border-bottom: 1px solid #edf2f7; text-align: left;
-        }
+        .price-table th, .price-table td { padding: 20px; border-bottom: 1px solid #edf2f7; text-align: left; }
         .price-table th { font-weight: 600; color: #4a5568; width: 65%; }
         .price-table td { text-align: right; white-space: nowrap; }
 
-        /* 金額強調 */
-        .price-tag {
-            color: #0077b6; font-weight: 800; font-size: 1.4rem; font-family: 'Verdana', sans-serif;
-        }
+        .price-tag { color: #0077b6; font-weight: 800; font-size: 1.4rem; font-family: 'Verdana', sans-serif; }
         .price-unit { font-size: 0.9rem; margin-left: 2px; color: #333; font-weight: bold; }
 
         /* CTAボタン */
@@ -72,15 +80,18 @@
         }
         .btn-main:hover { transform: translateY(-3px); background: #00b4d8; }
 
-        /* --- 4. スマホレスポンシブ --- */
+        footer { background: #fff; padding: 60px 0; text-align: center; border-top: 1px solid #eee; font-size: 0.85rem; color: #999; }
+
+        /* --- 5. スマホレスポンシブ --- */
         @media (max-width: 768px) {
             header { padding: 15px 5%; }
             .logo { font-size: 1.3rem; }
+            nav a { display: none; } /* お問い合わせボタンのみ表示する場合はここを調整 */
             .page-hero h1 { font-size: 1.8rem; }
-            .category-header h2 { font-size: 1.2rem; }
+            .intro-message p { font-size: 1.1rem; }
             .price-table th, .price-table td { padding: 15px; }
-            .price-table th { width: 60%; font-size: 0.9rem; }
-            .price-tag { font-size: 1.2rem; }
+            .price-table th { width: 60%; font-size: 0.85rem; }
+            .price-tag { font-size: 1.1rem; }
         }
     </style>
 </head>
@@ -98,29 +109,26 @@
     <p>エアコンクリーニング料金</p>
 </section>
 
+<div class="intro-message">
+    <p>エアコンのカビ・汚れを徹底洗浄。<br>プロの技術で快適な空間をお届けします。</p>
+</div>
+
 <div class="container">
 
     <div class="category-header">
         <i class="fas fa-snowflake"></i>
         <h2>エアコンクリーニング料金</h2>
     </div>
+
     <div class="price-card">
         <table class="price-table">
             <tr>
-                <th>壁掛けエアコン（通常型）</th>
-                <td><span class="price-tag">13,200</span><span class="price-unit">円</span></td>
+                <th>エアコン内部洗浄</th>
+                <td><span class="price-tag">8,000</span><span class="price-unit">円～</span></td>
             </tr>
             <tr>
-                <th>壁掛けエアコン（お掃除機能付）</th>
-                <td><span class="price-tag">24,200</span><span class="price-unit">円</span></td>
-            </tr>
-            <tr>
-                <th>業務用エアコン（天井カセット型）</th>
-                <td><span class="price-tag">38,500</span><span class="price-unit">円</span></td>
-            </tr>
-            <tr>
-                <th>抗菌・防カビコート</th>
-                <td><span class="price-tag">1,980</span><span class="price-unit">円</span></td>
+                <th>エアコン内部洗浄（お掃除機能付き）</th>
+                <td style="color: #0077b6; font-weight: bold;">機種により異なります</td>
             </tr>
         </table>
     </div>
