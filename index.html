@@ -52,7 +52,7 @@
         .standard-item { background: #fff; padding: 25px 50px; border-radius: 8px; box-shadow: 0 10px 25px rgba(0, 119, 182, 0.08); font-weight: 700; color: #0077b6; border-bottom: 4px solid #00b4d8; }
 
         .services {
-            padding: 80px 8%; max-width: 1200px; margin: 0 auto;
+            padding: 80px 8% 40px; max-width: 1200px; margin: 0 auto;
             display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;
         }
         .card {
@@ -74,8 +74,15 @@
         .card i { font-size: 2.5rem; color: #00b4d8; margin-bottom: 15px; display: block; }
         .card h3 { font-size: 1.4rem; color: #fff; margin-bottom: 15px; font-weight: 800; }
         .card p { font-size: 0.88rem; line-height: 1.6; margin-bottom: 20px; color: rgba(255, 255, 255, 0.9); }
-        .more-btn { font-weight: bold; font-size: 0.85rem; color: #fff; border: 1px solid rgba(255,255,255,0.5); padding: 8px 20px; border-radius: 50px; transition: 0.3s; }
-        .card:hover .more-btn { background: #fff; color: #0077b6; border-color: #fff; }
+
+        /* 料金案内ボタン */
+        .price-link-area { text-align: center; padding-bottom: 80px; }
+        .btn-price {
+            display: inline-block; background: #0077b6; color: #fff; padding: 18px 40px;
+            border-radius: 50px; text-decoration: none; font-weight: bold; transition: 0.3s;
+            box-shadow: 0 5px 15px rgba(0, 119, 182, 0.3); font-size: 1.1rem;
+        }
+        .btn-price:hover { background: #00b4d8; transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0, 119, 182, 0.4); }
 
         .gallery { padding: 100px 8% 60px; text-align: center; }
         .gallery h2 { font-size: 2rem; color: #1a1a1a; margin-bottom: 5px; font-weight: 800; }
@@ -98,7 +105,7 @@
 
         footer { background: #fff; padding: 60px 0; text-align: center; border-top: 1px solid #eee; font-size: 0.85rem; color: #999; }
 
-        /* --- 4. スマホ調整 (ここを重点的に改善) --- */
+        /* --- 4. スマホ調整 --- */
         @media (max-width: 768px) {
             header { padding: 12px 5%; }
             .logo { font-size: 1.3rem; }
@@ -121,14 +128,15 @@
             .sincere-statement h2 { font-size: 1.4rem; margin-bottom: 20px; }
             .sincere-statement p { font-size: 0.95rem; line-height: 1.8; }
             
-            /* サービスカードを2列にして見やすく */
-            .services { padding: 40px 4%; grid-template-columns: 1fr 1fr; gap: 10px; }
+            .services { padding: 40px 4% 20px; grid-template-columns: 1fr 1fr; gap: 10px; }
             .card { height: 240px; border-radius: 10px; }
             .card-content { padding: 15px; }
             .card i { font-size: 1.6rem; margin-bottom: 8px; }
             .card h3 { font-size: 0.95rem; margin-bottom: 5px; }
-            .card p { display: none; } /* スマホでは説明文を隠してスッキリさせる */
-            .more-btn { font-size: 0.7rem; padding: 4px 12px; }
+            .card p { display: none; }
+
+            .price-link-area { padding-bottom: 40px; }
+            .btn-price { padding: 14px 25px; font-size: 0.95rem; width: 85%; }
 
             .recruit-banner { padding: 40px 20px; border-radius: 15px; }
             .recruit-banner h2 { font-size: 1.5rem; }
@@ -149,7 +157,7 @@
     <nav id="navMenu">
         <a href="index.html">HOME</a>
         <a href="company/company.html">会社情報</a>
-        <a href="service/service.html">サービス案内</a>
+        <a href="service/service.html">事業内容</a>
         <a href="recruit/recruit.html">採用情報</a>
         <a href="contact/contact.html" class="nav-contact">お問い合わせ</a>
     </nav>
@@ -178,40 +186,41 @@
 </section>
 
 <section class="services">
-    <a href="service/service.html" class="card card-air-clean">
+    <div class="card card-air-clean">
         <div class="card-content">
             <i class="fas fa-pump-medical"></i>
-            <h3>エアコン清掃</h3>
+            <h3>エアコンクリーニング</h3>
             <p>高圧洗浄でカビやホコリを徹底除去。空気を清浄にし、省エネ効果も高めます。</p>
-            <span class="more-btn">詳しく見る ＞</span>
         </div>
-    </a>
-    <a href="service/service.html" class="card card-air-install">
+    </div>
+    <div class="card card-air-install">
         <div class="card-content">
             <i class="fas fa-tools"></i>
             <h3>エアコン取付</h3>
             <p>家庭用から業務用まで幅広く対応。丁寧な真空引きと確実な施工をお約束します。</p>
         </div>
-    </a>
-    <a href="service/service.html" class="card card-cleaning">
+    </div>
+    <div class="card card-cleaning">
         <div class="card-content">
             <i class="fas fa-home"></i>
-            <h3>お掃除</h3>
+            <h3>ハウスクリーニング</h3>
             <p>水回りから入退去清掃まで。プロの技術で住まいを新品のような輝きに戻します。</p>
-            <span class="more-btn">詳しく見る ＞</span>
         </div>
-    </a>
-    <a href="service/service.html" class="card card-construction">
+    </div>
+    <div class="card card-construction">
         <div class="card-content">
             <i class="fas fa-hard-hat"></i>
-
-
-            
             <h3>建設サポート</h3>
             <p>現場の質を高める養生、円滑な進行を支える雑工、完璧な仕上げの美装を承ります。</p>
         </div>
-    </a>
+    </div>
 </section>
+
+<div class="price-link-area">
+    <a href="price/price.html" class="btn-price">
+        ハウスクリーニング・エアコンクリーニングの料金表はこちら <i class="fas fa-chevron-right"></i>
+    </a>
+</div>
 
 <section class="recruit-section">
     <div class="recruit-banner">
