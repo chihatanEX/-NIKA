@@ -11,16 +11,30 @@
             font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
             margin: 0; color: #333; background-color: #f4f7f9; line-height: 1.8;
         }
+        
+        /* --- 2. ヘッダー & ナビゲーション --- */
         header {
             background: #fff; padding: 15px 8%; display: flex; justify-content: space-between; align-items: center;
             border-bottom: 2px solid #f0f4f8; position: sticky; top: 0; z-index: 1000;
         }
-        .logo { font-weight: bold; font-size: 1.6rem; color: #0077b6; text-decoration: none; }
-        nav a { margin: 0 15px; text-decoration: none; color: #444; font-weight: 600; font-size: 0.95rem; }
-        .nav-contact { background: #0077b6; color: #fff !important; padding: 10px 25px; border-radius: 50px; text-decoration: none; transition: 0.3s; }
+        .logo { font-weight: bold; font-size: 1.6rem; color: #0077b6; text-decoration: none; z-index: 1100; }
+
+        /* PCナビゲーション */
+        nav a { margin: 0 15px; text-decoration: none; color: #444; font-weight: 600; font-size: 0.95rem; transition: 0.3s; }
+        nav a:hover { color: #0077b6; }
+        .nav-contact { background: #0077b6; color: #fff !important; padding: 10px 25px; border-radius: 50px; text-decoration: none; }
         .nav-contact:hover { background: #00b4d8; }
 
-        /* --- 2. ヒーローエリア --- */
+        /* ハンバーガーボタン（デフォルト非表示） */
+        .menu-btn {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: #0077b6;
+            z-index: 1100;
+        }
+
+        /* --- 3. ヒーローエリア --- */
         .page-hero {
             background: linear-gradient(135deg, #0077b6 0%, #00b4d8 100%);
             color: #fff; padding: 60px 8%; text-align: center;
@@ -28,28 +42,20 @@
         .page-hero h1 { margin: 0; font-size: 2.2rem; letter-spacing: 0.1em; font-weight: 800; }
         .page-hero p { margin: 10px 0 0; font-size: 1.1rem; opacity: 0.9; font-weight: 500; }
 
-        /* --- 3. 導入文メッセージ --- */
+        /* --- 4. 導入文メッセージ --- */
         .intro-message {
-            text-align: center;
-            padding: 50px 8% 20px;
-            max-width: 800px;
-            margin: 0 auto;
+            text-align: center; padding: 50px 8% 20px; max-width: 800px; margin: 0 auto;
         }
         .intro-message p {
-            font-size: 1.25rem;
-            color: #0077b6;
-            font-weight: 700;
-            line-height: 1.8;
-            margin: 0;
+            font-size: 1.25rem; color: #0077b6; font-weight: 700; line-height: 1.8; margin: 0;
         }
 
-        /* --- 4. コンテンツデザイン --- */
+        /* --- 5. コンテンツデザイン --- */
         .container { max-width: 900px; margin: 0 auto; padding: 20px 5% 80px; }
 
         .category-header {
             display: flex; align-items: center; gap: 15px;
-            margin-bottom: 15px; padding: 10px 0;
-            border-bottom: 3px solid #0077b6;
+            margin-bottom: 15px; padding: 10px 0; border-bottom: 3px solid #0077b6;
         }
         .category-header i {
             font-size: 1.8rem; color: #0077b6; background: #fff;
@@ -82,11 +88,46 @@
 
         footer { background: #fff; padding: 60px 0; text-align: center; border-top: 1px solid #eee; font-size: 0.85rem; color: #999; }
 
-        /* --- 5. スマホレスポンシブ --- */
+        /* --- 6. スマホレスポンシブ (768px以下) --- */
         @media (max-width: 768px) {
             header { padding: 15px 5%; }
             .logo { font-size: 1.3rem; }
-            nav a { display: none; } /* お問い合わせボタンのみ表示する場合はここを調整 */
+
+            /* ハンバーガーボタンを表示 */
+            .menu-btn { display: block; }
+
+            /* ナビゲーションを画面全体を覆うメニューに変更 */
+            nav {
+                position: fixed;
+                top: 0;
+                right: -100%; /* 初期位置は右の外側 */
+                width: 80%;
+                height: 100vh;
+                background: #fff;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                transition: 0.4s;
+                z-index: 1050;
+                box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+            }
+
+            /* メニューが開いた状態 */
+            nav.active { right: 0; }
+
+            nav a { margin: 15px 0; font-size: 1.2rem; }
+
+            /* オーバーレイ（背景を暗くする） */
+            .menu-overlay {
+                display: none;
+                position: fixed;
+                top: 0; left: 0; width: 100%; height: 100%;
+                background: rgba(0,0,0,0.5);
+                z-index: 1000;
+            }
+            .menu-overlay.active { display: block; }
+
             .page-hero h1 { font-size: 1.8rem; }
             .intro-message p { font-size: 1.1rem; }
             .price-table th, .price-table td { padding: 15px; }
@@ -99,7 +140,18 @@
 
 <header>
     <a href="../index.html" class="logo">株式会社NIKA</a>
-    <nav>
+    
+    <div class="menu-btn" id="menuBtn">
+        <i class="fas fa-bars"></i>
+    </div>
+
+    <div class="menu-overlay" id="menuOverlay"></div>
+
+    <nav id="navMenu">
+        <a href="../index.html">HOME</a>
+        <a href="../company/company.html">会社情報</a>
+        <a href="../service/service.html">事業内容</a>
+        <a href="../recruit/recruit.html">採用情報</a>
         <a href="../contact/contact.html" class="nav-contact">お問い合わせ</a>
     </nav>
 </header>
@@ -114,7 +166,6 @@
 </div>
 
 <div class="container">
-
     <div class="category-header">
         <i class="fas fa-snowflake"></i>
         <h2>エアコンクリーニング料金</h2>
@@ -124,11 +175,11 @@
         <table class="price-table">
             <tr>
                 <th>エアコン内部洗浄</th>
-                <td><span class="price-tag">8,000</span><span class="price-unit">円～</span></td>
+                <td><span class="price-tag">13,200</span><span class="price-unit">円～</span></td>
             </tr>
             <tr>
                 <th>エアコン内部洗浄（お掃除機能付き）</th>
-                <td style="color: #0077b6; font-weight: bold;">機種により異なります</td>
+                <td><span class="price-tag">24,200</span><span class="price-unit">円～</span></td>
             </tr>
         </table>
     </div>
@@ -149,6 +200,27 @@
 <footer>
     <p>&copy; 2026 株式会社NIKA. All Rights Reserved.</p>
 </footer>
+
+<script>
+    const menuBtn = document.getElementById('menuBtn');
+    const navMenu = document.getElementById('navMenu');
+    const menuOverlay = document.getElementById('menuOverlay');
+
+    function toggleMenu() {
+        navMenu.classList.toggle('active');
+        menuOverlay.classList.toggle('active');
+        // アイコンを切り替え（三本線 ⇄ ✕印）
+        const icon = menuBtn.querySelector('i');
+        if (navMenu.classList.contains('active')) {
+            icon.classList.replace('fa-bars', 'fa-times');
+        } else {
+            icon.classList.replace('fa-times', 'fa-bars');
+        }
+    }
+
+    menuBtn.addEventListener('click', toggleMenu);
+    menuOverlay.addEventListener('click', toggleMenu);
+</script>
 
 </body>
 </html>

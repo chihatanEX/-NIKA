@@ -14,7 +14,7 @@
         
         /* --- 2. ヘッダー --- */
         header { 
-            background: #fff; padding: 15px 8%; 
+            background: #fff; padding: 15px 5%; /* 左右余白を少し詰めました */
             display: flex; justify-content: space-between; align-items: center; 
             border-bottom: 2px solid #f0f4f8; position: sticky; top: 0; z-index: 1000;
         }
@@ -36,13 +36,10 @@
             background: rgba(0, 0, 0, 0.6); z-index: 1050; opacity: 0; transition: 0.3s; pointer-events: none;
         }
 
-        /* --- 3. ヒーローエリア（他ページと完全統一） --- */
+        /* --- 3. ヒーローエリア --- */
         .page-hero {
             background: linear-gradient(135deg, #0077b6 0%, #00b4d8 100%);
-            color: #fff;
-            padding: 100px 8%; 
-            text-align: center;
-            box-sizing: border-box;
+            color: #fff; padding: 100px 5%; text-align: center;
         }
         .page-hero h1 { 
             margin: 0; font-size: 2.2rem; letter-spacing: 0.1em; font-weight: 800; text-transform: uppercase;
@@ -52,16 +49,24 @@
         }
 
         /* --- 4. コンテンツ・カード --- */
-        .container { max-width: 1000px; margin: 0 auto; padding: 60px 8% 20px; box-sizing: border-box; }
+        .container { 
+            max-width: 1200px; /* ここを1000pxから1200pxに拡大 */
+            margin: 0 auto; 
+            padding: 60px 5% 20px; /* 左右のpaddingを8%から5%に調整 */
+            box-sizing: border-box; 
+        }
 
         .content-card {
-            background: #fff; padding: 50px; border-radius: 15px;
-            border: 1px solid #eef2f6; box-shadow: 0 5px 20px rgba(0,0,0,0.03);
+            background: #fff; 
+            padding: 60px; /* 内側の余白を少し増やしてゆったりさせました */
+            border-radius: 15px;
+            border: 1px solid #eef2f6; 
+            box-shadow: 0 5px 20px rgba(0,0,0,0.03);
             margin-bottom: 60px;
         }
 
         h2 { 
-            text-align: left; color: #0077b6; font-size: 1.8rem; margin-bottom: 30px; 
+            text-align: left; color: #0077b6; font-size: 1.8rem; margin-bottom: 40px; 
             position: relative; padding-bottom: 15px; 
         }
         h2::after { 
@@ -70,23 +75,34 @@
 
         .company-table { width: 100%; border-collapse: collapse; }
         .company-table th, .company-table td { 
-            padding: 22px 15px; border-bottom: 1px solid #f0f4f8; text-align: left; 
+            padding: 25px 20px; border-bottom: 1px solid #f0f4f8; text-align: left; 
         }
         .company-table th { 
-            width: 25%; color: #0077b6; font-weight: bold; font-size: 1.05rem; vertical-align: top;
+            width: 20%; /* 幅を25%から20%に絞り、内容を広くしました */
+            color: #0077b6; font-weight: bold; font-size: 1.05rem; vertical-align: top;
+            background: #fcfdfe; /* 見出しに薄い色をつけて表を強調 */
         }
-        .company-table td { color: #444; font-size: 1.05rem; }
+        .company-table td { color: #444; font-size: 1.1rem; }
         .company-table tr:last-child th, .company-table tr:last-child td { border-bottom: none; }
 
         /* --- 5. アクセス/地図 --- */
-        .map-area { margin-top: 20px; }
-        .map-placeholder { 
-            background: #f4f9fc; height: 400px; border-radius: 20px; border: 1px solid #e1ecf2;
-            display: flex; align-items: center; justify-content: center; color: #9ab4c1; font-weight: bold;
+        .map-wrapper {
+            position: relative;
+            padding-bottom: 45%; /* 56.25%から45%に下げ、横長の大きな画面でも縦が長くなりすぎないよう調整 */
+            height: 0;
+            overflow: hidden;
+            border-radius: 20px;
+            border: 1px solid #e1ecf2;
+            background: #f4f9fc;
+        }
+        .map-wrapper iframe {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            border: 0;
         }
 
         /* --- 6. 戻るボタン --- */
-        .cta-area { text-align: center; margin-top: 40px; padding-bottom: 80px; }
+        .cta-area { text-align: center; margin-top: 20px; padding-bottom: 80px; }
         .btn-outline {
             display: inline-flex; align-items: center; gap: 10px; border: 2px solid #0077b6; 
             color: #0077b6; padding: 15px 60px; border-radius: 50px; text-decoration: none; font-weight: bold; transition: 0.3s;
@@ -101,34 +117,29 @@
             .menu-btn { display: block; }
 
             nav {
-                position: fixed; top: -70vh; left: 0; width: 100%; height: 70vh;
-                background: #ffffff; flex-direction: column; justify-content: center;
-                align-items: center; padding: 40px 0; transition: 0.5s cubic-bezier(0.19, 1, 0.22, 1);
-                z-index: 1100; box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+                position: fixed; top: -100vh; left: 0; width: 100%; height: auto;
+                background: #ffffff; flex-direction: column; padding: 60px 0 40px; 
+                z-index: 1100; box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+                transition: 0.4s ease-in-out;
             }
 
             nav.active { top: 0; }
             .menu-overlay.active { display: block; opacity: 1; pointer-events: auto; }
 
             nav a {
-                margin: 0; font-size: 1.25rem; font-weight: 700; color: #0077b6;
-                width: 100%; text-align: center; padding: 20px 0; border-bottom: 1px solid #f0f4f8;
+                margin: 0; font-size: 1.1rem; width: 100%; text-align: center; padding: 15px 0; border-bottom: 1px solid #f9f9f9;
             }
 
             .nav-contact {
-                background: #0077b6 !important; color: #fff !important;
-                margin-top: 25px !important; border-radius: 50px !important;
-                width: 75% !important; padding: 15px 0 !important;
+                width: 80% !important; margin: 20px auto 0 !important;
             }
 
-            .page-hero { padding: 80px 5%; }
-            .page-hero h1 { font-size: 1.8rem; }
-
+            .content-card { padding: 30px 20px; }
             .company-table th, .company-table td { display: block; width: 100%; padding: 12px 0; }
-            .company-table th { border-bottom: none; padding-bottom: 0; font-size: 1rem; color: #00b4d8; }
-            .company-table td { padding-bottom: 15px; }
+            .company-table th { border-bottom: none; padding-bottom: 0; font-size: 0.95rem; color: #00b4d8; background: none; }
+            .company-table td { padding-bottom: 15px; border-bottom: 1px solid #f0f4f8; }
 
-            .map-placeholder { height: 300px; }
+            .map-wrapper { padding-bottom: 75%; } /* スマホでは地図を正方形に近く */
             .btn-outline { width: 100%; box-sizing: border-box; justify-content: center; }
         }
     </style>
@@ -167,7 +178,7 @@
             </tr>
             <tr>
                 <th>所在地</th>
-                <td>千葉県千葉市若葉区桜木北2-26-43</td>
+                <td>〒264-0004<br>千葉県千葉市若葉区桜木北2-26-43</td>
             </tr>
             <tr>
                 <th>設立</th>
@@ -175,18 +186,18 @@
             </tr>
             <tr>
                 <th>電話番号</th>
-                <td>XXX-XXXX-XXXX</td>
+                <td>XXX-XXXX-XXXX（準備中）</td>
             </tr>
             <tr>
                 <th>FAX</th>
                 <td>043-331-2345</td>
-            </tr>                        
+            </tr>                                    
             <tr>
                 <th>事業内容</th>
                 <td>
                     エアコン設置・清掃事業<br>
                     ハウスクリーニング事業<br>
-                    建設事業
+                    建設サポート事業（美装・養生・雑工）
                 </td>
             </tr>
         </table>
@@ -195,10 +206,13 @@
     <div class="content-card">
         <h2>アクセス</h2>
         <div class="map-area">
-            
-            <div class="map-placeholder">
-
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3242.808640415878!2d140.15629487484932!3d35.63244373265407!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60228539a2bb1a97%3A0x9c9ce86955bca0a1!2z44CSMjY0LTAwMjkg5Y2D6JGJ55yM5Y2D6JGJ5biC6Iul6JGJ5Yy65qGc5pyo5YyX77yS5LiB55uu77yS77yW4oiS77yU77yT!5e0!3m2!1sja!2sjp!4v1773368224477!5m2!1sja!2sjp" width="650" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <div class="map-wrapper">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3243.3404746673646!2d140.15573427641038!3d35.61931333334659!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6022906e53406f53%3A0x86f4b63390231902!2z44CSMjY0LTAwMDQg5Y2D6JGJ55yM5Y2D6JGJ5biC6Iul6JGJ5Yy65qGc5pyo5YyXMvS4geebru-8ku-8luKIku-8l-ODve-8l-ODvA!5e0!3m2!1sja!2sjp!4v1709600000000!5m2!1sja!2sjp" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
             </div>
         </div>
     </div>
@@ -211,7 +225,7 @@
 </div>
 
 <footer>
-    <p>&copy; 2026 株式会社NIKA. All Rights Reserved.</p>
+    <p>© 2026 株式会社NIKA. All Rights Reserved.</p>
 </footer>
 
 <script>

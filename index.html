@@ -55,25 +55,31 @@
             padding: 80px 8%; max-width: 1200px; margin: 0 auto;
             display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;
         }
-        .card {
+        /* カードの共通スタイル */
+        .card, .card-static {
             position: relative; height: 380px; display: flex; align-items: center; justify-content: center;
-            border-radius: 15px; overflow: hidden; text-decoration: none; color: #fff; transition: 0.4s; box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-radius: 15px; overflow: hidden; color: #fff; transition: 0.4s; box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
+        .card { text-decoration: none; cursor: pointer; }
+        .card-static { cursor: default; } /* 押せないカードはカーソルを通常に */
+
         .card-air-clean { background: url('image/aircon_cleaning.webp') center/cover; }
         .card-air-install { background: url('image/aircon.jpg') center/cover; }
         .card-cleaning { background: url('image/cleaning.jpg') center/cover; }
         .card-construction { background: url('image/construction.jpg') center/cover; }
 
-        .card::before {
+        .card::before, .card-static::before {
             content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(0, 0, 0, 0.5); transition: 0.4s; z-index: 1;
         }
         .card:hover { transform: translateY(-10px); }
         .card:hover::before { background: rgba(0, 0, 0, 0.35); }
+        
         .card-content { position: relative; z-index: 2; padding: 25px; text-align: center; }
-        .card i { font-size: 2.5rem; color: #00b4d8; margin-bottom: 15px; display: block; }
-        .card h3 { font-size: 1.4rem; color: #fff; margin-bottom: 15px; font-weight: 800; }
-        .card p { font-size: 0.88rem; line-height: 1.6; margin-bottom: 20px; color: rgba(255, 255, 255, 0.9); }
+        .card i, .card-static i { font-size: 2.5rem; color: #00b4d8; margin-bottom: 15px; display: block; }
+        .card h3, .card-static h3 { font-size: 1.4rem; color: #fff; margin-bottom: 15px; font-weight: 800; }
+        .card p, .card-static p { font-size: 0.88rem; line-height: 1.6; margin-bottom: 20px; color: rgba(255, 255, 255, 0.9); }
+        
         .more-btn { font-weight: bold; font-size: 0.85rem; color: #fff; border: 1px solid rgba(255,255,255,0.5); padding: 8px 20px; border-radius: 50px; transition: 0.3s; }
         .card:hover .more-btn { background: #fff; color: #0077b6; border-color: #fff; }
 
@@ -98,7 +104,7 @@
 
         footer { background: #fff; padding: 60px 0; text-align: center; border-top: 1px solid #eee; font-size: 0.85rem; color: #999; }
 
-        /* --- 4. スマホ調整 (ここを重点的に改善) --- */
+        /* --- 4. スマホ調整 --- */
         @media (max-width: 768px) {
             header { padding: 12px 5%; }
             .logo { font-size: 1.3rem; }
@@ -121,13 +127,12 @@
             .sincere-statement h2 { font-size: 1.4rem; margin-bottom: 20px; }
             .sincere-statement p { font-size: 0.95rem; line-height: 1.8; }
             
-            /* サービスカードを2列にして見やすく */
             .services { padding: 40px 4%; grid-template-columns: 1fr 1fr; gap: 10px; }
-            .card { height: 240px; border-radius: 10px; }
+            .card, .card-static { height: 240px; border-radius: 10px; }
             .card-content { padding: 15px; }
-            .card i { font-size: 1.6rem; margin-bottom: 8px; }
-            .card h3 { font-size: 0.95rem; margin-bottom: 5px; }
-            .card p { display: none; } /* スマホでは説明文を隠してスッキリさせる */
+            .card i, .card-static i { font-size: 1.6rem; margin-bottom: 8px; }
+            .card h3, .card-static h3 { font-size: 0.95rem; margin-bottom: 5px; }
+            .card p, .card-static p { display: none; } 
             .more-btn { font-size: 0.7rem; padding: 4px 12px; }
 
             .recruit-banner { padding: 40px 20px; border-radius: 15px; }
@@ -186,13 +191,15 @@
             <span class="more-btn">詳しく見る ＞</span>
         </div>
     </a>
-    <a href="" class="card card-air-install">
+
+    <div class="card-static card-air-install">
         <div class="card-content">
             <i class="fas fa-tools"></i>
             <h3>エアコン取付</h3>
             <p>家庭用から業務用まで幅広く対応。丁寧な真空引きと確実な施工をお約束します。</p>
         </div>
-    </a>
+    </div>
+
     <a href="housecleaning/housecleaning.html" class="card card-cleaning">
         <div class="card-content">
             <i class="fas fa-home"></i>
@@ -201,13 +208,14 @@
             <span class="more-btn">詳しく見る ＞</span>
         </div>
     </a>
-    <a href="" class="card card-construction">
+
+    <div class="card-static card-construction">
         <div class="card-content">
             <i class="fas fa-hard-hat"></i>
             <h3>建設サポート</h3>
             <p>現場の質を高める養生、円滑な進行を支える雑工、完璧な仕上げの美装を承ります。</p>
         </div>
-    </a>
+    </div>
 </section>
 
 <section class="recruit-section">
