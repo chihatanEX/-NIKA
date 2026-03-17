@@ -14,7 +14,7 @@
         
         /* --- 2. ヘッダー --- */
         header { 
-            background: #fff; padding: 15px 5%; /* 左右余白を少し詰めました */
+            background: #fff; padding: 15px 8%; 
             display: flex; justify-content: space-between; align-items: center; 
             border-bottom: 2px solid #f0f4f8; position: sticky; top: 0; z-index: 1000;
         }
@@ -39,7 +39,7 @@
         /* --- 3. ヒーローエリア --- */
         .page-hero {
             background: linear-gradient(135deg, #0077b6 0%, #00b4d8 100%);
-            color: #fff; padding: 100px 5%; text-align: center;
+            color: #fff; padding: 100px 8%; text-align: center;
         }
         .page-hero h1 { 
             margin: 0; font-size: 2.2rem; letter-spacing: 0.1em; font-weight: 800; text-transform: uppercase;
@@ -49,24 +49,16 @@
         }
 
         /* --- 4. コンテンツ・カード --- */
-        .container { 
-            max-width: 1200px; /* ここを1000pxから1200pxに拡大 */
-            margin: 0 auto; 
-            padding: 60px 5% 20px; /* 左右のpaddingを8%から5%に調整 */
-            box-sizing: border-box; 
-        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 60px 8% 20px; box-sizing: border-box; }
 
         .content-card {
-            background: #fff; 
-            padding: 60px; /* 内側の余白を少し増やしてゆったりさせました */
-            border-radius: 15px;
-            border: 1px solid #eef2f6; 
-            box-shadow: 0 5px 20px rgba(0,0,0,0.03);
+            background: #fff; padding: 50px; border-radius: 15px;
+            border: 1px solid #eef2f6; box-shadow: 0 5px 20px rgba(0,0,0,0.03);
             margin-bottom: 60px;
         }
 
         h2 { 
-            text-align: left; color: #0077b6; font-size: 1.8rem; margin-bottom: 40px; 
+            text-align: left; color: #0077b6; font-size: 1.8rem; margin-bottom: 30px; 
             position: relative; padding-bottom: 15px; 
         }
         h2::after { 
@@ -75,20 +67,18 @@
 
         .company-table { width: 100%; border-collapse: collapse; }
         .company-table th, .company-table td { 
-            padding: 25px 20px; border-bottom: 1px solid #f0f4f8; text-align: left; 
+            padding: 22px 15px; border-bottom: 1px solid #f0f4f8; text-align: left; 
         }
         .company-table th { 
-            width: 20%; /* 幅を25%から20%に絞り、内容を広くしました */
-            color: #0077b6; font-weight: bold; font-size: 1.05rem; vertical-align: top;
-            background: #fcfdfe; /* 見出しに薄い色をつけて表を強調 */
+            width: 25%; color: #0077b6; font-weight: bold; font-size: 1.05rem; vertical-align: top;
         }
-        .company-table td { color: #444; font-size: 1.1rem; }
+        .company-table td { color: #444; font-size: 1.05rem; }
         .company-table tr:last-child th, .company-table tr:last-child td { border-bottom: none; }
 
         /* --- 5. アクセス/地図 --- */
         .map-wrapper {
             position: relative;
-            padding-bottom: 45%; /* 56.25%から45%に下げ、横長の大きな画面でも縦が長くなりすぎないよう調整 */
+            padding-bottom: 45%; 
             height: 0;
             overflow: hidden;
             border-radius: 20px;
@@ -111,7 +101,7 @@
 
         footer { background: #fff; padding: 60px 0; text-align: center; border-top: 1px solid #eee; font-size: 0.85rem; color: #999; }
 
-        /* --- 7. スマホレスポンシブ --- */
+        /* --- 7. スマホレスポンシブ（統一設定） --- */
         @media (max-width: 768px) {
             header { padding: 12px 5%; }
             .menu-btn { display: block; }
@@ -132,15 +122,21 @@
 
             .nav-contact {
                 width: 80% !important; margin: 20px auto 0 !important;
+                background: #0077b6 !important; color: #fff !important;
             }
 
-            .content-card { padding: 30px 20px; }
+            .page-hero { padding: 80px 5%; }
+            .page-hero h1 { font-size: 1.8rem; }
+
+            .container { padding: 40px 5% 20px; }
+            .content-card { padding: 30px 20px; margin-bottom: 40px; }
+
             .company-table th, .company-table td { display: block; width: 100%; padding: 12px 0; }
-            .company-table th { border-bottom: none; padding-bottom: 0; font-size: 0.95rem; color: #00b4d8; background: none; }
+            .company-table th { border-bottom: none; padding-bottom: 0; font-size: 0.95rem; color: #00b4d8; }
             .company-table td { padding-bottom: 15px; border-bottom: 1px solid #f0f4f8; }
 
-            .map-wrapper { padding-bottom: 75%; } /* スマホでは地図を正方形に近く */
-            .btn-outline { width: 100%; box-sizing: border-box; justify-content: center; }
+            .map-wrapper { padding-bottom: 75%; }
+            .btn-outline { width: 100%; box-sizing: border-box; justify-content: center; padding: 15px 0; }
         }
     </style>
 </head>
@@ -208,7 +204,7 @@
         <div class="map-area">
             <div class="map-wrapper">
                 <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3243.3404746673646!2d140.15573427641038!3d35.61931333334659!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6022906e53406f53%3A0x86f4b63390231902!2z44CSMjY0LTAwMDQg5Y2D6JGJ55yM5Y2D6JGJ5biC6Iul6JGJ5Yy65qGc5pyo5YyXMvS4geebru-8ku-8luKIku-8l-ODve-8l-ODvA!5e0!3m2!1sja!2sjp!4v1709600000000!5m2!1sja!2sjp" 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3243.666947648356!2d140.158308!3d35.611295!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x602290680a672951%3A0xc669a4738407481b!2z44CSMjY0LTAwMDQg5Y2D6JGJ55yM5Y2D6JGJ5biC6Iul6JGJ5Yy65qGc5pyo5YyX77yS5LiB55uu77yS7770477yU77yT!5e0!3m2!1sja!2sjp!4v1710000000000!5m2!1sja!2sjp" 
                     allowfullscreen="" 
                     loading="lazy" 
                     referrerpolicy="no-referrer-when-downgrade">
