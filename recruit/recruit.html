@@ -11,35 +11,46 @@
     <style>
         /* --- 1. ベース設定 --- */
         body {
-            font-family: "Noto Sans JP", "Helvetica Neue", Arial, sans-serif;
+            font-family: "Noto Sans JP", sans-serif;
             margin: 0; color: #333; background-color: #fcfdfe; line-height: 1.8;
             -webkit-font-smoothing: antialiased;
         }
 
-        /* --- 2. ヘッダー (ナビのみ以前のフォント) --- */
-        header {
-            background: #fff; padding: 15px 8%; display: flex;
-            justify-content: space-between; align-items: center;
+        /* --- 2. ヘッダー (他ページと完全に統一) --- */
+        header { 
+            background: #fff; padding: 15px 8%; 
+            display: flex; justify-content: space-between; align-items: center; 
             border-bottom: 2px solid #f0f4f8; position: sticky; top: 0; z-index: 1000;
         }
-        .logo { font-weight: 700; font-size: 1.6rem; color: #0077b6; text-decoration: none; z-index: 1200; }
-        nav { display: flex; align-items: center; }
-        
-        nav a { 
-            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
-            margin: 0 15px; text-decoration: none; color: #444; font-weight: 600; font-size: 0.95rem; transition: 0.3s; 
-        }
-        nav a:hover { color: #00b4d8; }
-        .nav-contact { 
-            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
-            background: #0077b6; color: #fff !important; padding: 10px 25px; border-radius: 50px; 
-            margin-left: 10px; transition: 0.3s; text-decoration: none;
-        }
 
-        .menu-btn { display: none; cursor: pointer; z-index: 1200; font-size: 1.6rem; color: #0077b6; }
+        .logo { font-weight: 700; font-size: 1.4rem; color: #0077b6; text-decoration: none; }
+
+        nav { display: flex; align-items: center; }
+        nav a { 
+            margin: 0 12px; 
+            text-decoration: none; 
+            color: #444; 
+            font-weight: 600; 
+            font-size: 0.9rem; 
+            transition: 0.3s; 
+        }
+        /* マウスをかざすとオレンジ */
+        nav a:hover { color: #f39c12; }
+
+        .nav-contact { 
+            background: #f39c12; 
+            color: #fff !important; 
+            padding: 8px 25px; 
+            border-radius: 50px; 
+            margin-left: 10px; 
+            transition: 0.3s !important;
+        }
+        .nav-contact:hover { opacity: 0.8; color: #fff !important; }
+
+        .menu-btn { display: none; cursor: pointer; font-size: 1.5rem; color: #0077b6; }
         .menu-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: rgba(0, 0, 0, 0.6); z-index: 1050; opacity: 0; transition: 0.3s; pointer-events: none; }
 
-        /* --- 3. ヒーロー (事業内容ページと統一) --- */
+        /* --- 3. ヒーローエリア --- */
         .page-hero {
             background: linear-gradient(135deg, #0077b6 0%, #00b4d8 100%);
             color: #fff; 
@@ -56,13 +67,18 @@
         .page-hero p { 
             margin: 5px 0 0; 
             font-size: 1.0rem; 
-            font-weight: 500; 
+            font-weight: 700; 
             opacity: 0.9; 
             letter-spacing: 0.2em;
         }
 
-        /* --- 4. コンテンツエリア --- */
-        .container { max-width: 1000px; margin: 0 auto; padding: 60px 8%; box-sizing: border-box; }
+        /* --- 4. コンテンツ・PCでワイド表示 --- */
+        .container { 
+            max-width: 1400px; /* 横幅を他ページと統一 */
+            margin: 0 auto; 
+            padding: 60px 8%; 
+            box-sizing: border-box; 
+        }
 
         .message-box { text-align: center; margin-bottom: 60px; }
         .message-box h2 { 
@@ -71,19 +87,29 @@
         }
         .message-box p { font-size: 1.15rem; color: #555; font-weight: 500; }
 
+        /* スクロール誘導のアクセント */
+        .scroll-guide {
+            margin-bottom: 30px; font-weight: bold; color: #f39c12; text-align: center; font-size: 1.1rem;
+        }
+
         /* 募集要項テーブル */
         .recruit-table {
-            width: 100%; border-collapse: collapse; background: #fff;
+            width: 100%; max-width: 1100px; margin: 0 auto 80px;
+            border-collapse: collapse; background: #fff;
             border-radius: 15px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.03);
-            border: 1px solid #eef2f6; margin-bottom: 80px;
+            border: 1px solid #eef2f6;
         }
         .recruit-table th, .recruit-table td {
             padding: 25px; border-bottom: 1px solid #f0f4f8; text-align: left;
         }
         .recruit-table th {
-            background-color: #f8fbff; color: #0077b6; width: 25%; font-weight: 700; white-space: nowrap;
+            background-color: #f8fbff; color: #0077b6; width: 22%; font-weight: 700; white-space: nowrap;
         }
         .recruit-table td { color: #444; font-size: 1.05rem; font-weight: 500; }
+        /* 各項目の頭にオレンジのドット */
+        .recruit-table th::before {
+            content: "●"; color: #f39c12; font-size: 0.7rem; margin-right: 12px; vertical-align: middle;
+        }
 
         /* --- 5. 応募フォームセクション --- */
         .cta-area {
@@ -97,8 +123,8 @@
             display: flex; align-items: center; justify-content: center;
             margin-bottom: 20px; padding: 0 40px;
         }
-        .cta-line { flex: 1; height: 2px; background: #00b4d8; opacity: 0.3; }
-        .cta-area h2 { color: #0077b6; font-size: 1.8rem; margin: 0 20px; font-weight: 800; white-space: nowrap; }
+        .cta-line { flex: 1; height: 2px; background: #f39c12; opacity: 0.3; } /* ラインをオレンジに */
+        .cta-area h2 { color: #0077b6; font-size: 1.8rem; margin: 0 25px; font-weight: 800; white-space: nowrap; }
         .cta-area p { margin-bottom: 40px; color: #666; font-weight: 500; padding: 0 40px; font-size: 1.1rem; }
         
         .form-wrapper {
@@ -119,19 +145,22 @@
         }
         .btn-outline:hover { background: #0077b6; color: #fff; transform: translateY(-2px); }
 
+        footer { background: #fff; padding: 60px 0; text-align: center; border-top: 1px solid #eee; font-size: 0.8rem; color: #999; }
+
         /* --- 6. スマホ調整 --- */
         @media (max-width: 768px) {
             header { padding: 12px 5%; }
-            .logo { font-size: 1.3rem; }
+            .logo { font-size: 1.4rem; }
             .menu-btn { display: block; }
+
             nav {
                 position: fixed; top: -100vh; left: 0; width: 100%; height: auto;
                 background: #ffffff; flex-direction: column; padding: 60px 0 40px; z-index: 1100;
                 transition: 0.4s ease-in-out; box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             }
             nav.active { top: 0; }
-            .menu-overlay.active { display: block; opacity: 1; pointer-events: auto; }
             nav a { width: 100%; text-align: center; padding: 15px 0; border-bottom: 1px solid #f9f9f9; font-size: 1.1rem; margin: 0; }
+            nav a:hover { color: #f39c12; }
             .nav-contact { width: 80% !important; margin: 20px auto 0 !important; }
 
             .page-hero { padding: 40px 5%; }
@@ -143,6 +172,7 @@
 
             .recruit-table th, .recruit-table td { display: block; width: 100%; box-sizing: border-box; }
             .recruit-table th { background: #f0f7ff; padding: 12px 15px; border-bottom: none; font-size: 1.1rem; }
+            .recruit-table th::before { display: none; }
             .recruit-table td { padding: 15px 15px 30px; border-bottom: 1px solid #f0f4f8; }
             
             .cta-area { padding: 50px 15px; border-radius: 20px; }
@@ -186,10 +216,10 @@
         <p>株式会社NIKAは、エアコン施工・清掃・建設現場と、<br>人々の暮らしに直結するやりがいのある仕事を行っています。<br>経験は問いません。あなたの「やる気」を、確かな「技術」へ。</p>
     </div>
 
-    <p style="margin-bottom: 30px; font-weight: bold; color: #0077b6; text-align: center; font-size: 1.1rem;">
+    <div class="scroll-guide">
         <i class="fas fa-chevron-down" style="display: block; margin-bottom: 10px; font-size: 1.2rem; animation: scroll-down 2s infinite;"></i>
         ページ下部のフォームよりご応募受付中
-    </p>
+    </div>
 
     <table class="recruit-table">
         <tr>

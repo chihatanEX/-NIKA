@@ -5,52 +5,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>クリーニング料金表 | 株式会社NIKA</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Noto+Sans+JP:wght@400;500;700;900&family=Noto+Serif+JP:wght@700&display=swap" rel="stylesheet">
+    
     <style>
         /* --- 1. ベース設定 --- */
         body {
-            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+            font-family: "Noto Sans JP", sans-serif;
             margin: 0; color: #333; background-color: #fcfdfe; line-height: 1.8;
             scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
         }
 
-        /* --- 2. ヘッダー --- */
+        /* --- 2. ヘッダー (TOPページと完全に統一) --- */
         header {
             background: #fff; padding: 15px 8%; display: flex; justify-content: space-between;
             align-items: center; border-bottom: 2px solid #f0f4f8; position: sticky;
             top: 0; z-index: 1000;
         }
-        .logo { font-weight: bold; font-size: 1.6rem; color: #0077b6; text-decoration: none; z-index: 1200; }
+        .logo { font-weight: 700; font-size: 1.4rem; color: #0077b6; text-decoration: none; }
         
         nav { display: flex; align-items: center; }
-        nav a { margin: 0 15px; text-decoration: none; color: #444; font-weight: 600; font-size: 0.95rem; transition: 0.3s; }
-        nav a:hover { color: #00b4d8; }
+        nav a { 
+            margin: 0 12px; 
+            text-decoration: none; 
+            color: #444; 
+            font-weight: 600; 
+            font-size: 0.9rem; 
+            transition: color 0.3s;
+        }
+        nav a:hover { color: #f39c12; }
+
         .nav-contact { 
-            background: #0077b6; color: #fff !important; padding: 10px 25px; border-radius: 50px; 
-            margin-left: 10px; transition: 0.3s; text-decoration: none;
+            background: #f39c12; 
+            color: #fff !important; 
+            padding: 8px 25px; 
+            border-radius: 50px; 
+            margin-left: 10px; 
+            transition: opacity 0.3s !important;
+        }
+        .nav-contact:hover {
+            opacity: 0.8;
+            color: #fff !important;
         }
 
-        .menu-btn { display: none; cursor: pointer; z-index: 1200; font-size: 1.6rem; color: #0077b6; }
-        .menu-overlay {
-            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
-            background: rgba(0, 0, 0, 0.6); z-index: 1050; opacity: 0; transition: 0.3s; pointer-events: none;
-        }
+        .menu-btn { display: none; cursor: pointer; font-size: 1.5rem; color: #0077b6; }
+        .menu-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: rgba(0,0,0,0.6); z-index: 1050; opacity: 0; pointer-events: none; }
 
-        /* --- 3. ヒーローエリア (オーバーレイ調整) --- */
+        /* --- 3. ヒーローエリア --- */
         .page-hero {
             position: relative;
             background: url('../image/kitchen-2165756_1280.jpg') no-repeat center center/cover;
-            color: #fff; padding: 120px 8%; text-align: center;
+            color: #fff; padding: 100px 8%; text-align: center;
         }
         .page-hero::before {
             content: "";
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            /* 0.6から0.2へ透過 */
             background: linear-gradient(135deg, rgba(0, 119, 182, 0.6) 0%, rgba(0, 180, 216, 0.2) 20%);
             z-index: 1;
         }
         .page-hero h1, .page-hero p { position: relative; z-index: 2; margin: 0; text-shadow: 0 2px 10px rgba(0,0,0,0.3); }
-        .page-hero h1 { font-size: 2.2rem; letter-spacing: 0.1em; font-weight: 800; }
-        .page-hero p { margin-top: 10px; font-size: 1.1rem; opacity: 0.95; font-weight: 500; }
+        .page-hero h1 { font-family: 'Montserrat', sans-serif; font-size: 2.2rem; letter-spacing: 0.1em; font-weight: 800; }
+        .page-hero p { margin-top: 10px; font-size: 1.1rem; opacity: 0.95; font-weight: 700; }
 
         /* --- 4. コンテンツデザイン --- */
         .container { max-width: 1200px; margin: 0 auto; padding: 60px 8% 20px; box-sizing: border-box; }
@@ -84,6 +99,7 @@
             margin: -30px 0 60px; border-radius: 0 10px 10px 0; font-size: 0.95rem; color: #555;
             box-shadow: 0 5px 15px rgba(0,0,0,0.02);
         }
+        .note-box i { color: #f39c12; margin-right: 8px; }
 
         .check-list {
             list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -92,10 +108,11 @@
         .check-list li {
             background: #fff; padding: 15px; border-radius: 10px; font-weight: 600;
             color: #444; border: 1px solid #eef2f6; box-shadow: 0 3px 10px rgba(0,0,0,0.02);
+            display: flex; align-items: center;
         }
-        .check-list li i { color: #00b4d8; margin-right: 10px; }
+        .check-list li i { color: #f39c12; margin-right: 10px; }
 
-        /* --- 5. CTAエリア (会社情報ページと統一) --- */
+        /* --- 5. CTAエリア --- */
         .cta-section { 
             text-align: center; margin: 60px 0 40px; padding: 60px 5%;
             background: #fff; border-radius: 20px; border: 1px solid #eef2f6;
@@ -105,12 +122,13 @@
         .cta-section p { color: #666; margin-bottom: 35px; font-size: 0.95rem; }
         
         .btn-main {
-            background: #0077b6; color: #fff; padding: 18px 60px;
-            border-radius: 50px; text-decoration: none; font-weight: bold;
-            display: inline-block; transition: 0.3s; box-shadow: 0 10px 25px rgba(0,119,182,0.2);
+            background: linear-gradient(135deg, #e67e22 0%, #f39c12 100%);
+            color: #fff; padding: 18px 60px;
+            border-radius: 50px; text-decoration: none; font-weight: 900;
+            display: inline-block; transition: 0.3s; box-shadow: 0 8px 20px rgba(230, 126, 34, 0.3);
             font-size: 1.1rem; margin-bottom: 20px;
         }
-        .btn-main:hover { transform: translateY(-3px); background: #00b4d8; }
+        .btn-main:hover { transform: translateY(-3px); opacity: 0.9; }
 
         .cta-area { text-align: center; margin-top: 20px; padding-bottom: 80px; }
         .btn-outline {
@@ -119,21 +137,16 @@
         }
         .btn-outline:hover { background: #0077b6; color: #fff; transform: translateY(-2px); }
 
-        footer { background: #fff; padding: 60px 0; text-align: center; border-top: 1px solid #eee; font-size: 0.85rem; color: #999; }
+        footer { background: #fff; padding: 40px 0; text-align: center; border-top: 1px solid #eee; font-size: 0.8rem; color: #999; }
 
         /* --- 6. レスポンシブ --- */
         @media (max-width: 768px) {
             header { padding: 12px 5%; }
-            .logo { font-size: 1.3rem; }
             .menu-btn { display: block; }
-            nav {
-                position: fixed; top: -100vh; left: 0; width: 100%; height: auto;
-                background: #ffffff; flex-direction: column; padding: 60px 0 40px; z-index: 1100;
-                transition: 0.4s ease-in-out; box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            }
+            nav { position: fixed; top: -100vh; left: 0; width: 100%; background: #fff; flex-direction: column; padding: 50px 0; transition: 0.4s; z-index: 1100; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
             nav.active { top: 0; }
-            nav a { width: 100%; text-align: center; padding: 15px 0; border-bottom: 1px solid #f9f9f9; font-size: 1.1rem; color: #333; margin: 0; }
-            .nav-contact { background: #0077b6 !important; color: #fff !important; width: 80% !important; margin: 20px auto 0 !important; }
+            nav a { width: 100%; text-align: center; padding: 15px 0; margin: 0; font-size: 1.1rem; }
+            .nav-contact { width: 80%; margin: 20px auto 0; text-align: center; }
             .menu-overlay.active { display: block; opacity: 1; pointer-events: auto; }
 
             .page-hero { padding: 80px 5%; }
@@ -194,30 +207,12 @@
     </div>
     <div class="price-card">
         <table class="price-table">
-            <tr>
-                <th>浴室クリーニング</th>
-                <td><span class="price-tag">23,100</span><span class="price-unit">円</span></td>
-            </tr>
-            <tr>
-                <th>防カビコート</th>
-                <td><span class="price-tag">3,520</span><span class="price-unit">円</span></td>
-            </tr>            
-            <tr>
-                <th>エプロン内部</th>
-                <td><span class="price-tag">6,600</span><span class="price-unit">円</span></td>
-            </tr>
-            <tr>
-                <th>洗面所</th>
-                <td><span class="price-tag">9,900</span><span class="price-unit">円</span></td>
-            </tr>
-            <tr>
-                <th>トイレ</th>
-                <td><span class="price-tag">11,000</span><span class="price-unit">円</span></td>
-            </tr>
-            <tr>
-                <th>ロータンク</th>
-                <td><span class="price-tag">3,850</span><span class="price-unit">円</span></td>
-            </tr>            
+            <tr><th>浴室クリーニング</th><td><span class="price-tag">23,100</span><span class="price-unit">円</span></td></tr>
+            <tr><th>防カビコート</th><td><span class="price-tag">3,520</span><span class="price-unit">円</span></td></tr>            
+            <tr><th>エプロン内部</th><td><span class="price-tag">6,600</span><span class="price-unit">円</span></td></tr>
+            <tr><th>洗面所</th><td><span class="price-tag">9,900</span><span class="price-unit">円</span></td></tr>
+            <tr><th>トイレ</th><td><span class="price-tag">11,000</span><span class="price-unit">円</span></td></tr>
+            <tr><th>ロータンク</th><td><span class="price-tag">3,850</span><span class="price-unit">円</span></td></tr>            
         </table>
     </div>
 
@@ -299,22 +294,13 @@
         navMenu.classList.toggle('active');
         menuOverlay.classList.toggle('active');
         const icon = menuBtn.querySelector('i');
-        if (navMenu.classList.contains('active')) {
-            icon.classList.replace('fa-bars', 'fa-times');
-            document.body.style.overflow = 'hidden';
-        } else {
-            icon.classList.replace('fa-times', 'fa-bars');
-            document.body.style.overflow = '';
-        }
+        icon.classList.toggle('fa-bars');
+        icon.classList.toggle('fa-times');
+        document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
     }
 
     menuBtn.addEventListener('click', toggleMenu);
     menuOverlay.addEventListener('click', toggleMenu);
-    document.querySelectorAll('nav a').forEach(link => {
-        link.addEventListener('click', () => {
-            if (navMenu.classList.contains('active')) toggleMenu();
-        });
-    });
 </script>
 
 </body>
