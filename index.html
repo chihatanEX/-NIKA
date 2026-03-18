@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>株式会社NIKA | エアコン・清掃・建設</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Noto+Sans+JP:wght@400;500;700;900&family=Noto+Serif+JP:wght@700&display=swap" rel="stylesheet">
     
     <style>
@@ -22,7 +21,7 @@
             align-items: center; border-bottom: 2px solid #f0f4f8; position: sticky;
             top: 0; z-index: 2000; height: 70px; box-sizing: border-box;
         }
-        .logo { font-weight: 700; font-size: 1.4rem; color: #0077b6; text-decoration: none; position: relative; z-index: 2500; }
+        .logo { font-weight: 700; font-size: 1.4rem; color: #0077b6; text-decoration: none; position: relative; z-index: 2501; }
         
         /* PCナビ */
         nav { display: flex; align-items: center; }
@@ -36,32 +35,37 @@
             background: #f39c12; color: #fff !important; padding: 8px 25px; 
             border-radius: 50px; margin-left: 10px; transition: 0.3s !important;
         }
-        .nav-contact:hover { opacity: 0.8; }
 
-        /* --- 3. ハンバーガーメニュー (改善・統一版) --- */
-        .menu-btn { display: none; cursor: pointer; font-size: 1.5rem; color: #0077b6; position: relative; z-index: 2500; width: 30px; text-align: center; }
+        /* --- 3. ハンバーガーメニュー (崩れ防止版) --- */
+        .menu-btn { display: none; cursor: pointer; font-size: 1.5rem; color: #0077b6; position: relative; z-index: 2501; width: 30px; text-align: center; }
 
         @media (max-width: 768px) {
             header { padding: 12px 5%; height: 60px; }
             .menu-btn { display: block; }
             
             nav {
+                /* スマホ時は全画面固定 */
                 position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
                 background: rgba(255, 255, 255, 0.98); 
-                flex-direction: column; justify-content: center; align-items: center;
-                z-index: 2100; opacity: 0; pointer-events: none;
+                /* 縦並び・中央揃えを強制 */
+                flex-direction: column !important; 
+                justify-content: center !important; 
+                align-items: center !important;
+                z-index: 2100; 
+                opacity: 0; pointer-events: none;
                 transition: opacity 0.4s ease;
             }
             nav.active { opacity: 1; pointer-events: auto; }
             
             nav a { 
-                width: 100%; text-align: center; padding: 20px 0; margin: 0; 
-                font-size: 1.3rem; border-bottom: 1px solid #f8fafc; color: #333; 
+                display: block; width: 100%; text-align: center; 
+                padding: 15px 0; margin: 0; 
+                font-size: 1.2rem; border-bottom: 1px solid #f8fafc; color: #333; 
             }
             .nav-contact { 
-                width: 80% !important; margin: 30px auto 0 !important; 
+                width: 80% !important; margin: 20px auto 0 !important; 
                 background: #f39c12 !important; padding: 15px 0 !important; 
-                font-size: 1.1rem; border-bottom: none; 
+                font-size: 1.1rem; border-bottom: none; border-radius: 50px;
             }
         }
 
@@ -98,41 +102,29 @@
         .card-content { position: relative; z-index: 2; padding: 20px; text-align: center; width: 100%; }
         .card i, .card-static i { font-size: 2rem; color: #f39c12; margin-bottom: 10px; display: block; }
         .card h3, .card-static h3 { font-size: 1.3rem; margin-bottom: 10px; font-weight: 800; }
-        .card p, .card-static p { font-size: 0.85rem; opacity: 0.9; margin-bottom: 15px; }
-
+        
         .more-btn { 
             display: inline-block; font-weight: 700; font-size: 0.75rem; color: #fff; 
             border: 1.5px solid #00b4d8; padding: 6px 15px; border-radius: 50px; 
             background: rgba(0, 180, 216, 0.1); transition: 0.3s;
         }
-        .card:hover .more-btn { background: #00b4d8; }
 
-        /* --- 7. 採用・WORKS・FOOTER (TOP用) --- */
+        /* --- 7. 採用・WORKS・FOOTER --- */
         .recruit-section { padding: 80px 8%; background-color: #f0f7fa; text-align: center; }
         .recruit-container { max-width: 900px; margin: 0 auto; background: #fff; border-radius: 25px; overflow: hidden; box-shadow: 0 15px 35px rgba(0, 119, 182, 0.1); padding: 50px 30px; }
         .recruit-info h2 { font-family: 'Montserrat', sans-serif; font-size: 2.2rem; color: #0077b6; margin: 0; }
-        .recruit-info h3 { font-size: 1.4rem; color: #333; margin: 15px 0; font-weight: 800; }
-        .recruit-info p { font-size: 0.95rem; color: #666; margin-bottom: 25px; }
-        .recruit-tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-bottom: 30px; }
-        .tag { background: #e1f5fe; color: #0077b6; padding: 5px 12px; border-radius: 50px; font-size: 0.8rem; font-weight: 700; }
         .btn-recruit-large { display: inline-block; background: linear-gradient(135deg, #e67e22 0%, #f39c12 100%); color: #fff; padding: 15px 50px; border-radius: 50px; text-decoration: none; font-weight: 900; box-shadow: 0 8px 20px rgba(230, 126, 34, 0.3); transition: 0.3s; }
-
-        .gallery { padding: 60px 8%; text-align: center; }
-        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; }
-        .photo-placeholder { background: #f0f7fa; height: 200px; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #9ab4c1; font-weight: 700; }
 
         footer { background: #fff; padding: 40px 0; text-align: center; border-top: 1px solid #eee; font-size: 0.8rem; color: #999; }
 
         /* レスポンシブ微調整 */
         @media (max-width: 768px) {
-            .hero { height: 45vh; }
             .hero-text h1 { font-size: 2rem; }
             .sincere-statement h2 { font-size: 1.35rem; }
-            .text-wrap { display: inline-block; white-space: nowrap; margin-bottom: 0; }
+            .text-wrap { display: inline-block; white-space: nowrap; }
             .services { grid-template-columns: repeat(2, 1fr); gap: 10px; padding: 40px 3%; }
-            .card, .card-static { height: 200px; }
-            .card h3, .card-static h3 { font-size: 0.8rem; }
-            .card p, .card-static p { display: none; }
+            .card, .card-static { height: 180px; }
+            .card h3, .card-static h3 { font-size: 0.85rem; line-height: 1.4; }
             .standard-item { flex-direction: row; width: 95%; padding: 12px 15px; }
         }
     </style>
@@ -210,10 +202,6 @@
         <div class="recruit-info">
             <h2>RECRUIT</h2>
             <h3>一歩先の技術を、その手に.</h3>
-            <div class="recruit-tags">
-                <span class="tag"><i class="fas fa-check"></i>未経験OK</span>
-                <span class="tag"><i class="fas fa-home"></i>寮あり</span>
-            </div>
             <a href="recruit/recruit.html" class="btn-recruit-large">採用情報を詳しく見る</a>
         </div>
     </div>
@@ -227,21 +215,19 @@
     const menuBtn = document.getElementById('menuBtn');
     const navMenu = document.getElementById('navMenu');
 
-    // 開閉処理
     menuBtn.addEventListener('click', () => {
         navMenu.classList.toggle('active');
         const icon = menuBtn.querySelector('i');
         
         if (navMenu.classList.contains('active')) {
             icon.classList.replace('fa-bars', 'fa-times');
-            document.body.style.overflow = 'hidden'; // 背景スクロール固定
+            document.body.style.overflow = 'hidden'; 
         } else {
             icon.classList.replace('fa-times', 'fa-bars');
-            document.body.style.overflow = ''; // 固定解除
+            document.body.style.overflow = ''; 
         }
     });
 
-    // リンククリック時に閉じる
     const navLinks = document.querySelectorAll('nav a');
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
