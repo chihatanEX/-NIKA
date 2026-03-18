@@ -16,6 +16,9 @@
             -webkit-font-smoothing: antialiased;
         }
 
+        /* 改行コントロール用のクラス */
+        .keep-together { display: inline-block; }
+
         /* --- 2. ヘッダー --- */
         header {
             background: #fff; padding: 15px 8%; display: flex; justify-content: space-between;
@@ -70,7 +73,7 @@
             font-weight: 700; letter-spacing: 0.2em; padding-bottom: 10px; border-bottom: 3px solid #00b4d8; 
         }
 
-        /* --- 4. 誠実なメッセージ (スマホ最適化版) --- */
+        /* --- 4. 誠実なメッセージ --- */
         .sincere-statement { padding: 100px 8%; text-align: center; background-color: #f8fafc; }
         .sincere-statement h2 { 
             font-family: "Noto Serif JP", serif; font-size: 2.2rem; color: #1a1a1a; 
@@ -142,7 +145,7 @@
 
         footer { background: #fff; padding: 60px 0; text-align: center; border-top: 1px solid #eee; font-size: 0.85rem; color: #999; }
 
-        /* --- 8. スマホ調整 (重要) --- */
+        /* --- 8. スマホ調整 --- */
         @media (max-width: 768px) {
             header { padding: 12px 5%; }
             .menu-btn { display: block; }
@@ -160,9 +163,10 @@
             .hero-text p { font-size: 0.9rem; }
 
             .sincere-statement { padding: 60px 5%; }
-            .sincere-statement h2 { font-size: 1.5rem; }
+            /* スマホでの見出し改行調整 */
+            .sincere-statement h2 { font-size: 1.45rem; padding: 0 10px; }
+            .pc-br { display: none; } /* スマホでは<br>を消す */
             
-            /* スマホで横レイアウトにして見やすく */
             .standard-grid { gap: 12px; }
             .standard-item { 
                 width: 90%; padding: 20px; flex-direction: row; justify-content: flex-start; text-align: left;
@@ -204,7 +208,10 @@
 </section>
 
 <section class="sincere-statement">
-    <h2>確かな技術と、<br>妥協のない品質をすべての現場に。</h2>
+    <h2>
+        <span class="keep-together">確かな技術と、</span><br class="pc-br">
+        <span class="keep-together">妥協のない品質を</span><span class="keep-together">すべての現場に。</span>
+    </h2>
     <p>株式会社NIKAは、エアコン・清掃・建設の現場において、お客様の「大切な住まいと環境」を守ることを第一に考えています。</p>
     <div class="standard-grid">
         <div class="standard-item">
