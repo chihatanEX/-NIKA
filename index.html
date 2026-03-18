@@ -16,9 +16,6 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* 改行コントロール用のクラス */
-        .keep-together { display: inline-block; }
-
         /* --- 2. ヘッダー --- */
         header {
             background: #fff; padding: 15px 8%; display: flex; justify-content: space-between;
@@ -27,116 +24,60 @@
         }
         .logo { font-weight: 700; font-size: 1.6rem; color: #0077b6; text-decoration: none; }
         nav { display: flex; align-items: center; }
-        nav a { 
-            margin: 0 15px; text-decoration: none; color: #444; font-weight: 600; font-size: 0.95rem; transition: 0.3s; 
-        }
+        nav a { margin: 0 15px; text-decoration: none; color: #444; font-weight: 600; font-size: 0.95rem; transition: 0.3s; }
         nav a:hover { color: #00b4d8; }
-        .nav-contact { 
-            background: #0077b6; color: #fff !important; padding: 10px 25px; border-radius: 50px; 
-            margin-left: 10px; transition: 0.3s;
-        }
+        .nav-contact { background: #0077b6; color: #fff !important; padding: 10px 25px; border-radius: 50px; margin-left: 10px; transition: 0.3s; }
 
         .menu-btn { display: none; cursor: pointer; font-size: 1.6rem; color: #0077b6; }
-        .menu-overlay {
-            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
-            background: rgba(0, 0, 0, 0.6); z-index: 1050; opacity: 0; transition: 0.3s; pointer-events: none;
-        }
+        .menu-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: rgba(0, 0, 0, 0.6); z-index: 1050; opacity: 0; pointer-events: none; }
 
         /* --- 3. ヒーローエリア --- */
-        .hero { 
-            height: 65vh; display: flex; position: relative; overflow: hidden; background-color: #001d3d; 
-        }
-        .hero-img { 
-            flex: 1; background-size: cover; background-position: center; filter: brightness(0.7); 
-            border-right: 1px solid rgba(255,255,255,0.1);
-        }
+        .hero { height: 65vh; display: flex; position: relative; overflow: hidden; background-color: #001d3d; }
+        .hero-img { flex: 1; background-size: cover; background-position: center; filter: brightness(0.7); border-right: 1px solid rgba(255,255,255,0.1); }
         .img-aircon { background-image: url('image/aircon.jpg'); }
         .img-cleaning { background-image: url('image/cleaning.jpg'); }
         .img-construction { background-image: url('image/construction.jpg'); }
-
-        .hero::after { 
-            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
-            background: rgba(0, 41, 80, 0.2); z-index: 5; pointer-events: none;
-        }
-
-        .hero-content { 
-            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); 
-            z-index: 10; width: 100%; text-align: center; 
-        }
-        .hero-text h1 { 
-            font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 3.8rem; 
-            color: #ffffff; margin: 0; letter-spacing: 0.15em; line-height: 1.2;
-            text-shadow: 0 4px 20px rgba(0,0,0,0.4);
-        }
-        .hero-text p { 
-            display: inline-block; color: #ffffff; margin-top: 25px; font-size: 1.2rem; 
-            font-weight: 700; letter-spacing: 0.2em; padding-bottom: 10px; border-bottom: 3px solid #00b4d8; 
-        }
+        .hero::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 41, 80, 0.2); z-index: 5; }
+        .hero-content { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 10; width: 100%; text-align: center; }
+        .hero-text h1 { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 3.8rem; color: #ffffff; margin: 0; letter-spacing: 0.15em; line-height: 1.2; text-shadow: 0 4px 20px rgba(0,0,0,0.4); }
+        .hero-text p { display: inline-block; color: #ffffff; margin-top: 25px; font-size: 1.2rem; font-weight: 700; letter-spacing: 0.2em; padding-bottom: 10px; border-bottom: 3px solid #00b4d8; }
 
         /* --- 4. 誠実なメッセージ --- */
         .sincere-statement { padding: 100px 8%; text-align: center; background-color: #f8fafc; }
         .sincere-statement h2 { 
             font-family: "Noto Serif JP", serif; font-size: 2.2rem; color: #1a1a1a; 
             margin-bottom: 30px; font-weight: 700; line-height: 1.6;
+            word-break: keep-all; overflow-wrap: anywhere;
         }
-        .sincere-statement p { 
-            font-size: 1.05rem; color: #555; max-width: 700px; margin: 0 auto 60px; font-weight: 500; 
-        }
+        .sincere-statement p { font-size: 1.05rem; color: #555; max-width: 700px; margin: 0 auto 60px; font-weight: 500; }
         
         .standard-grid { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
-        
-        .standard-item { 
-            background: #fff; padding: 35px 25px; width: 280px; border-radius: 12px; 
-            box-shadow: 0 4px 20px rgba(0, 80, 150, 0.06); display: flex; flex-direction: column;
-            align-items: center; transition: 0.4s; border: 1px solid #edf2f7;
-        }
+        .standard-item { background: #fff; padding: 35px 25px; width: 280px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0, 80, 150, 0.06); display: flex; flex-direction: column; align-items: center; transition: 0.4s; border: 1px solid #edf2f7; }
         .standard-item:hover { transform: translateY(-8px); border-color: #00b4d8; }
-
-        .item-number {
-            font-family: 'Montserrat', sans-serif; font-size: 0.9rem; color: #00b4d8;
-            font-weight: 800; letter-spacing: 0.1em; margin-bottom: 10px; position: relative;
-        }
+        .item-number { font-family: 'Montserrat', sans-serif; font-size: 0.9rem; color: #00b4d8; font-weight: 800; letter-spacing: 0.1em; margin-bottom: 10px; position: relative; }
         .item-number::after { content: ''; display: block; width: 20px; height: 2px; background: #00b4d8; margin: 5px auto 0; }
         .item-text { font-family: "Noto Serif JP", serif; font-weight: 700; font-size: 1.3rem; color: #002950; }
 
         /* --- 5. サービスカード --- */
-        .services {
-            padding: 80px 8%; max-width: 1200px; margin: 0 auto;
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;
-        }
-        .card, .card-static {
-            position: relative; height: 380px; display: flex; align-items: center; justify-content: center;
-            border-radius: 15px; overflow: hidden; color: #fff; transition: 0.4s; box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
+        .services { padding: 80px 8%; max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .card, .card-static { position: relative; height: 380px; display: flex; align-items: center; justify-content: center; border-radius: 15px; overflow: hidden; color: #fff; transition: 0.4s; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
         .card { text-decoration: none; }
-        .card-static { cursor: default; }
         .card-air-clean { background: url('image/aircon_cleaning.webp') center/cover; }
         .card-air-install { background: url('image/aircon.jpg') center/cover; }
         .card-cleaning { background: url('image/cleaning.jpg') center/cover; }
         .card-construction { background: url('image/construction.jpg') center/cover; }
-
-        .card::before, .card-static::before {
-            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.5); z-index: 1;
-        }
+        .card::before, .card-static::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); z-index: 1; }
         .card:hover { transform: translateY(-10px); }
         .card-content { position: relative; z-index: 2; padding: 25px; text-align: center; }
         .card i, .card-static i { font-size: 2.5rem; color: #00b4d8; margin-bottom: 15px; display: block; }
         .card h3, .card-static h3 { font-size: 1.4rem; color: #fff; margin-bottom: 15px; font-weight: 900; }
-        .card p, .card-static p { font-size: 0.88rem; color: rgba(255, 255, 255, 0.9); }
         .more-btn { font-weight: 700; font-size: 0.85rem; color: #fff; border: 1px solid rgba(255,255,255,0.5); padding: 8px 20px; border-radius: 50px; }
 
         /* --- 6. 採用情報 --- */
         .recruit-section { padding: 60px 8% 100px; text-align: center; }
-        .recruit-banner {
-            background: linear-gradient(135deg, #0077b6 0%, #00b4d8 100%);
-            color: #fff; padding: 80px 40px; border-radius: 20px; max-width: 1000px; margin: 0 auto;
-        }
+        .recruit-banner { background: linear-gradient(135deg, #0077b6 0%, #00b4d8 100%); color: #fff; padding: 80px 40px; border-radius: 20px; max-width: 1000px; margin: 0 auto; }
         .recruit-banner h2 { font-family: 'Montserrat', sans-serif; font-size: 2.5rem; font-weight: 800; margin-bottom: 20px; }
-        .btn-recruit {
-            display: inline-block; background: #fff; color: #0077b6; padding: 18px 60px;
-            border-radius: 50px; text-decoration: none; font-weight: 900; transition: 0.3s;
-        }
+        .btn-recruit { display: inline-block; background: #fff; color: #0077b6; padding: 18px 60px; border-radius: 50px; text-decoration: none; font-weight: 900; transition: 0.3s; }
 
         /* --- 7. ギャラリー --- */
         .gallery { padding: 80px 8%; text-align: center; }
@@ -145,38 +86,32 @@
 
         footer { background: #fff; padding: 60px 0; text-align: center; border-top: 1px solid #eee; font-size: 0.85rem; color: #999; }
 
-        /* --- 8. スマホ調整 --- */
+        /* --- 8. スマホ調整 (キモさを解消) --- */
         @media (max-width: 768px) {
             header { padding: 12px 5%; }
             .menu-btn { display: block; }
-            nav {
-                position: fixed; top: -100vh; left: 0; width: 100%; height: auto;
-                background: #ffffff; flex-direction: column; padding: 60px 0 40px; z-index: 1100;
-                transition: 0.4s ease-in-out;
-            }
+            nav { position: fixed; top: -100vh; left: 0; width: 100%; background: #ffffff; flex-direction: column; padding: 60px 0 40px; z-index: 1100; transition: 0.4s; }
             nav.active { top: 0; }
-            nav a { width: 100%; text-align: center; padding: 15px 0; border-bottom: 1px solid #f9f9f9; margin: 0; }
+            nav a { width: 100%; text-align: center; padding: 15px 0; margin: 0; }
             .nav-contact { width: 80% !important; margin: 20px auto 0 !important; }
             
             .hero { height: 50vh; }
             .hero-text h1 { font-size: 2.2rem; }
-            .hero-text p { font-size: 0.9rem; }
 
             .sincere-statement { padding: 60px 5%; }
-            /* スマホでの見出し改行調整 */
-            .sincere-statement h2 { font-size: 1.45rem; padding: 0 10px; }
-            .pc-br { display: none; } /* スマホでは<br>を消す */
+            /* 改行を消し、2行に収まるサイズに固定 */
+            .sincere-statement h2 { 
+                font-size: 5.2vw; /* 画面幅に合わせて自動リサイズ */
+                padding: 0;
+                line-height: 1.8;
+                letter-spacing: 0.02em;
+            }
+            .sincere-statement h2 br { display: none; } /* 強制改行を無効化 */
             
             .standard-grid { gap: 12px; }
-            .standard-item { 
-                width: 90%; padding: 20px; flex-direction: row; justify-content: flex-start; text-align: left;
-            }
+            .standard-item { width: 95%; padding: 18px; flex-direction: row; text-align: left; }
             .item-number { margin-bottom: 0; margin-right: 15px; }
-            .item-number::after { width: 15px; margin: 2px 0 0; }
             .item-text { font-size: 1.1rem; }
-            
-            .recruit-banner { padding: 40px 20px; }
-            .recruit-banner h2 { font-size: 1.8rem; }
         }
     </style>
 </head>
@@ -208,24 +143,12 @@
 </section>
 
 <section class="sincere-statement">
-    <h2>
-        <span class="keep-together">確かな技術と、</span><br class="pc-br">
-        <span class="keep-together">妥協のない品質を</span><span class="keep-together">すべての現場に。</span>
-    </h2>
+    <h2>確かな技術と、妥協のない品質を<br>すべての現場に。</h2>
     <p>株式会社NIKAは、エアコン・清掃・建設の現場において、お客様の「大切な住まいと環境」を守ることを第一に考えています。</p>
     <div class="standard-grid">
-        <div class="standard-item">
-            <span class="item-number">01</span>
-            <span class="item-text">確かな技術</span>
-        </div>
-        <div class="standard-item">
-            <span class="item-number">02</span>
-            <span class="item-text">妥協のない品質</span>
-        </div>
-        <div class="standard-item">
-            <span class="item-number">03</span>
-            <span class="item-text">誠実な対応</span>
-        </div>
+        <div class="standard-item"><span class="item-number">01</span><span class="item-text">確かな技術</span></div>
+        <div class="standard-item"><span class="item-number">02</span><span class="item-text">妥協のない品質</span></div>
+        <div class="standard-item"><span class="item-number">03</span><span class="item-text">誠実な対応</span></div>
     </div>
 </section>
 
