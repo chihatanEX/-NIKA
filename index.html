@@ -15,7 +15,6 @@
             margin: 0; color: #333; background-color: #ffffff; line-height: 1.8;
             -webkit-font-smoothing: antialiased;
         }
-        .text-wrap { display: inline-block; white-space: nowrap; }
 
         /* --- 2. ヘッダー --- */
         header {
@@ -24,9 +23,36 @@
             top: 0; z-index: 1000;
         }
         .logo { font-weight: 700; font-size: 1.4rem; color: #0077b6; text-decoration: none; }
+        
+        /* ナビゲーション設定 */
         nav { display: flex; align-items: center; }
-        nav a { margin: 0 12px; text-decoration: none; color: #444; font-weight: 600; font-size: 0.9rem; transition: 0.3s; }
-        .nav-contact { background: #0077b6; color: #fff !important; padding: 8px 20px; border-radius: 50px; margin-left: 10px; }
+        nav a { 
+            margin: 0 12px; 
+            text-decoration: none; 
+            color: #444; 
+            font-weight: 600; 
+            font-size: 0.9rem; 
+            transition: color 0.3s; /* 色の変化をなめらかに */
+        }
+
+        /* ★マウスをかざした（ホバー）時の色：オレンジ */
+        nav a:hover {
+            color: #f39c12;
+        }
+
+        /* お問い合わせボタン（差し色オレンジ） */
+        .nav-contact { 
+            background: #f39c12; 
+            color: #fff !important; 
+            padding: 8px 25px; 
+            border-radius: 50px; 
+            margin-left: 10px; 
+            transition: opacity 0.3s !important;
+        }
+        .nav-contact:hover {
+            opacity: 0.8;
+            color: #fff !important;
+        }
 
         .menu-btn { display: none; cursor: pointer; font-size: 1.5rem; color: #0077b6; }
         .menu-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: rgba(0,0,0,0.6); z-index: 1050; opacity: 0; pointer-events: none; }
@@ -41,17 +67,20 @@
         .hero-text h1 { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 3.5rem; color: #fff; margin: 0; letter-spacing: 0.1em; line-height: 1.1; }
         .hero-text p { color: #fff; margin-top: 20px; font-size: 1.1rem; font-weight: 700; letter-spacing: 0.15em; border-bottom: 3px solid #00b4d8; display: inline-block; padding-bottom: 5px; }
 
-        /* --- 4. 誠実なメッセージ (2行固定) --- */
+        /* --- 4. 誠実なメッセージ --- */
         .sincere-statement { padding: 80px 8%; text-align: center; background-color: #f8fafc; }
-        .sincere-statement h2 { font-family: "Noto Serif JP", serif; font-size: 2.2rem; color: #1a1a1a; margin-bottom: 25px; font-weight: 700; line-height: 1.6; }
+        .sincere-statement h2 { font-family: "Noto Serif JP", serif; font-size: 2.2rem; color: #1a1a1a; margin-bottom: 25px; font-weight: 700; line-height: 1.4; }
         .sincere-statement p { font-size: 1rem; color: #555; max-width: 700px; margin: 0 auto 50px; }
         
+        .text-wrap { display: block; white-space: nowrap; margin-bottom: 10px; }
+
         .standard-grid { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
         .standard-item { background: #fff; padding: 30px 20px; width: 260px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); display: flex; flex-direction: column; align-items: center; transition: 0.3s; }
-        .item-number { font-family: 'Montserrat', sans-serif; font-size: 0.8rem; color: #00b4d8; font-weight: 800; margin-bottom: 8px; }
+        /* 差し色：数字をオレンジ */
+        .item-number { font-family: 'Montserrat', sans-serif; font-size: 0.8rem; color: #f39c12; font-weight: 800; margin-bottom: 8px; }
         .item-text { font-family: "Noto Serif JP", serif; font-weight: 700; font-size: 1.2rem; color: #002950; }
 
-        /* --- 5. サービスカード (PC版) --- */
+        /* --- 5. サービスカード --- */
         .services { padding: 80px 8%; max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(2, 1fr); gap: 25px; }
         .card, .card-static { position: relative; height: 320px; display: flex; align-items: center; justify-content: center; border-radius: 15px; overflow: hidden; color: #fff; text-decoration: none; transition: 0.4s; }
         .card-air-clean { background: url('image/aircon_cleaning.webp') center/cover; }
@@ -60,23 +89,48 @@
         .card-construction { background: url('image/construction.jpg') center/cover; }
         .card::before, .card-static::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1; }
         .card:hover { transform: translateY(-8px); }
-        .card-content { position: relative; z-index: 2; padding: 20px; text-align: center; }
-        .card i, .card-static i { font-size: 2rem; color: #00b4d8; margin-bottom: 10px; }
+        .card-content { position: relative; z-index: 2; padding: 20px; text-align: center; width: 100%; }
+        /* 差し色：アイコンをオレンジ */
+        .card i, .card-static i { font-size: 2rem; color: #f39c12; margin-bottom: 10px; display: block; }
         .card h3, .card-static h3 { font-size: 1.3rem; margin-bottom: 10px; font-weight: 800; }
-        .card p, .card-static p { font-size: 0.85rem; opacity: 0.9; }
+        .card p, .card-static p { font-size: 0.85rem; opacity: 0.9; margin-bottom: 15px; }
 
-        /* --- 6. 採用 & WORKS --- */
-        .recruit-section { padding: 40px 8% 80px; text-align: center; }
-        .recruit-banner { background: linear-gradient(135deg, #0077b6 0%, #00b4d8 100%); color: #fff; padding: 60px 30px; border-radius: 20px; }
-        .btn-recruit { display: inline-block; background: #fff; color: #0077b6; padding: 15px 40px; border-radius: 50px; text-decoration: none; font-weight: 800; margin-top: 20px; }
+        .more-btn { 
+            display: inline-block; font-weight: 700; font-size: 0.75rem; color: #fff; 
+            border: 1.5px solid #00b4d8; padding: 6px 15px; border-radius: 50px; 
+            background: rgba(0, 180, 216, 0.1); transition: 0.3s;
+        }
+        .card:hover .more-btn { background: #00b4d8; }
 
+        /* --- 6. 採用セクション --- */
+        .recruit-section { padding: 80px 8%; background-color: #f0f7fa; text-align: center; }
+        .recruit-container { 
+            max-width: 900px; margin: 0 auto; background: #fff; border-radius: 25px; 
+            overflow: hidden; box-shadow: 0 15px 35px rgba(0, 119, 182, 0.1); padding: 50px 30px; 
+        }
+        .recruit-info h2 { font-family: 'Montserrat', sans-serif; font-size: 2.2rem; color: #0077b6; margin: 0; }
+        .recruit-info h3 { font-size: 1.4rem; color: #333; margin: 15px 0; font-weight: 800; }
+        .recruit-info p { font-size: 0.95rem; color: #666; margin-bottom: 25px; }
+        
+        .recruit-tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin-bottom: 30px; }
+        .tag { background: #e1f5fe; color: #0077b6; padding: 5px 12px; border-radius: 50px; font-size: 0.8rem; font-weight: 700; }
+        .tag i { margin-right: 5px; }
+
+        /* 差し色：採用ボタンをオレンジ系 */
+        .btn-recruit-large {
+            display: inline-block; background: linear-gradient(135deg, #e67e22 0%, #f39c12 100%);
+            color: #fff; padding: 15px 50px; border-radius: 50px; text-decoration: none; 
+            font-weight: 900; box-shadow: 0 8px 20px rgba(230, 126, 34, 0.3); transition: 0.3s;
+        }
+
+        /* --- 7. WORKS --- */
         .gallery { padding: 60px 8%; text-align: center; }
         .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; }
-        .photo-placeholder { background: #f0f7fa; height: 200px; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #9ab4c1; }
+        .photo-placeholder { background: #f0f7fa; height: 200px; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #9ab4c1; font-weight: 700; }
 
         footer { background: #fff; padding: 40px 0; text-align: center; border-top: 1px solid #eee; font-size: 0.8rem; color: #999; }
 
-        /* --- 7. スマホ調整 (タイル化レイアウト) --- */
+        /* --- 8. レスポンシブ調整 --- */
         @media (max-width: 768px) {
             header { padding: 12px 5%; }
             .menu-btn { display: block; }
@@ -86,26 +140,21 @@
             .hero { height: 45vh; }
             .hero-text h1 { font-size: 2rem; }
 
-            .sincere-statement h2 { 
-                font-size: 1.2rem; display: flex; flex-direction: column; align-items: center; 
-            }
-            .sincere-statement h2 br { display: none; }
+            .sincere-statement h2 { font-size: 1.35rem; }
+            .text-wrap { display: inline-block; white-space: nowrap; margin-bottom: 0; }
 
-            /* サービスを横2列に並べる */
-            .services { 
-                grid-template-columns: repeat(2, 1fr); /* ここで2列固定に */
-                gap: 12px; 
-                padding: 40px 4%; 
-            }
-            .card, .card-static { 
-                height: 180px; /* 高さを抑えてタイル状に */
-                border-radius: 10px;
-            }
-            .card-content { padding: 10px; }
+            .services { grid-template-columns: repeat(2, 1fr); gap: 10px; padding: 40px 3%; }
+            .card, .card-static { height: 200px; }
+            .card-content { padding: 8px; }
             .card i, .card-static i { font-size: 1.4rem; margin-bottom: 5px; }
-            .card h3, .card-static h3 { font-size: 0.85rem; margin-bottom: 5px; line-height: 1.3; }
-            .card p, .card-static p { display: none; } /* 説明文を消してスッキリさせる */
+            .card h3, .card-static h3 { font-size: 0.8rem; margin-bottom: 8px; line-height: 1.3; }
+            .card p, .card-static p { display: none; }
+            .more-btn { font-size: 0.65rem; padding: 4px 10px; }
             
+            .recruit-info h2 { font-size: 1.8rem; }
+            .recruit-info h3 { font-size: 1.1rem; }
+            .btn-recruit-large { width: 80%; padding: 14px 0; }
+
             .standard-item { flex-direction: row; width: 95%; padding: 12px 15px; }
             .item-number { margin-right: 10px; margin-bottom: 0; }
             .item-text { font-size: 0.95rem; }
@@ -158,6 +207,7 @@
             <i class="fas fa-pump-medical"></i>
             <h3>エアコン<br>クリーニング</h3>
             <p>高圧洗浄でカビやホコリを徹底除去。</p>
+            <span class="more-btn">詳細を見る</span>
         </div>
     </a>
     <div class="card-static card-air-install">
@@ -172,6 +222,7 @@
             <i class="fas fa-home"></i>
             <h3>ハウス<br>クリーニング</h3>
             <p>プロの技術で住まいを新品同様に。</p>
+            <span class="more-btn">詳細を見る</span>
         </div>
     </a>
     <div class="card-static card-construction">
@@ -184,10 +235,26 @@
 </section>
 
 <section class="recruit-section">
-    <div class="recruit-banner">
-        <h2>RECRUIT</h2>
-        <p>私たちと一緒に、街の未来を支えませんか？</p>
-        <a href="recruit/recruit.html" class="btn-recruit">採用情報を詳しく見る</a>
+    <div class="recruit-container">
+        <div class="recruit-info">
+            <h2>RECRUIT</h2>
+
+            <h3>一歩先の技術を、その手に。</h3>
+
+            <p>
+                「現場の数だけ、成長がある。」<br>
+                株式会社NIKAは、妥協のない技術で未来を切り拓く仲間を求めています。<br>
+                あなたの経験と情熱を、確かな評価へと繋げます。
+            </p>
+            
+            <div class="recruit-tags">
+                <span class="tag"><i class="fas fa-check"></i>未経験OK</span>
+                <span class="tag"><i class="fas fa-home"></i>寮あり</span>
+                <span class="tag"><i class="fas fa-briefcase"></i>安定した仕事量</span>
+            </div>
+
+            <a href="recruit/recruit.html" class="btn-recruit-large">採用情報を詳しく見る</a>
+        </div>
     </div>
 </section>
 
