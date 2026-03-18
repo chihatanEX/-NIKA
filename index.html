@@ -42,13 +42,15 @@
         .hero-text h1 { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 3.8rem; color: #ffffff; margin: 0; letter-spacing: 0.15em; line-height: 1.2; text-shadow: 0 4px 20px rgba(0,0,0,0.4); }
         .hero-text p { display: inline-block; color: #ffffff; margin-top: 25px; font-size: 1.2rem; font-weight: 700; letter-spacing: 0.2em; padding-bottom: 10px; border-bottom: 3px solid #00b4d8; }
 
-        /* --- 4. 誠実なメッセージ --- */
+        /* --- 4. 誠実なメッセージ (改行2行固定版) --- */
         .sincere-statement { padding: 100px 8%; text-align: center; background-color: #f8fafc; }
         .sincere-statement h2 { 
             font-family: "Noto Serif JP", serif; font-size: 2.2rem; color: #1a1a1a; 
             margin-bottom: 30px; font-weight: 700; line-height: 1.6;
-            word-break: keep-all; overflow-wrap: anywhere;
         }
+        /* 2行に収めるための魔法の指定 */
+        .text-wrap { display: inline-block; white-space: nowrap; }
+
         .sincere-statement p { font-size: 1.05rem; color: #555; max-width: 700px; margin: 0 auto 60px; font-weight: 500; }
         
         .standard-grid { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
@@ -86,7 +88,7 @@
 
         footer { background: #fff; padding: 60px 0; text-align: center; border-top: 1px solid #eee; font-size: 0.85rem; color: #999; }
 
-        /* --- 8. スマホ調整 (キモさを解消) --- */
+        /* --- 8. スマホ調整 --- */
         @media (max-width: 768px) {
             header { padding: 12px 5%; }
             .menu-btn { display: block; }
@@ -98,20 +100,20 @@
             .hero { height: 50vh; }
             .hero-text h1 { font-size: 2.2rem; }
 
-            .sincere-statement { padding: 60px 5%; }
-            /* 改行を消し、2行に収まるサイズに固定 */
+            .sincere-statement { padding: 60px 5% 40px; }
             .sincere-statement h2 { 
-                font-size: 5.2vw; /* 画面幅に合わせて自動リサイズ */
-                padding: 0;
-                line-height: 1.8;
-                letter-spacing: 0.02em;
+                font-size: 1.3rem; /* 3行にならない絶妙なサイズ */
+                line-height: 1.7;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
             }
-            .sincere-statement h2 br { display: none; } /* 強制改行を無効化 */
+            .sincere-statement h2 br { display: none; }
             
-            .standard-grid { gap: 12px; }
-            .standard-item { width: 95%; padding: 18px; flex-direction: row; text-align: left; }
-            .item-number { margin-bottom: 0; margin-right: 15px; }
-            .item-text { font-size: 1.1rem; }
+            .standard-grid { gap: 10px; }
+            .standard-item { width: 92%; padding: 15px 20px; flex-direction: row; text-align: left; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+            .item-number { margin-bottom: 0; margin-right: 12px; font-size: 0.75rem; }
+            .item-text { font-size: 1rem; }
         }
     </style>
 </head>
@@ -143,7 +145,10 @@
 </section>
 
 <section class="sincere-statement">
-    <h2>確かな技術と、妥協のない品質を<br>すべての現場に。</h2>
+    <h2>
+        <span class="text-wrap">確かな技術と、妥協のない品質を</span>
+        <span class="text-wrap">すべての現場に。</span>
+    </h2>
     <p>株式会社NIKAは、エアコン・清掃・建設の現場において、お客様の「大切な住まいと環境」を守ることを第一に考えています。</p>
     <div class="standard-grid">
         <div class="standard-item"><span class="item-number">01</span><span class="item-text">確かな技術</span></div>
