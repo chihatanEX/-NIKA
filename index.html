@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>株式会社NIKA | エアコン・清掃・建設</title>
+    <title>事業内容 | 株式会社NIKA</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Noto+Sans+JP:wght@400;500;700;900&family=Noto+Serif+JP:wght@700&display=swap" rel="stylesheet">
     
@@ -11,23 +11,23 @@
         /* --- 1. ベース設定 --- */
         body {
             font-family: "Noto Sans JP", sans-serif;
-            margin: 0; color: #333; background-color: #ffffff; line-height: 1.8;
+            margin: 0; color: #333; background-color: #fcfdfe; line-height: 1.8;
             -webkit-font-smoothing: antialiased;
         }
 
-        /* --- 2. ヘッダー --- */
-        header {
-            background: #fff; padding: 15px 8%; display: flex; justify-content: space-between;
-            align-items: center; border-bottom: 2px solid #f0f4f8; position: sticky;
-            top: 0; z-index: 2000; height: 70px; box-sizing: border-box;
+        /* --- 2. ヘッダー (トップページと統一) --- */
+        header { 
+            background: #fff; padding: 15px 8%; 
+            display: flex; justify-content: space-between; align-items: center; 
+            border-bottom: 2px solid #f0f4f8; position: sticky; top: 0; z-index: 2000; height: 70px; box-sizing: border-box;
         }
         .logo { font-weight: 700; font-size: 1.4rem; color: #0077b6; text-decoration: none; position: relative; z-index: 2501; }
-        
+
         /* PCナビ */
         nav { display: flex; align-items: center; }
         nav a { 
             margin: 0 12px; text-decoration: none; color: #444; 
-            font-weight: 600; font-size: 0.9rem; transition: color 0.3s; 
+            font-weight: 600; font-size: 0.9rem; transition: 0.3s; 
         }
         nav a:hover { color: #f39c12; }
 
@@ -36,7 +36,7 @@
             border-radius: 50px; margin-left: 10px; transition: 0.3s !important;
         }
 
-        /* --- 3. ハンバーガーメニュー (崩れ防止版) --- */
+        /* --- 3. ハンバーガーメニュー (トップページと完全統一) --- */
         .menu-btn { display: none; cursor: pointer; font-size: 1.5rem; color: #0077b6; position: relative; z-index: 2501; width: 30px; text-align: center; }
 
         @media (max-width: 768px) {
@@ -70,142 +70,162 @@
         }
 
         /* --- 4. ヒーローエリア --- */
-        .hero { height: 60vh; display: flex; position: relative; overflow: hidden; background-color: #001d3d; }
-        .hero-img { flex: 1; background-size: cover; background-position: center; filter: brightness(0.6); }
-        .img-aircon { background-image: url('image/aircon.jpg'); }
-        .img-cleaning { background-image: url('image/cleaning.jpg'); }
-        .img-construction { background-image: url('image/construction.jpg'); }
-        .hero-content { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 10; width: 100%; text-align: center; }
-        .hero-text h1 { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 3.5rem; color: #fff; margin: 0; letter-spacing: 0.1em; line-height: 1.1; }
-        .hero-text p { color: #fff; margin-top: 20px; font-size: 1.1rem; font-weight: 700; letter-spacing: 0.15em; border-bottom: 3px solid #00b4d8; display: inline-block; padding-bottom: 5px; }
+        .page-hero {
+            background: linear-gradient(135deg, #0077b6 0%, #00b4d8 100%);
+            color: #fff; padding: 60px 8%; text-align: center;
+        }
+        .page-hero h1 { font-family: 'Montserrat', sans-serif; margin: 0; font-size: 2.0rem; letter-spacing: 0.1em; font-weight: 800; }
+        .page-hero p { margin: 5px 0 0; font-size: 1.0rem; font-weight: 700; opacity: 0.9; letter-spacing: 0.2em; }
 
-        /* --- 5. 誠実なメッセージ --- */
-        .sincere-statement { padding: 80px 8%; text-align: center; background-color: #f8fafc; }
-        .sincere-statement h2 { font-family: "Noto Serif JP", serif; font-size: 2.2rem; color: #1a1a1a; margin-bottom: 25px; font-weight: 700; line-height: 1.4; }
-        .sincere-statement p { font-size: 1rem; color: #555; max-width: 700px; margin: 0 auto 50px; }
-        .text-wrap { display: block; white-space: nowrap; margin-bottom: 10px; }
-
-        .standard-grid { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
-        .standard-item { background: #fff; padding: 30px 20px; width: 260px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); display: flex; flex-direction: column; align-items: center; transition: 0.3s; }
-        .item-number { font-family: 'Montserrat', sans-serif; font-size: 0.8rem; color: #f39c12; font-weight: 800; margin-bottom: 8px; }
-        .item-text { font-family: "Noto Serif JP", serif; font-weight: 700; font-size: 1.2rem; color: #002950; }
-
-        /* --- 6. サービスカード --- */
-        .services { padding: 80px 8%; max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(2, 1fr); gap: 25px; }
-        .card, .card-static { position: relative; height: 320px; display: flex; align-items: center; justify-content: center; border-radius: 15px; overflow: hidden; color: #fff; text-decoration: none; transition: 0.4s; }
-        .card-air-clean { background: url('image/aircon_cleaning.webp') center/cover; }
-        .card-air-install { background: url('image/aircon.jpg') center/cover; }
-        .card-cleaning { background: url('image/cleaning.jpg') center/cover; }
-        .card-construction { background: url('image/construction.jpg') center/cover; }
-        .card::before, .card-static::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1; }
-        .card:hover { transform: translateY(-8px); }
-        .card-content { position: relative; z-index: 2; padding: 20px; text-align: center; width: 100%; }
-        .card i, .card-static i { font-size: 2rem; color: #f39c12; margin-bottom: 10px; display: block; }
-        .card h3, .card-static h3 { font-size: 1.3rem; margin-bottom: 10px; font-weight: 800; }
-        
-        .more-btn { 
-            display: inline-block; font-weight: 700; font-size: 0.75rem; color: #fff; 
-            border: 1.5px solid #00b4d8; padding: 6px 15px; border-radius: 50px; 
-            background: rgba(0, 180, 216, 0.1); transition: 0.3s;
+        /* --- 5. コンテンツ --- */
+        .container { 
+            max-width: 1100px;
+            margin: 0 auto; padding: 80px 5%; box-sizing: border-box; 
         }
 
-        /* --- 7. 採用・WORKS・FOOTER --- */
-        .recruit-section { padding: 80px 8%; background-color: #f0f7fa; text-align: center; }
-        .recruit-container { max-width: 900px; margin: 0 auto; background: #fff; border-radius: 25px; overflow: hidden; box-shadow: 0 15px 35px rgba(0, 119, 182, 0.1); padding: 50px 30px; }
-        .recruit-info h2 { font-family: 'Montserrat', sans-serif; font-size: 2.2rem; color: #0077b6; margin: 0; }
-        .btn-recruit-large { display: inline-block; background: linear-gradient(135deg, #e67e22 0%, #f39c12 100%); color: #fff; padding: 15px 50px; border-radius: 50px; text-decoration: none; font-weight: 900; box-shadow: 0 8px 20px rgba(230, 126, 34, 0.3); transition: 0.3s; }
+        .content-card { 
+            background: #fff; padding: 50px; border-radius: 20px; 
+            border: 1px solid #eef2f6; box-shadow: 0 5px 20px rgba(0,0,0,0.03); 
+            margin-bottom: 60px; 
+        }
+        
+        .price-flex-container { display: flex; gap: 60px; align-items: center; }
+        .price-flex-container.reverse { flex-direction: row-reverse; }
+        .price-info-side { flex: 1; }
+        .price-table-side { flex: 1.2; }
+
+        h2 { color: #0077b6; font-size: 1.8rem; margin: 0 0 25px; font-weight: 900; position: relative; padding-bottom: 15px; }
+        h2::after { content: ""; position: absolute; bottom: 0; left: 0; width: 50px; height: 3px; background: #00b4d8; }
+
+        .image-box-large { width: 100%; height: 320px; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.08); }
+        .image-box-large img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+        .content-card:hover .image-box-large img { transform: scale(1.05); }
+
+        .description-text { color: #555; margin-bottom: 25px; font-size: 1.05rem; }
+        .service-list { list-style: none; padding: 0; margin: 0 0 35px 0; }
+        .service-list li { padding: 10px 0; border-bottom: 1px solid #f0f4f8; display: flex; align-items: center; gap: 12px; color: #444; font-weight: 700; }
+        .service-list li::before { content: "\f00c"; font-family: "Font Awesome 6 Free"; font-weight: 900; color: #f39c12; }
+
+        .btn-detail { 
+            display: inline-block; padding: 12px 40px; border: 2px solid #f39c12; color: #f39c12; 
+            text-decoration: none; font-weight: 700; border-radius: 50px; transition: 0.3s; 
+        }
+        .btn-detail:hover { background: #f39c12; color: #fff; }
+
+        .cta-area { text-align: center; margin: 20px 0 80px; }
+        .btn-outline { display: inline-flex; align-items: center; gap: 10px; border: 2px solid #0077b6; color: #0077b6; padding: 15px 60px; border-radius: 50px; text-decoration: none; font-weight: 700; transition: 0.3s; }
+        .btn-outline:hover { background: #0077b6; color: #fff; transform: translateY(-2px); }
 
         footer { background: #fff; padding: 40px 0; text-align: center; border-top: 1px solid #eee; font-size: 0.8rem; color: #999; }
 
-        /* レスポンシブ微調整 */
+        /* レスポンシブ */
         @media (max-width: 768px) {
-            .hero-text h1 { font-size: 2rem; }
-            .sincere-statement h2 { font-size: 1.35rem; }
-            .text-wrap { display: inline-block; white-space: nowrap; }
-            .services { grid-template-columns: repeat(2, 1fr); gap: 10px; padding: 40px 3%; }
-            .card, .card-static { height: 180px; }
-            .card h3, .card-static h3 { font-size: 0.85rem; line-height: 1.4; }
-            .standard-item { flex-direction: row; width: 95%; padding: 12px 15px; }
+            .container { padding: 40px 5%; }
+            .content-card { padding: 25px; margin-bottom: 35px; }
+            .price-flex-container, .price-flex-container.reverse { flex-direction: column !important; gap: 25px; }
+            .image-box-large { height: 220px; }
+            h2 { font-size: 1.5rem; }
+            .btn-detail { width: 100%; text-align: center; }
+            .btn-outline { width: 80%; justify-content: center; padding: 15px 0; }
         }
     </style>
 </head>
 <body>
 
 <header>
-    <a href="index.html" class="logo">株式会社NIKA</a>
+    <a href="../index.html" class="logo">株式会社NIKA</a>
     <div class="menu-btn" id="menuBtn"><i class="fas fa-bars"></i></div>
     <nav id="navMenu">
-        <a href="index.html">HOME</a>
-        <a href="company/company.html">会社情報</a>
-        <a href="service/service.html">事業内容</a>
-        <a href="recruit/recruit.html">採用情報</a>
-        <a href="contact/contact.html" class="nav-contact">お問い合わせ</a>
+        <a href="../index.html">HOME</a>
+        <a href="../company/company.html">会社情報</a>
+        <a href="service.html">事業内容</a>
+        <a href="../recruit/recruit.html">採用情報</a>
+        <a href="../contact/contact.html" class="nav-contact">お問い合わせ</a>
     </nav>
 </header>
 
-<section class="hero">
-    <div class="hero-img img-aircon"></div>
-    <div class="hero-img img-cleaning"></div>
-    <div class="hero-img img-construction"></div>
-    <div class="hero-content">
-        <div class="hero-text">
-            <h1>CREATE A BETTER LIFE</h1>
-            <p>確かな技術で、快適な未来を築く</p>
-        </div>
-    </div>
+<section class="page-hero">
+    <h1>SERVICES</h1>
+    <p>事業内容</p>
 </section>
 
-<section class="sincere-statement">
-    <h2>
-        <span class="text-wrap">確かな技術と、妥協のない品質を</span>
-        <span class="text-wrap">すべての現場に。</span>
-    </h2>
-    <p>株式会社NIKAは、エアコン・清掃・建設の現場において、お客様の「大切な住まいと環境」を守ることを第一に考えています。</p>
-    <div class="standard-grid">
-        <div class="standard-item"><span class="item-number">01</span><span class="item-text">確かな技術</span></div>
-        <div class="standard-item"><span class="item-number">02</span><span class="item-text">妥協のない品質</span></div>
-        <div class="standard-item"><span class="item-number">03</span><span class="item-text">誠実な対応</span></div>
-    </div>
-</section>
-
-<section class="services">
-    <a href="airconcleaning/airconcleaning.html" class="card card-air-clean">
-        <div class="card-content">
-            <i class="fas fa-pump-medical"></i>
-            <h3>エアコン<br>クリーニング</h3>
-            <span class="more-btn">詳細を見る</span>
+<div class="container">
+    <div class="content-card">
+        <div class="price-flex-container">
+            <div class="price-info-side">
+                <div class="image-box-large"><img src="../image/aircon_cleaning.webp" alt="エアコンクリーニング"></div>
+            </div>
+            <div class="price-table-side">
+                <h2>エアコンクリーニング</h2>
+                <p class="description-text">高圧洗浄で内部に潜むカビやホコリを徹底除去。空気を清浄にし、エアコン本来の性能を引き出します。</p>
+                <ul class="service-list">
+                    <li>家庭用（おそうじ機能付き対応）</li>
+                    <li>業務用（天カセ・吊型・床置）</li>
+                    <li>室外機洗浄・防カビ抗菌コート</li>
+                </ul>
+                <a href="../airconcleaning/airconcleaning.html" class="btn-detail">詳細・料金を見る</a>
+            </div>
         </div>
+    </div>
+
+    <div class="content-card">
+        <div class="price-flex-container reverse">
+            <div class="price-info-side">
+                <div class="image-box-large"><img src="../image/aircon.jpg" alt="エアコン取付"></div>
+            </div>
+            <div class="price-table-side">
+                <h2>エアコン取付・設置工事</h2>
+                <p class="description-text">ネットで購入された機器の設置から、オフィス・店舗の空調リニューアルまで確実な施工をお約束します。</p>
+                <ul class="service-list">
+                    <li>新築・既存住宅への取付・移設</li>
+                    <li>業務用空調システムの設計・入替</li>
+                    <li>冷媒ガス補充・配管修理対応</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-card">
+        <div class="price-flex-container">
+            <div class="price-info-side">
+                <div class="image-box-large"><img src="../image/cleaning.jpg" alt="ハウスクリーニング"></div>
+            </div>
+            <div class="price-table-side">
+                <h2>ハウスクリーニング</h2>
+                <p class="description-text">プロの洗剤と技術で、頑固な汚れをリセット。心地よい住空間を取り戻します。</p>
+                <ul class="service-list">
+                    <li>キッチン・レンジフードの油汚れ</li>
+                    <li>浴室・洗面・トイレの水垢・カビ清掃</li>
+                    <li>お引越し前後の空室清掃</li>
+                </ul>
+                <a href="../housecleaning/housecleaning.html" class="btn-detail">詳細・料金を見る</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-card">
+        <div class="price-flex-container reverse">
+            <div class="price-info-side">
+                <div class="image-box-large"><img src="../image/construction.jpg" alt="建設サポート"></div>
+            </div>
+            <div class="price-table-side">
+                <h2>建設（養生・美装・雑工）</h2>
+                <p class="description-text">現場の最終工程を担う「美装」を中心に、新築・改修工事の円滑な進行を支えます。</p>
+                <ul class="service-list">
+                    <li>新築・リフォームの引渡し前清掃</li>
+                    <li>床・壁等の各種養生施工</li>
+                    <li>現場整理・片付け・軽作業</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="cta-area">
+    <a href="../index.html" class="btn-outline">
+        <i class="fas fa-arrow-left"></i> TOPページへ戻る
     </a>
-    <div class="card-static card-air-install">
-        <div class="card-content">
-            <i class="fas fa-tools"></i>
-            <h3>エアコン<br>取付・工事</h3>
-        </div>
-    </div>
-    <a href="housecleaning/housecleaning.html" class="card card-cleaning">
-        <div class="card-content">
-            <i class="fas fa-home"></i>
-            <h3>ハウス<br>クリーニング</h3>
-            <span class="more-btn">詳細を見る</span>
-        </div>
-    </a>
-    <div class="card-static card-construction">
-        <div class="card-content">
-            <i class="fas fa-hard-hat"></i>
-            <h3>建設現場<br>サポート</h3>
-        </div>
-    </div>
-</section>
-
-<section class="recruit-section">
-    <div class="recruit-container">
-        <div class="recruit-info">
-            <h2>RECRUIT</h2>
-            <h3>一歩先の技術を、その手に.</h3>
-            <a href="recruit/recruit.html" class="btn-recruit-large">採用情報を詳しく見る</a>
-        </div>
-    </div>
-</section>
+</div>
 
 <footer>
     <p>&copy; 2026 株式会社NIKA. All Rights Reserved.</p>
@@ -215,19 +235,21 @@
     const menuBtn = document.getElementById('menuBtn');
     const navMenu = document.getElementById('navMenu');
 
+    // 開閉制御
     menuBtn.addEventListener('click', () => {
         navMenu.classList.toggle('active');
         const icon = menuBtn.querySelector('i');
         
         if (navMenu.classList.contains('active')) {
             icon.classList.replace('fa-bars', 'fa-times');
-            document.body.style.overflow = 'hidden'; 
+            document.body.style.overflow = 'hidden'; // 背景スクロール固定
         } else {
             icon.classList.replace('fa-times', 'fa-bars');
-            document.body.style.overflow = ''; 
+            document.body.style.overflow = ''; // 固定解除
         }
     });
 
+    // リンククリック時に閉じる
     const navLinks = document.querySelectorAll('nav a');
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
