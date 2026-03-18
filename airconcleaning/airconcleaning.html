@@ -3,136 +3,145 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>クリーニング料金表 | 株式会社NIKA</title>
+    <title>エアコンクリーニング料金 | 株式会社NIKA</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+    
     <style>
         /* --- 1. ベース設定 --- */
         body {
-            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
-            margin: 0; color: #333; background-color: #f4f7f9; line-height: 1.8;
+            font-family: "Noto Sans JP", "Helvetica Neue", Arial, sans-serif;
+            margin: 0; color: #333; background-color: #fcfdfe; line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+            scroll-behavior: smooth;
         }
-        
-        /* --- 2. ヘッダー & ナビゲーション --- */
+
+        /* --- 2. ヘッダー --- */
         header {
-            background: #fff; padding: 15px 8%; display: flex; justify-content: space-between; align-items: center;
-            border-bottom: 2px solid #f0f4f8; position: sticky; top: 0; z-index: 1000;
+            background: #fff; padding: 15px 8%; display: flex; justify-content: space-between;
+            align-items: center; border-bottom: 2px solid #f0f4f8; position: sticky;
+            top: 0; z-index: 1000;
         }
-        .logo { font-weight: bold; font-size: 1.6rem; color: #0077b6; text-decoration: none; z-index: 1100; }
+        .logo { font-weight: 700; font-size: 1.6rem; color: #0077b6; text-decoration: none; z-index: 1200; }
+        
+        nav { display: flex; align-items: center; }
+        nav a { 
+            font-family: "Helvetica Neue", Arial, sans-serif;
+            margin: 0 15px; text-decoration: none; color: #444; font-weight: 600; font-size: 0.95rem; transition: 0.3s; 
+        }
+        nav a:hover { color: #00b4d8; }
+        .nav-contact { 
+            background: #0077b6; color: #fff !important; padding: 10px 25px; border-radius: 50px; 
+            margin-left: 10px; transition: 0.3s; text-decoration: none;
+        }
 
-        /* PCナビゲーション */
-        nav a { margin: 0 15px; text-decoration: none; color: #444; font-weight: 600; font-size: 0.95rem; transition: 0.3s; }
-        nav a:hover { color: #0077b6; }
-        .nav-contact { background: #0077b6; color: #fff !important; padding: 10px 25px; border-radius: 50px; text-decoration: none; }
-        .nav-contact:hover { background: #00b4d8; }
-
-        /* ハンバーガーボタン（デフォルト非表示） */
-        .menu-btn {
-            display: none;
-            cursor: pointer;
-            font-size: 1.5rem;
-            color: #0077b6;
-            z-index: 1100;
+        .menu-btn { display: none; cursor: pointer; z-index: 1200; font-size: 1.6rem; color: #0077b6; }
+        .menu-overlay {
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+            background: rgba(0, 0, 0, 0.6); z-index: 1050; opacity: 0; transition: 0.3s; pointer-events: none;
         }
 
         /* --- 3. ヒーローエリア --- */
         .page-hero {
-            background: linear-gradient(135deg, #0077b6 0%, #00b4d8 100%);
+            position: relative;
+            background: url('../image/23521419_m1.jpg') no-repeat center center/cover;
             color: #fff; padding: 60px 8%; text-align: center;
         }
-        .page-hero h1 { margin: 0; font-size: 2.2rem; letter-spacing: 0.1em; font-weight: 800; }
-        .page-hero p { margin: 10px 0 0; font-size: 1.1rem; opacity: 0.9; font-weight: 500; }
+        .page-hero::before {
+            content: "";
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 80, 130, 0.5);
+            z-index: 1;
+        }
+        .page-hero h1, .page-hero p { position: relative; z-index: 2; margin: 0; }
+        .page-hero h1 { 
+            font-family: 'Montserrat', sans-serif; 
+            font-size: 2.0rem; letter-spacing: 0.1em; font-weight: 800; 
+        }
+        .page-hero p { margin-top: 5px; font-size: 1.0rem; opacity: 0.95; font-weight: 500; letter-spacing: 0.2em; }
 
-        /* --- 4. 導入文メッセージ --- */
+        /* --- 4. コンテンツデザイン (ハウスクリーニングと統一: 1200px) --- */
+        .container { max-width: 1200px; margin: 0 auto; padding: 60px 8% 20px; box-sizing: border-box; }
+
         .intro-message {
-            text-align: center; padding: 50px 8% 20px; max-width: 800px; margin: 0 auto;
+            text-align: center; margin-bottom: 50px;
         }
         .intro-message p {
-            font-size: 1.25rem; color: #0077b6; font-weight: 700; line-height: 1.8; margin: 0;
+            font-size: 1.15rem; color: #0077b6; font-weight: 700; line-height: 2.0; margin: 0;
         }
-
-        /* --- 5. コンテンツデザイン --- */
-        .container { max-width: 900px; margin: 0 auto; padding: 20px 5% 80px; }
 
         .category-header {
             display: flex; align-items: center; gap: 15px;
-            margin-bottom: 15px; padding: 10px 0; border-bottom: 3px solid #0077b6;
+            margin-bottom: 20px; padding-bottom: 10px;
+            border-bottom: 3px solid #0077b6;
         }
-        .category-header i {
-            font-size: 1.8rem; color: #0077b6; background: #fff;
-            width: 50px; height: 50px; display: flex; align-items: center; justify-content: center;
-            border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-        }
-        .category-header h2 { margin: 0; font-size: 1.4rem; color: #0077b6; }
+        .category-header i { font-size: 1.4rem; color: #0077b6; }
+        .category-header h2 { margin: 0; font-size: 1.5rem; color: #0077b6; font-weight: 800; }
 
+        /* --- 料金表デザイン (幅と比率を統一) --- */
         .price-card {
             background: #fff; border-radius: 15px; overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05); margin-bottom: 50px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.03); margin-bottom: 50px;
+            border: 1px solid #eef2f6;
         }
         .price-table { width: 100%; border-collapse: collapse; }
-        .price-table tr:hover { background-color: #f0faff; }
-        .price-table th, .price-table td { padding: 20px; border-bottom: 1px solid #edf2f7; text-align: left; }
-        .price-table th { font-weight: 600; color: #4a5568; width: 65%; }
-        .price-table td { text-align: right; white-space: nowrap; }
+        .price-table th, .price-table td { padding: 25px; border-bottom: 1px solid #f0f4f8; text-align: left; }
+        /* 左側の幅を40%に設定 */
+        .price-table th { font-weight: 700; color: #333; width: 40%; background: #fcfdfe; vertical-align: middle; }
+        .price-table td { text-align: right; color: #444; font-weight: 500; }
 
-        .price-tag { color: #0077b6; font-weight: 800; font-size: 1.4rem; font-family: 'Verdana', sans-serif; }
-        .price-unit { font-size: 0.9rem; margin-left: 2px; color: #333; font-weight: bold; }
+        .price-tag { color: #0077b6; font-weight: 800; font-size: 1.6rem; font-family: 'Montserrat', sans-serif; }
+        .price-unit { font-size: 0.9rem; margin-left: 4px; color: #333; font-weight: 700; }
 
-        /* CTAボタン */
-        .cta-section { text-align: center; margin-bottom: 60px; }
+        /* --- 5. CTAエリア (ハウスクリーニングページと統一) --- */
+        .cta-section { 
+            text-align: center; margin: 60px 0 40px; padding: 60px 5%;
+            background: #fff; border-radius: 20px; border: 1px solid #eef2f6;
+            box-shadow: 0 15px 40px rgba(0, 119, 182, 0.05);
+        }
+        .cta-section h3 { color: #0077b6; font-size: 1.5rem; margin-bottom: 15px; font-weight: 800; }
+        .cta-section p { color: #666; margin-bottom: 35px; font-size: 0.95rem; }
+
         .btn-main {
-            background: #0077b6; color: #fff; padding: 20px 50px;
-            border-radius: 50px; text-decoration: none; font-weight: bold;
+            background: #0077b6; color: #fff; padding: 18px 60px;
+            border-radius: 50px; text-decoration: none; font-weight: 800;
             display: inline-block; transition: 0.3s; box-shadow: 0 10px 25px rgba(0,119,182,0.2);
+            font-size: 1.1rem;
         }
         .btn-main:hover { transform: translateY(-3px); background: #00b4d8; }
 
+        .cta-area { text-align: center; margin-top: 20px; padding-bottom: 80px; }
+        .btn-outline {
+            display: inline-flex; align-items: center; gap: 10px; border: 2px solid #0077b6; 
+            color: #0077b6; padding: 15px 60px; border-radius: 50px; text-decoration: none; font-weight: bold; transition: 0.3s;
+        }
+        .btn-outline:hover { background: #0077b6; color: #fff; transform: translateY(-2px); }
+
         footer { background: #fff; padding: 60px 0; text-align: center; border-top: 1px solid #eee; font-size: 0.85rem; color: #999; }
 
-        /* --- 6. スマホレスポンシブ (768px以下) --- */
+        /* --- 6. レスポンシブ --- */
         @media (max-width: 768px) {
-            header { padding: 15px 5%; }
+            header { padding: 12px 5%; }
             .logo { font-size: 1.3rem; }
-
-            /* ハンバーガーボタンを表示 */
             .menu-btn { display: block; }
-
-            /* ナビゲーションを画面全体を覆うメニューに変更 */
             nav {
-                position: fixed;
-                top: 0;
-                right: -100%; /* 初期位置は右の外側 */
-                width: 80%;
-                height: 100vh;
-                background: #fff;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                transition: 0.4s;
-                z-index: 1050;
-                box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+                position: fixed; top: -100vh; left: 0; width: 100%; height: auto;
+                background: #ffffff; flex-direction: column; padding: 60px 0 40px; z-index: 1100;
+                transition: 0.4s ease-in-out; box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             }
+            nav.active { top: 0; }
+            nav a { width: 100%; text-align: center; padding: 15px 0; border-bottom: 1px solid #f9f9f9; margin: 0; }
+            .nav-contact { width: 80% !important; margin: 20px auto 0 !important; }
+            .menu-overlay.active { display: block; opacity: 1; pointer-events: auto; }
 
-            /* メニューが開いた状態 */
-            nav.active { right: 0; }
-
-            nav a { margin: 15px 0; font-size: 1.2rem; }
-
-            /* オーバーレイ（背景を暗くする） */
-            .menu-overlay {
-                display: none;
-                position: fixed;
-                top: 0; left: 0; width: 100%; height: 100%;
-                background: rgba(0,0,0,0.5);
-                z-index: 1000;
-            }
-            .menu-overlay.active { display: block; }
-
-            .page-hero h1 { font-size: 1.8rem; }
-            .intro-message p { font-size: 1.1rem; }
-            .price-table th, .price-table td { padding: 15px; }
-            .price-table th { width: 60%; font-size: 0.85rem; }
-            .price-tag { font-size: 1.1rem; }
+            .page-hero { padding: 40px 5%; }
+            .page-hero h1 { font-size: 1.6rem; }
+            
+            .price-table th, .price-table td { padding: 20px 15px; display: block; width: 100%; text-align: left; }
+            .price-table th { border-bottom: none; padding-bottom: 5px; font-size: 0.95rem; }
+            .price-table td { text-align: right; padding-top: 5px; }
+            .btn-main, .btn-outline { width: 100%; box-sizing: border-box; justify-content: center; }
         }
     </style>
 </head>
@@ -140,13 +149,8 @@
 
 <header>
     <a href="../index.html" class="logo">株式会社NIKA</a>
-    
-    <div class="menu-btn" id="menuBtn">
-        <i class="fas fa-bars"></i>
-    </div>
-
+    <div class="menu-btn" id="menuBtn"><i class="fas fa-bars"></i></div>
     <div class="menu-overlay" id="menuOverlay"></div>
-
     <nav id="navMenu">
         <a href="../index.html">HOME</a>
         <a href="../company/company.html">会社情報</a>
@@ -157,15 +161,15 @@
 </header>
 
 <section class="page-hero">
-    <h1>AIRCON CLEANING PRICE</h1>
+    <h1>AIRCON PRICE</h1>
     <p>エアコンクリーニング料金</p>
 </section>
 
-<div class="intro-message">
-    <p>エアコンのカビ・汚れを徹底洗浄。<br>プロの技術で快適な空間をお届けします。</p>
-</div>
-
 <div class="container">
+    <div class="intro-message">
+        <p>エアコンのカビ・汚れを徹底洗浄。<br>プロの技術で快適な空間をお届けします。</p>
+    </div>
+
     <div class="category-header">
         <i class="fas fa-snowflake"></i>
         <h2>エアコンクリーニング料金</h2>
@@ -174,38 +178,41 @@
     <div class="price-card">
         <table class="price-table">
             <tr>
-                <th>壁掛けエアコン（お掃除機能なし）</th>
-                <td><span class="price-tag">13,200</span><span class="price-unit">円～</span></td>
+                <th>壁掛けエアコン<br><span style="font-size: 0.8rem; font-weight: normal; color: #777;">（お掃除機能なし）</span></th>
+                <td><span class="price-tag">13,200</span><span class="price-unit">円〜</span></td>
             </tr>
             <tr>
-                <th>壁掛けエアコン（お掃除機能あり）</th>
-                <td><span class="price-tag">24,200</span><span class="price-unit">円～</span></td>
+                <th>壁掛けエアコン<br><span style="font-size: 0.8rem; font-weight: normal; color: #777;">（お掃除機能あり）</span></th>
+                <td><span class="price-tag">24,200</span><span class="price-unit">円〜</span></td>
             </tr>
-                <th>業務用エアコン（天井埋め込み型）</th>
-                <td><span class="price-tag">38,500</span><span class="price-unit">円～</span></td>
-            </tr>        
+            <tr>
+                <th>業務用エアコン<br><span style="font-size: 0.8rem; font-weight: normal; color: #777;">（天井埋め込み型）</span></th>
+                <td><span class="price-tag">38,500</span><span class="price-unit">円〜</span></td>
             </tr>
-                <th>抗菌コート</th>
-                <td><span class="price-tag">1,980</span><span class="price-unit">円～</span></td>
-            </tr>                        
+            <tr>
+                <th>抗菌コート<br><span style="font-size: 0.8rem; font-weight: normal; color: #777;">（オプション）</span></th>
+                <td><span class="price-tag">1,980</span><span class="price-unit">円〜</span></td>
+            </tr>
         </table>
     </div>
 
     <div class="cta-section">
+        <h3>エアコンのお悩み、プロが解決します</h3>
+        <p>お見積もりは無料です。複数台割引や、お住まいの清掃に関することなら何でもご相談ください。</p>
         <a href="../contact/contact.html" class="btn-main">
             <i class="fas fa-envelope"></i> 無料で見積もり・相談をする
         </a>
     </div>
 
-    <div style="text-align: center;">
-        <a href="../index.html" style="color: #718096; text-decoration: none; font-size: 0.9rem;">
-            <i class="fas fa-arrow-left"></i> ホームへ戻る
+    <div class="cta-area">
+        <a href="../index.html" class="btn-outline">
+            <i class="fas fa-arrow-left"></i> TOPページへ戻る
         </a>
     </div>
 </div>
 
 <footer>
-    <p>&copy; 2026 株式会社NIKA. All Rights Reserved.</p>
+    <p>© 2026 株式会社NIKA. All Rights Reserved.</p>
 </footer>
 
 <script>
@@ -216,12 +223,13 @@
     function toggleMenu() {
         navMenu.classList.toggle('active');
         menuOverlay.classList.toggle('active');
-        // アイコンを切り替え（三本線 ⇄ ✕印）
         const icon = menuBtn.querySelector('i');
         if (navMenu.classList.contains('active')) {
             icon.classList.replace('fa-bars', 'fa-times');
+            document.body.style.overflow = 'hidden';
         } else {
             icon.classList.replace('fa-times', 'fa-bars');
+            document.body.style.overflow = '';
         }
     }
 
