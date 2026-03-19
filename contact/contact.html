@@ -17,7 +17,7 @@
             -webkit-font-smoothing: antialiased; overflow-x: hidden;
         }
         
-        /* --- 2. ヘッダー (最前面に固定) --- */
+        /* --- 2. ヘッダー (他ページと完全統一) --- */
         header { 
             background: #fff; padding: 15px 8%; 
             display: flex; justify-content: space-between; align-items: center; 
@@ -38,11 +38,11 @@
         nav a:hover { color: #f39c12; }
 
         .nav-contact { 
-            background: #f39c12; color: #fff !important; 
+            background: #f39c12 !important; color: #fff !important; 
             padding: 8px 25px; border-radius: 50px; margin-left: 10px; 
             transition: 0.3s !important; display: inline-block;
         }
-        .nav-contact:hover { opacity: 0.8; }
+        .nav-contact:hover { opacity: 0.8; color: #fff !important; }
 
         /* ハンバーガーボタン (×に切り替わる用) */
         .menu-btn { 
@@ -104,7 +104,7 @@
 
         footer { background: #fff; padding: 60px 0; text-align: center; border-top: 1px solid #eee; font-size: 0.8rem; color: #999; }
 
-        /* --- 6. スマホレスポンシブ --- */
+        /* --- 6. スマホレスポンシブ (他ページと数値を統一) --- */
         @media (max-width: 768px) {
             header { padding: 12px 5%; }
             .logo { font-size: 1.2rem; max-width: 70%; }
@@ -113,7 +113,7 @@
             nav {
                 position: fixed; top: -100vh; left: 0; width: 100%; height: auto;
                 background: #ffffff; flex-direction: column; 
-                padding: 100px 0 40px; /* ロゴと重ならないよう余白 */
+                padding: 100px 0 40px; /* 他ページと共通の余白 */
                 z-index: 1100; transition: 0.4s ease-in-out; 
                 visibility: hidden; pointer-events: none;
                 box-shadow: 0 10px 30px rgba(0,0,0,0.1);
@@ -133,9 +133,8 @@
             .contact-card { padding: 40px 15px; border-radius: 15px; }
             .form-intro { font-size: 1.0rem; margin-bottom: 30px; text-align: left; }
             
-            /* スマホでのフォーム高さを調整 */
             .form-wrapper iframe { height: 1250px; }
-            .btn-outline { width: 100%; justify-content: center; }
+            .btn-outline { width: 100%; box-sizing: border-box; justify-content: center; }
         }
     </style>
 </head>
@@ -197,11 +196,11 @@
         if (navMenu.classList.contains('active')) {
             // メニューが開いたとき：×アイコンに変更
             menuIcon.classList.replace('fa-bars', 'fa-times');
-            document.body.style.overflow = 'hidden'; // 背景スクロール防止
+            document.body.style.overflow = 'hidden'; 
         } else {
             // メニューが閉じたとき：三本線に戻す
             menuIcon.classList.replace('fa-times', 'fa-bars');
-            document.body.style.overflow = ''; // スクロール再開
+            document.body.style.overflow = ''; 
         }
     }
 
