@@ -22,7 +22,16 @@
             align-items: center; border-bottom: 2px solid #f0f4f8; position: sticky;
             top: 0; z-index: 1000;
         }
-        .logo { font-weight: 700; font-size: 1.4rem; color: #0077b6; text-decoration: none; }
+        
+        /* ロゴをメニュー背景より上に配置 */
+        .logo { 
+            font-weight: 700; 
+            font-size: 1.4rem; 
+            color: #0077b6; 
+            text-decoration: none; 
+            position: relative; 
+            z-index: 1200; 
+        }
         
         /* ナビゲーション設定 */
         nav { display: flex; align-items: center; }
@@ -47,8 +56,27 @@
         }
         .nav-contact:hover { opacity: 0.8; color: #fff !important; }
 
-        .menu-btn { display: none; cursor: pointer; font-size: 1.5rem; color: #0077b6; }
-        .menu-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background: rgba(0,0,0,0.6); z-index: 1050; opacity: 0; transition: 0.3s; pointer-events: none; }
+        /* ハンバーガーボタンもメニュー背景より上に配置 */
+        .menu-btn { 
+            display: none; 
+            cursor: pointer; 
+            font-size: 1.5rem; 
+            color: #0077b6; 
+            position: relative; 
+            z-index: 1200; 
+        }
+
+        .menu-overlay { 
+            display: none; 
+            position: fixed; 
+            top: 0; left: 0; 
+            width: 100%; height: 100vh; 
+            background: rgba(0,0,0,0.6); 
+            z-index: 1050; 
+            opacity: 0; 
+            transition: 0.3s; 
+            pointer-events: none; 
+        }
         .menu-overlay.active { opacity: 1; pointer-events: auto; display: block; }
 
         /* --- 3. ヒーローエリア --- */
@@ -119,19 +147,29 @@
         .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; }
         .photo-placeholder { background: #f0f7fa; height: 200px; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #9ab4c1; font-weight: 700; }
 
+        /* --- 8. フッター --- */
         footer { background: #fff; padding: 40px 0; text-align: center; border-top: 1px solid #eee; font-size: 0.8rem; color: #999; }
 
-        /* --- 8. レスポンシブ調整 --- */
+        /* --- 9. レスポンシブ調整 (スマホ) --- */
         @media (max-width: 768px) {
             header { padding: 12px 5%; }
-            .menu-btn { display: block; z-index: 1200; }
+            .menu-btn { display: block; }
             
             nav {
-                position: fixed; top: -100vh; left: 0; width: 100%; height: auto;
-                background: #ffffff; flex-direction: column; padding: 60px 0 40px; z-index: 1100;
-                transition: 0.4s ease-in-out; box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-                /* ★ここが重要！閉じている時は操作不能にする */
-                visibility: hidden; pointer-events: none;
+                position: fixed; 
+                top: -100vh; 
+                left: 0; 
+                width: 100%; 
+                height: auto;
+                background: #ffffff; 
+                flex-direction: column; 
+                padding: 80px 0 40px; /* ロゴと被らないよう上部余白を確保 */
+                z-index: 1100;
+                transition: 0.4s ease-in-out; 
+                box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+                /* 閉じている時は完全に隠してクリックを無効化 */
+                visibility: hidden; 
+                pointer-events: none;
             }
             nav.active { 
                 top: 0; 
