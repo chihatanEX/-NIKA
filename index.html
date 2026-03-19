@@ -23,7 +23,6 @@
             top: 0; z-index: 1000;
         }
         
-        /* ロゴをメニュー背景より上に配置 */
         .logo { 
             font-weight: 700; 
             font-size: 1.4rem; 
@@ -33,7 +32,6 @@
             z-index: 1200; 
         }
         
-        /* ナビゲーション設定 */
         nav { display: flex; align-items: center; }
         nav a { 
             margin: 0 12px; 
@@ -56,7 +54,6 @@
         }
         .nav-contact:hover { opacity: 0.8; color: #fff !important; }
 
-        /* ハンバーガーボタンもメニュー背景より上に配置 */
         .menu-btn { 
             display: none; 
             cursor: pointer; 
@@ -115,12 +112,14 @@
         .card h3, .card-static h3 { font-size: 1.3rem; margin-bottom: 10px; font-weight: 800; }
         .card p, .card-static p { font-size: 0.85rem; opacity: 0.9; margin-bottom: 15px; }
 
+        /* --- 【修正箇所】「詳細を見る」ボタンをオレンジに変更 --- */
         .more-btn { 
-            display: inline-block; font-weight: 700; font-size: 0.75rem; color: #fff; 
-            border: 1.5px solid #00b4d8; padding: 6px 15px; border-radius: 50px; 
-            background: rgba(0, 180, 216, 0.1); transition: 0.3s;
+            display: inline-block; font-weight: 700; font-size: 0.75rem; color: #f39c12; 
+            border: 1.5px solid #f39c12; padding: 6px 15px; border-radius: 50px; 
+            background: rgba(243, 156, 18, 0.05); transition: 0.3s;
         }
-        .card:hover .more-btn { background: #00b4d8; }
+        /* ホバー時に背景をオレンジ、文字を白に */
+        .card:hover .more-btn { background: #f39c12; color: #fff; border-color: #f39c12; }
 
         /* --- 6. 採用セクション --- */
         .recruit-section { padding: 80px 8%; background-color: #f0f7fa; text-align: center; }
@@ -142,11 +141,6 @@
             font-weight: 900; box-shadow: 0 8px 20px rgba(230, 126, 34, 0.3); transition: 0.3s;
         }
 
-        /* --- 7. WORKS --- */
-        .gallery { padding: 60px 8%; text-align: center; }
-        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; }
-        .photo-placeholder { background: #f0f7fa; height: 200px; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #9ab4c1; font-weight: 700; }
-
         /* --- 8. フッター --- */
         footer { background: #fff; padding: 40px 0; text-align: center; border-top: 1px solid #eee; font-size: 0.8rem; color: #999; }
 
@@ -163,11 +157,10 @@
                 height: auto;
                 background: #ffffff; 
                 flex-direction: column; 
-                padding: 80px 0 40px; /* ロゴと被らないよう上部余白を確保 */
+                padding: 80px 0 40px; 
                 z-index: 1100;
                 transition: 0.4s ease-in-out; 
                 box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-                /* 閉じている時は完全に隠してクリックを無効化 */
                 visibility: hidden; 
                 pointer-events: none;
             }
@@ -191,7 +184,12 @@
             .card i, .card-static i { font-size: 1.4rem; margin-bottom: 5px; }
             .card h3, .card-static h3 { font-size: 0.8rem; margin-bottom: 8px; line-height: 1.3; }
             .card p, .card-static p { display: none; }
-            .more-btn { font-size: 0.65rem; padding: 4px 10px; }
+
+            /* --- 【修正箇所】スマホ時は最初からオレンジ背景に --- */
+            .more-btn { 
+                font-size: 0.65rem; padding: 4px 10px; 
+                background: #f39c12; color: #fff; border-color: #f39c12;
+            }
             
             .recruit-info h2 { font-size: 1.8rem; }
             .recruit-info h3 { font-size: 1.1rem; }
