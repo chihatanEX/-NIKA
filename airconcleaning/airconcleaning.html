@@ -17,7 +17,7 @@
             overflow-x: hidden;
         }
 
-        /* --- 2. ヘッダー (トップページと完全統一) --- */
+        /* --- 2. ヘッダー (TOPページ基準・サイズ固定) --- */
         header {
             background: #fff; padding: 15px 8%; display: flex; justify-content: space-between;
             align-items: center; border-bottom: 2px solid #f0f4f8; position: sticky;
@@ -50,7 +50,7 @@
         }
         .menu-overlay.active { display: block; opacity: 1; pointer-events: auto; }
 
-        /* --- 3. ヒーローエリア --- */
+        /* --- 3. ヒーローエリア (お好みの色味を適用) --- */
         .page-hero {
             position: relative;
             background: url('../image/23521419_m1.jpg') no-repeat center center/cover;
@@ -59,22 +59,23 @@
         .page-hero::before {
             content: "";
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 80, 130, 0.5);
+            /* お気に入りの明るいブルーグラデーション */
+            background: linear-gradient(135deg, rgba(0, 119, 182, 0.6) 0%, rgba(0, 180, 216, 0.2) 0%);
             z-index: 1;
         }
-        .page-hero h1, .page-hero p { position: relative; z-index: 2; margin: 0; }
+        .page-hero h1, .page-hero p { position: relative; z-index: 2; margin: 0; text-shadow: 0 2px 10px rgba(0,0,0,0.3); }
         .page-hero h1 { 
             font-family: 'Montserrat', sans-serif; 
-            font-size: 2.5rem; letter-spacing: 0.1em; font-weight: 800; 
+            font-size: 2.2rem; letter-spacing: 0.1em; font-weight: 800; 
         }
         .page-hero p { margin-top: 5px; font-size: 1.0rem; opacity: 0.95; font-weight: 700; letter-spacing: 0.2em; }
 
-        /* --- 4. コンテンツエリア --- */
+        /* --- 4. コンテンツデザイン --- */
         .container { max-width: 1200px; margin: 0 auto; padding: 60px 8%; }
 
         .intro-message { text-align: center; margin-bottom: 50px; }
         .intro-message p {
-            font-size: 1.15rem; color: #0077b6; font-weight: 700; line-height: 2.0; margin: 0;
+            font-size: 1.1rem; color: #0077b6; font-weight: 700; line-height: 1.8; margin: 0;
         }
 
         .category-header {
@@ -92,20 +93,22 @@
         }
         .price-table { width: 100%; border-collapse: collapse; }
         .price-table th, .price-table td { padding: 25px; border-bottom: 1px solid #f0f4f8; text-align: left; }
-        .price-table th { font-weight: 700; color: #333; width: 45%; background: #fcfdfe; vertical-align: middle; }
+        .price-table th { font-weight: 700; color: #333; width: 50%; background: #fcfdfe; vertical-align: middle; }
+        .price-table th span { font-size: 0.85rem; color: #666; font-weight: 500; display: block; margin-top: 4px; }
         .price-table td { text-align: right; color: #444; font-weight: 500; }
 
         .price-tag { color: #0077b6; font-weight: 800; font-size: 1.6rem; font-family: 'Montserrat', sans-serif; }
         .price-unit { font-size: 0.9rem; margin-left: 4px; color: #333; font-weight: 700; }
 
+        /* CTA */
         .cta-section { 
             text-align: center; margin: 60px 0 40px; padding: 60px 5%;
             background: #fff; border-radius: 30px; border: 1px solid #eef2f6;
             box-shadow: 0 15px 40px rgba(0, 119, 182, 0.08);
         }
         .cta-section h3 { color: #0077b6; font-size: 1.5rem; margin-bottom: 15px; font-weight: 800; }
-        .cta-section p { color: #666; margin-bottom: 35px; font-size: 1.0rem; font-weight: 500; }
-
+        .cta-section p { color: #666; margin-bottom: 35px; font-size: 0.95rem; font-weight: 500; }
+        
         .btn-main {
             background: #0077b6; color: #fff; padding: 18px 60px;
             border-radius: 50px; text-decoration: none; font-weight: 800;
@@ -120,15 +123,13 @@
             display: inline-flex; align-items: center; gap: 10px; border: 2px solid #0077b6; 
             color: #0077b6; padding: 15px 60px; border-radius: 50px; text-decoration: none; font-weight: bold; transition: 0.3s;
         }
-        .btn-outline:hover { background: #0077b6; color: #fff; transform: translateY(-2px); }
 
         footer { background: #fff; padding: 60px 0; text-align: center; border-top: 1px solid #eee; font-size: 0.8rem; color: #999; }
 
-        /* --- 5. レスポンシブ (スマホ版のみ密度アップ) --- */
+        /* --- 5. レスポンシブ (スマホ調整) --- */
         @media (max-width: 768px) {
-            br { display: none; } /* スマホでの不自然な改行を防止 */
+            br { display: none; } 
             
-            /* ヘッダーサイズ・挙動をトップページと統一 */
             header { padding: 12px 5%; }
             .logo { font-size: 1.4rem; }
             .menu-btn { display: block; }
@@ -143,36 +144,27 @@
             nav a { width: 100%; text-align: center; padding: 15px 0; border-bottom: 1px solid #f9f9f9; margin: 0; font-size: 1.1rem; }
             .nav-contact { width: 80% !important; margin: 20px auto 0 !important; }
 
-            /* ヒーローの高さを少し圧縮してスクロール軽減 */
             .page-hero { padding: 35px 5%; }
             .page-hero h1 { font-size: 1.6rem; }
             .page-hero p { font-size: 0.85rem; }
             
-            /* メインコンテンツの余白を詰める */
             .container { padding: 30px 5%; }
-
             .intro-message { margin-bottom: 30px; }
-            .intro-message p { font-size: 0.95rem; line-height: 1.6; }
+            .intro-message p { font-size: 0.9rem; line-height: 1.6; }
 
-            .category-header { margin-bottom: 15px; }
             .category-header h2 { font-size: 1.2rem; }
 
-            /* 料金表の密度を上げる */
             .price-card { margin-bottom: 30px; border-radius: 10px; }
             .price-table th, .price-table td { padding: 12px 15px; display: block; width: 100%; }
-            .price-table th { border-bottom: none; padding-bottom: 2px; font-size: 0.9rem; background: #f8fbff; }
+            .price-table th { border-bottom: none; padding-bottom: 2px; font-size: 0.9rem; background: #fcfdfe; }
+            .price-table th span { display: inline; margin-top: 0; }
             .price-table td { text-align: right; padding-top: 2px; border-bottom: 1px solid #f0f4f8; }
             .price-tag { font-size: 1.35rem; }
-            
-            /* CTAの密度を上げる */
+
             .cta-section { margin: 30px 0 20px; padding: 35px 20px; border-radius: 20px; }
-            .cta-section h3 { font-size: 1.2rem; margin-bottom: 10px; }
-            .cta-section p { font-size: 0.9rem; margin-bottom: 25px; }
+            .cta-section h3 { font-size: 1.2rem; }
+            .btn-main, .btn-outline { width: 100%; padding: 14px 20px; font-size: 1.0rem; }
             
-            .btn-main { padding: 14px 30px; font-size: 1.0rem; width: 100%; }
-            .btn-outline { padding: 12px 30px; font-size: 0.9rem; width: 100%; }
-            
-            .cta-area { padding-bottom: 50px; }
             footer { padding: 40px 0; }
         }
     </style>
@@ -210,19 +202,19 @@
     <div class="price-card">
         <table class="price-table">
             <tr>
-                <th>壁掛けエアコン<br><span>（お掃除機能なし）</span></th>
+                <th>壁掛けエアコン<span>（お掃除機能なし）</span></th>
                 <td><span class="price-tag">13,200</span><span class="price-unit">円〜</span></td>
             </tr>
             <tr>
-                <th>壁掛けエアコン<br><span>（お掃除機能あり）</span></th>
+                <th>壁掛けエアコン<span>（お掃除機能あり）</span></th>
                 <td><span class="price-tag">24,200</span><span class="price-unit">円〜</span></td>
             </tr>
             <tr>
-                <th>業務用エアコン<br><span>（天井埋め込み型）</span></th>
+                <th>業務用エアコン<span>（天井埋め込み型）</span></th>
                 <td><span class="price-tag">38,500</span><span class="price-unit">円〜</span></td>
             </tr>
             <tr>
-                <th>抗菌コート<br><span>（オプション）</span></th>
+                <th>抗菌コート<span>（オプション）</span></th>
                 <td><span class="price-tag">1,980</span><span class="price-unit">円〜</span></td>
             </tr>
         </table>
