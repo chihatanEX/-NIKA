@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
     
     <style>
-        /* --- 1. ベース設定 --- */
+        /* --- 1. ベース設定 (PC版) --- */
         * { box-sizing: border-box; }
         body {
             font-family: "Noto Sans JP", sans-serif;
@@ -17,7 +17,7 @@
             overflow-x: hidden;
         }
 
-        /* --- 2. ヘッダー (他ページと完全統一) --- */
+        /* --- 2. ヘッダー --- */
         header {
             background: #fff; padding: 15px 8%; display: flex; justify-content: space-between;
             align-items: center; border-bottom: 2px solid #f0f4f8; position: sticky;
@@ -85,7 +85,6 @@
         .category-header i { font-size: 1.4rem; color: #0077b6; }
         .category-header h2 { margin: 0; font-size: 1.5rem; color: #0077b6; font-weight: 800; }
 
-        /* --- 料金表デザイン --- */
         .price-card {
             background: #fff; border-radius: 15px; overflow: hidden;
             box-shadow: 0 5px 20px rgba(0,0,0,0.03); margin-bottom: 50px;
@@ -99,7 +98,6 @@
         .price-tag { color: #0077b6; font-weight: 800; font-size: 1.6rem; font-family: 'Montserrat', sans-serif; }
         .price-unit { font-size: 0.9rem; margin-left: 4px; color: #333; font-weight: 700; }
 
-        /* --- 5. CTAエリア --- */
         .cta-section { 
             text-align: center; margin: 60px 0 40px; padding: 60px 5%;
             background: #fff; border-radius: 30px; border: 1px solid #eef2f6;
@@ -126,33 +124,51 @@
 
         footer { background: #fff; padding: 60px 0; text-align: center; border-top: 1px solid #eee; font-size: 0.8rem; color: #999; }
 
-        /* --- 6. レスポンシブ (スマホ) --- */
+        /* --- 6. レスポンシブ (スマホ版：ここを大幅に修正) --- */
         @media (max-width: 768px) {
-            header { padding: 12px 5%; }
-            .logo { font-size: 1.4rem; }
-            .menu-btn { display: block; }
+            br { display: none; } /* スマホでの不自然な改行を防止 */
+            
+            header { padding: 10px 5%; }
+            .logo { font-size: 1.2rem; }
+            .menu-btn { display: block; font-size: 1.3rem; }
+            
             nav {
                 position: fixed; top: -100vh; left: 0; width: 100%; height: auto;
-                background: #ffffff; flex-direction: column; padding: 80px 0 40px; z-index: 1100;
+                background: #ffffff; flex-direction: column; padding: 60px 0 30px; z-index: 1100;
                 transition: 0.4s ease-in-out; visibility: hidden; pointer-events: none;
                 box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             }
             nav.active { top: 0; visibility: visible; pointer-events: auto; }
-            nav a { width: 100%; text-align: center; padding: 15px 0; border-bottom: 1px solid #f9f9f9; margin: 0; font-size: 1.1rem; }
-            .nav-contact { width: 80% !important; margin: 20px auto 0 !important; }
+            nav a { width: 100%; text-align: center; padding: 12px 0; border-bottom: 1px solid #f9f9f9; margin: 0; font-size: 1.0rem; }
+            .nav-contact { width: 80% !important; margin: 15px auto 0 !important; padding: 10px !important; }
 
-            .page-hero { padding: 40px 5%; }
-            .page-hero h1 { font-size: 1.6rem; }
+            .page-hero { padding: 30px 5%; }
+            .page-hero h1 { font-size: 1.4rem; }
+            .page-hero p { font-size: 0.85rem; }
             
-            .container { padding: 40px 5%; }
+            .container { padding: 25px 5%; } /* 全体の余白を圧縮 */
 
-            .price-table th, .price-table td { padding: 20px 15px; display: block; width: 100%; }
-            .price-table th { border-bottom: none; padding-bottom: 5px; font-size: 1.0rem; background: #f8fbff; }
-            .price-table td { text-align: right; padding-top: 5px; border-bottom: 1px solid #f0f4f8; }
+            .intro-message { margin-bottom: 25px; }
+            .intro-message p { font-size: 0.95rem; line-height: 1.6; }
+
+            .category-header { margin-bottom: 15px; }
+            .category-header h2 { font-size: 1.2rem; }
+
+            .price-card { margin-bottom: 30px; border-radius: 10px; }
+            .price-table th, .price-table td { padding: 12px 15px; display: block; width: 100%; }
+            .price-table th { border-bottom: none; padding-bottom: 2px; font-size: 0.9rem; background: #f8fbff; }
+            .price-table td { text-align: right; padding-top: 2px; border-bottom: 1px solid #f0f4f8; }
+            .price-tag { font-size: 1.3rem; }
             
-            .cta-section { padding: 40px 20px; }
-            .cta-section h3 { font-size: 1.3rem; }
-            .btn-main, .btn-outline { width: 100%; }
+            .cta-section { margin: 30px 0 20px; padding: 30px 15px; border-radius: 20px; }
+            .cta-section h3 { font-size: 1.15rem; margin-bottom: 8px; }
+            .cta-section p { font-size: 0.9rem; margin-bottom: 20px; }
+            
+            .btn-main { padding: 12px 30px; font-size: 0.95rem; width: 100%; }
+            .btn-outline { padding: 10px 30px; font-size: 0.9rem; width: 100%; }
+            
+            .cta-area { padding-bottom: 40px; margin-top: 10px; }
+            footer { padding: 30px 0; }
         }
     </style>
 </head>
@@ -189,19 +205,19 @@
     <div class="price-card">
         <table class="price-table">
             <tr>
-                <th>壁掛けエアコン<br><span style="font-size: 0.8rem; font-weight: normal; color: #777;">（お掃除機能なし）</span></th>
+                <th>壁掛けエアコン<br><span>（お掃除機能なし）</span></th>
                 <td><span class="price-tag">13,200</span><span class="price-unit">円〜</span></td>
             </tr>
             <tr>
-                <th>壁掛けエアコン<br><span style="font-size: 0.8rem; font-weight: normal; color: #777;">（お掃除機能あり）</span></th>
+                <th>壁掛けエアコン<br><span>（お掃除機能あり）</span></th>
                 <td><span class="price-tag">24,200</span><span class="price-unit">円〜</span></td>
             </tr>
             <tr>
-                <th>業務用エアコン<br><span style="font-size: 0.8rem; font-weight: normal; color: #777;">（天井埋め込み型）</span></th>
+                <th>業務用エアコン<br><span>（天井埋め込み型）</span></th>
                 <td><span class="price-tag">38,500</span><span class="price-unit">円〜</span></td>
             </tr>
             <tr>
-                <th>抗菌コート<br><span style="font-size: 0.8rem; font-weight: normal; color: #777;">（オプション）</span></th>
+                <th>抗菌コート<br><span>（オプション）</span></th>
                 <td><span class="price-tag">1,980</span><span class="price-unit">円〜</span></td>
             </tr>
         </table>
@@ -248,7 +264,6 @@
     menuBtn.addEventListener('click', toggleMenu);
     menuOverlay.addEventListener('click', toggleMenu);
 
-    // メニューリンククリック時に閉じる
     document.querySelectorAll('nav a').forEach(link => {
         link.addEventListener('click', () => {
             if (navMenu.classList.contains('active')) toggleMenu();
