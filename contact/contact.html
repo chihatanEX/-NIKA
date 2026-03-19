@@ -17,28 +17,28 @@
             -webkit-font-smoothing: antialiased; overflow-x: hidden;
         }
         
-        /* --- 2. ヘッダー (トップページの数値に完全固定) --- */
+        /* --- 2. ヘッダー (トップページと完全に共通) --- */
         header { 
             background: #fff; 
-            padding: 15px 8%; /* トップページと一致 */
+            padding: 15px 8%; 
             display: flex; justify-content: space-between; align-items: center; 
             border-bottom: 2px solid #f0f4f8; position: sticky; top: 0; z-index: 1000;
         }
 
         .logo { 
             font-weight: 700; 
-            font-size: 1.4rem; /* トップページと一致 */
+            font-size: 1.4rem; 
             color: #0077b6; 
-            text-decoration: none; position: relative; z-index: 1300; 
+            text-decoration: none; position: relative; z-index: 1200; 
             white-space: nowrap;
         }
 
         nav { display: flex; align-items: center; }
         nav a { 
-            margin: 0 12px; /* トップページと一致 */
+            margin: 0 12px; 
             text-decoration: none; color: #444; 
             font-weight: 600; 
-            font-size: 0.9rem; /* トップページと一致 */
+            font-size: 0.9rem; 
             transition: 0.3s; 
         }
         nav a:hover { color: #f39c12; }
@@ -50,12 +50,11 @@
         }
         .nav-contact:hover { opacity: 0.8; color: #fff !important; }
 
-        /* ハンバーガーボタン (トップページと一致) */
         .menu-btn { 
             display: none; cursor: pointer; 
             font-size: 1.5rem; 
             color: #0077b6; 
-            position: relative; z-index: 1300; width: 35px; text-align: center;
+            position: relative; z-index: 1200; width: 35px; text-align: center;
         }
 
         .menu-overlay {
@@ -112,16 +111,16 @@
 
         footer { background: #fff; padding: 60px 0; text-align: center; border-top: 1px solid #eee; font-size: 0.8rem; color: #999; }
 
-        /* --- 6. スマホレスポンシブ (トップページの数値に完全統一) --- */
+        /* --- 6. スマホレスポンシブ (トップページの挙動に完全統一) --- */
         @media (max-width: 768px) {
-            header { padding: 12px 5%; } /* トップページと一致 */
-            .logo { font-size: 1.2rem; max-width: 70%; }
+            header { padding: 12px 5%; } 
+            .logo { font-size: 1.4rem; } /* トップページと同じサイズに変更 */
             .menu-btn { display: block; }
 
             nav {
                 position: fixed; top: -100vh; left: 0; width: 100%; height: auto;
                 background: #ffffff; flex-direction: column; 
-                padding: 80px 0 40px; /* トップページと一致 */
+                padding: 80px 0 40px; 
                 z-index: 1100; transition: 0.4s ease-in-out; 
                 visibility: hidden; pointer-events: none;
                 box-shadow: 0 10px 30px rgba(0,0,0,0.1);
