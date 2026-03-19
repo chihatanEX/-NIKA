@@ -17,7 +17,7 @@
             overflow-x: hidden;
         }
 
-        /* --- 2. ヘッダー (TOPページ基準) --- */
+        /* --- 2. ヘッダー (TOPページ基準・サイズ固定) --- */
         header {
             background: #fff; padding: 15px 8%; display: flex; justify-content: space-between;
             align-items: center; border-bottom: 2px solid #f0f4f8; position: sticky;
@@ -50,19 +50,20 @@
         }
         .menu-overlay.active { display: block; opacity: 1; pointer-events: auto; }
 
-        /* --- 3. ヒーローエリア --- */
+        /* --- 3. ヒーローエリア (色味を以前のものに復元) --- */
         .page-hero {
             position: relative;
             background: url('../image/kitchen-2165756_1280.jpg') no-repeat center center/cover;
             color: #fff; padding: 60px 8%; text-align: center;
         }
+        /* 以前の明るいブルーグラデーションを適用 */
         .page-hero::before {
             content: "";
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 80, 130, 0.5);
+            background: linear-gradient(135deg, rgba(0, 119, 182, 0.6) 0%, rgba(0, 180, 216, 0.2) 20%);
             z-index: 1;
         }
-        .page-hero h1, .page-hero p { position: relative; z-index: 2; margin: 0; }
+        .page-hero h1, .page-hero p { position: relative; z-index: 2; margin: 0; text-shadow: 0 2px 10px rgba(0,0,0,0.3); }
         .page-hero h1 { 
             font-family: 'Montserrat', sans-serif; 
             font-size: 2.2rem; letter-spacing: 0.1em; font-weight: 800; 
@@ -137,6 +138,9 @@
 
         /* --- 5. レスポンシブ (スマホ調整) --- */
         @media (max-width: 768px) {
+            br { display: none; } /* スマホでの不自然な改行を防止 */
+            
+            /* ヘッダーサイズ・挙動をトップページと統一 */
             header { padding: 12px 5%; }
             .logo { font-size: 1.4rem; }
             .menu-btn { display: block; }
@@ -151,16 +155,19 @@
             nav a { width: 100%; text-align: center; padding: 15px 0; border-bottom: 1px solid #f9f9f9; margin: 0; font-size: 1.1rem; }
             .nav-contact { width: 80% !important; margin: 20px auto 0 !important; }
 
-            .page-hero { padding: 40px 5%; }
+            /* ヒーローの高さを少し圧縮してスクロール軽減 (色味はそのまま維持) */
+            .page-hero { padding: 35px 5%; }
             .page-hero h1 { font-size: 1.6rem; }
+            .page-hero p { font-size: 0.85rem; }
             
+            /* メインコンテンツの余白を詰める */
             .container { padding: 30px 5%; }
             .category-header h2 { font-size: 1.2rem; }
 
-            /* 料金表をスマホで見やすく */
+            /* 料金表の密度を上げる */
             .price-card { margin-bottom: 30px; border-radius: 10px; }
             .price-table th, .price-table td { padding: 12px 15px; display: block; width: 100%; }
-            .price-table th { border-bottom: none; padding-bottom: 2px; font-size: 0.9rem; background: #f8fbff; }
+            .price-table th { border-bottom: none; padding-bottom: 2px; font-size: 0.9rem; background: #fcfdfe; }
             .price-table td { text-align: right; padding-top: 2px; border-bottom: 1px solid #f0f4f8; }
             .price-tag { font-size: 1.35rem; }
 
