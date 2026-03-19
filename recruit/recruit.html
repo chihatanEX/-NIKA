@@ -18,7 +18,7 @@
             overflow-x: hidden;
         }
 
-        /* --- 2. ヘッダー --- */
+        /* --- 2. ヘッダー (ロゴとボタンを最前面に) --- */
         header { 
             background: #fff; padding: 15px 8%; 
             display: flex; justify-content: space-between; align-items: center; 
@@ -27,7 +27,8 @@
 
         .logo { 
             font-weight: 700; font-size: 1.4rem; color: #0077b6; 
-            text-decoration: none; position: relative; z-index: 1200;
+            text-decoration: none; position: relative; 
+            z-index: 1300; /* メニュー(1100)より上に配置 */
             white-space: nowrap;
         }
 
@@ -41,7 +42,12 @@
             display: inline-block;
         }
 
-        .menu-btn { display: none; cursor: pointer; font-size: 1.5rem; color: #0077b6; position: relative; z-index: 1200; }
+        /* ボタンもロゴと同じ階層に */
+        .menu-btn { 
+            display: none; cursor: pointer; font-size: 1.6rem; color: #0077b6; 
+            position: relative; z-index: 1300; width: 35px; text-align: center;
+        }
+        
         .menu-overlay {
             display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
             background: rgba(0, 0, 0, 0.6); z-index: 1050; opacity: 0; transition: 0.3s; pointer-events: none;
@@ -92,28 +98,35 @@
 
         .bottom-cta { text-align: center; margin-top: 20px; padding-bottom: 60px; }
         .btn-outline { display: inline-flex; align-items: center; gap: 10px; border: 2px solid #0077b6; color: #0077b6; padding: 15px 60px; border-radius: 50px; text-decoration: none; font-weight: bold; transition: 0.3s; }
+        .btn-outline:hover { background: #0077b6; color: #fff; transform: translateY(-2px); }
 
         footer { background: #fff; padding: 60px 0; text-align: center; border-top: 1px solid #eee; font-size: 0.8rem; color: #999; }
 
         /* --- 6. レスポンシブ修正 --- */
         @media (max-width: 768px) {
             header { padding: 12px 5%; }
-            .logo { font-size: 1.2rem; max-width: 75%; } /* ロゴを少し縮小 */
-            .menu-btn { display: block; padding: 5px; }
+            .logo { font-size: 1.2rem; max-width: 70%; } 
+            .menu-btn { display: block; }
 
             nav {
                 position: fixed; top: -100vh; left: 0; width: 100%; height: auto;
-                background: #fff; flex-direction: column; padding: 80px 0 40px; 
-                z-index: 1100; transition: 0.4s; visibility: hidden; pointer-events: none;
+                background: #fff; flex-direction: column; 
+                padding: 100px 0 40px; /* 上部に余白を作りロゴと重なりにくくする */
+                z-index: 1100; transition: 0.4s ease-in-out; 
+                visibility: hidden; pointer-events: none;
                 box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             }
             nav.active { top: 0; visibility: visible; pointer-events: auto; }
-            nav a { width: 100%; text-align: center; padding: 15px 0; border-bottom: 1px solid #f9f9f9; font-size: 1.1rem; margin: 0; }
+            nav a { width: 100%; text-align: center; padding: 18px 0; border-bottom: 1px solid #f9f9f9; font-size: 1.1rem; margin: 0; }
             .nav-contact { width: 80% !important; margin: 20px auto 0 !important; }
 
             /* 改行の調整 */
             .message-box p br { display: none; }
-            .message-box p { font-size: 1.0rem; text-align: justify; word-break: keep-all; }
+            .message-box p { 
+                font-size: 1.0rem; text-align: justify; 
+                word-break: keep-all; overflow-wrap: anywhere;
+                display: inline-block; width: 100%;
+            }
 
             .page-hero { padding: 40px 5%; }
             .page-hero h1 { font-size: 1.6rem; }
@@ -224,17 +237,20 @@
     const navMenu = document.getElementById('navMenu');
     const menuOverlay = document.getElementById('menuOverlay');
     const navLinks = document.querySelectorAll('nav a');
+    const menuIcon = menuBtn.querySelector('i');
 
     function toggleMenu() {
         navMenu.classList.toggle('active');
         menuOverlay.classList.toggle('active');
-        const icon = menuBtn.querySelector('i');
+        
         if (navMenu.classList.contains('active')) {
-            icon.classList.replace('fa-bars', 'fa-times');
-            document.body.style.overflow = 'hidden';
+            // メニューが開いたとき：×アイコンに変更
+            menuIcon.classList.replace('fa-bars', 'fa-times');
+            document.body.style.overflow = 'hidden'; 
         } else {
-            icon.classList.replace('fa-times', 'fa-bars');
-            document.body.style.overflow = '';
+            // メニューが閉じたとき：三本線に戻す
+            menuIcon.classList.replace('fa-times', 'fa-bars');
+            document.body.style.overflow = ''; 
         }
     }
 
